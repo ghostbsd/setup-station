@@ -43,7 +43,7 @@ prefix = sys.prefix
 # }
 
 setup(
-    name="install-station",
+    name="setup-station",
     version=PROGRAM_VERSION,
     description="setup-station is use to setup GhostBSD after installation",
     license='BSD',

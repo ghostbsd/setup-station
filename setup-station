@@ -12,8 +12,9 @@ from language import Language
 from keyboard import Keyboard
 from timezone import TimeZone
 from network_setup import network_setup
-from addUser import AddUser
-from add_users import AddUsers
+from add_admin import AddUser
+from setup_system import setup_window, installProgress
+# from add_users import AddUsers
 
 
 logo = "/usr/local/lib/gbi/image/logo.png"
@@ -70,6 +71,7 @@ class MainWindow():
             self.notebook.insert_page(tbbox, label, 3)
             self.window.show_all()
             self.notebook.next_page()
+            self.skip_button.hide()
             self.next_button.set_sensitive(True)
         elif page == 3:
             Rbox = Gtk.VBox(homogeneous=False, spacing=0)
@@ -81,23 +83,48 @@ class MainWindow():
             self.notebook.insert_page(Rbox, label, 4)
             self.window.show_all()
             self.notebook.next_page()
+            self.skip_button.hide()
             self.next_button.set_sensitive(False)
-        elif page == 4:
-            #self.adminuser.save_adminuser()
-            Abox = Gtk.VBox(homogeneous=False, spacing=0)
-            Abox.show()
-            self.adduser = AddUsers(self.next_button)
-            get_adduser = self.adduser.get_model()
-            Abox.pack_start(get_adduser, True, True, 0)
-            label = Gtk.Label(label="Adding User")
-            self.notebook.insert_page(Abox, label, 5)
-            self.next_button.set_label("Install")
-            self.window.show_all()
-            self.notebook.next_page()
-            self.next_button.set_sensitive(False)
-        elif page == 5:
+        # elif page == 4:
+        #     #self.adminuser.save_adminuser()
+        #     Abox = Gtk.VBox(homogeneous=False, spacing=0)
+        #     Abox.show()
+        #     self.adduser = AddUsers(self.next_button)
+        #     get_adduser = self.adduser.get_model()
+        #     Abox.pack_start(get_adduser, True, True, 0)
+        #     label = Gtk.Label(label="Adding User")
+        #     self.notebook.insert_page(Abox, label, 5)
+        #     self.next_button.set_label("Install")
+        #     self.window.show_all()
+        #     self.notebook.next_page()
+        #     self.next_button.set_sensitive(False)
+        if page == 4:
+            # self.adminuser.save_adminuser()
             # automatic hostname setup
             #
+            Ibox = Gtk.VBox(False, 0)
+            Ibox.show()
+            install = setup_window()
+            get_install = install.get_model()
+            Ibox.pack_start(get_install, True, True, 0)
+            label = Gtk.Label("Installation")
+            self.notebook.insert_page(Ibox, label, 5)
+            self.notebook.next_page()
+            instpro = installProgress(
+                self.window,
+                self.welcome,
+                self.kb,
+                self.tz,
+                self.adminuser
+            )
+            progressBar = instpro.getProgressBar()
+            box1 = Gtk.VBox(False, 0)
+            box1.show()
+            label = Gtk.Label(label="Progress Bar")
+            box1.pack_end(progressBar, False, False, 0)
+            self.nbButton.insert_page(box1, label, 1)
+            self.nbButton.next_page()
+            self.window.show_all()
             pass
 
     def skip_page(self, widget):
