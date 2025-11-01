@@ -16,9 +16,6 @@ from setuptools import setup
 # silence pyflakes, __VERSION__ is properly assigned below...
 __VERSION__ = '0.1'
 
-# for line in open('gbinstall', 'r').readlines():
-#     if (line.startswith('__VERSION__')):
-#         exec(line.strip())
 PROGRAM_VERSION = __VERSION__
 
 
