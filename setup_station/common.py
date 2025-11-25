@@ -1,5 +1,5 @@
 """
-Password validation utilities for setup-station.
+Password validation utilities for setup-station and setup-station-init.
 """
 import re
 import warnings
