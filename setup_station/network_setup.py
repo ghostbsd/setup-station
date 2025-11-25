@@ -1,8 +1,11 @@
+"""
+Network setup module following the utility class pattern.
+"""
 import gi
 gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk, Gdk, GLib, GdkPixbuf
 import re
-import _thread
+import threading
 from time import sleep
 from NetworkMgr.net_api import (
     networkdictionary,
@@ -24,21 +27,48 @@ styleContext.add_provider_for_screen(
 
 
 class NetworkSetup:
-    _instance = None
+    """
+    Utility class for network setup screen following the utility class pattern.
 
-    def __new__(cls, button3=None):
-        """Implement singleton pattern."""
-        if cls._instance is None:
-            cls._instance = super(NetworkSetup, cls).__new__(cls)
-            cls._instance._initialized = False
-        return cls._instance
+    Provides interface for detecting and configuring wired and wireless network connections.
+    """
+    # Class variables for UI state
+    vbox1: Gtk.Box | None = None
+    network_info: dict | None = None
+    wire_connection_label: Gtk.Label | None = None
+    wire_connection_image: Gtk.Image | None = None
+    wifi_connection_label: Gtk.Label | None = None
+    wifi_connection_image: Gtk.Image | None = None
+    connection_box: Gtk.Box | None = None
+    store: Gtk.ListStore | None = None
+    window: Gtk.Window | None = None
+    password: Gtk.Entry | None = None
 
     @classmethod
-    def get_model(cls):
-        return cls().vbox1
+    def get_model(cls) -> Gtk.Box:
+        """
+        Return the GTK widget model for the network setup interface.
+
+        Uses lazy initialization - creates UI on first call.
+
+        Returns:
+            Gtk.Box: The main container widget for the network setup interface
+        """
+        if cls.vbox1 is None:
+            cls.initialize()
+        return cls.vbox1
 
     @staticmethod
-    def wifi_stat(bar):
+    def wifi_stat(bar: int) -> str:
+        """
+        Convert WiFi signal strength to icon name.
+
+        Args:
+            bar: Signal strength percentage
+
+        Returns:
+            str: Icon name for the signal strength
+        """
         if bar > 75:
             return 'nm-signal-100'
         elif bar > 50:
@@ -50,119 +80,125 @@ class NetworkSetup:
         else:
             return 'nm-signal-00'
 
-    def update_network_detection(self):
-        cards = self.network_info['cards']
+    @classmethod
+    def update_network_detection(cls) -> None:
+        """
+        Update the network connection status display.
+
+        Checks wired and wireless connections and updates the UI accordingly.
+        """
+        cards = cls.network_info['cards']
         card_list = list(cards.keys())
         r = re.compile("wlan")
         wlan_list = list(filter(r.match, card_list))
         wire_list = list(set(card_list).difference(wlan_list))
-        cards = self.network_info['cards']
+        cards = cls.network_info['cards']
         if wire_list:
             for card in wire_list:
                 if cards[card]['state']['connection'] == 'Connected':
 
                     wire_text = 'Network card connected to the internet'
-                    self.wire_connection_image.set_from_stock(Gtk.STOCK_YES, 5)
+                    cls.wire_connection_image.set_from_stock(Gtk.STOCK_YES, 5)
                     print('Connected True')
                     break
             else:
                 wire_text = 'Network card not connected to the internet'
-                self.wire_connection_image.set_from_stock(Gtk.STOCK_NO, 5)
+                cls.wire_connection_image.set_from_stock(Gtk.STOCK_NO, 5)
         else:
             wire_text = 'No network card detected'
-            self.wire_connection_image.set_from_stock(Gtk.STOCK_NO, 5)
+            cls.wire_connection_image.set_from_stock(Gtk.STOCK_NO, 5)
 
-        self.wire_connection_label.set_label(wire_text)
+        cls.wire_connection_label.set_label(wire_text)
 
         if wlan_list:
             for wlan_card in wlan_list:
                 if cards[wlan_card]['state']['connection'] == 'Connected':
                     wifi_text = 'WiFi card detected and connected to an ' \
                         'access point'
-                    self.wifi_connection_image.set_from_stock(Gtk.STOCK_YES, 5)
+                    cls.wifi_connection_image.set_from_stock(Gtk.STOCK_YES, 5)
                     break
             else:
                 wifi_text = 'WiFi card detected but not connected to an ' \
                     'access point'
-                self.wifi_connection_image.set_from_stock(Gtk.STOCK_NO, 5)
+                cls.wifi_connection_image.set_from_stock(Gtk.STOCK_NO, 5)
         else:
             wifi_text = "WiFi card not detected or not supported"
-            self.wifi_connection_image.set_from_stock(Gtk.STOCK_NO, 5)
+            cls.wifi_connection_image.set_from_stock(Gtk.STOCK_NO, 5)
 
-        self.wifi_connection_label.set_label(wifi_text)
+        cls.wifi_connection_label.set_label(wifi_text)
 
-    def __init__(self):
-        """Initialize only once."""
-        if not self._initialized:
-            self._initialize_ui()
-            self._initialized = True
+    @classmethod
+    def initialize(cls) -> None:
+        """
+        Initialize the network setup UI.
 
-    def _initialize_ui(self):
-        self.network_info = networkdictionary()
-        print(self.network_info)
-        self.vbox1 = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, homogeneous=False, spacing=0)
-        self.vbox1.show()
-        cards = self.network_info['cards']
+        Detects network interfaces and creates the interface for wired/wireless setup.
+        """
+        cls.network_info = networkdictionary()
+        print(cls.network_info)
+        cls.vbox1 = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, homogeneous=False, spacing=0)
+        cls.vbox1.show()
+        cards = cls.network_info['cards']
         card_list = list(cards.keys())
         r = re.compile("wlan")
         wlan_list = list(filter(r.match, card_list))
         wire_list = list(set(card_list).difference(wlan_list))
 
-        self.wire_connection_label = Gtk.Label()
-        self.wire_connection_label.set_xalign(0.01)
-        self.wire_connection_image = Gtk.Image()
-        self.wifi_connection_label = Gtk.Label()
-        self.wifi_connection_label.set_xalign(0.01)
-        self.wifi_connection_image = Gtk.Image()
+        cls.wire_connection_label = Gtk.Label()
+        cls.wire_connection_label.set_xalign(0.01)
+        cls.wire_connection_image = Gtk.Image()
+        cls.wifi_connection_label = Gtk.Label()
+        cls.wifi_connection_label.set_xalign(0.01)
+        cls.wifi_connection_image = Gtk.Image()
 
         if wire_list:
             for card in wire_list:
                 if cards[card]['state']['connection'] == 'Connected':
                     wire_text = 'Network card connected to the internet'
-                    self.wire_connection_image.set_from_stock(Gtk.STOCK_YES, 5)
+                    cls.wire_connection_image.set_from_stock(Gtk.STOCK_YES, 5)
                     print('Connected True')
                     break
             else:
                 wire_text = 'Network card not connected to the internet'
-                self.wire_connection_image.set_from_stock(Gtk.STOCK_NO, 5)
+                cls.wire_connection_image.set_from_stock(Gtk.STOCK_NO, 5)
         else:
             wire_text = 'No network card detected'
-            self.wire_connection_image.set_from_stock(Gtk.STOCK_NO, 5)
+            cls.wire_connection_image.set_from_stock(Gtk.STOCK_NO, 5)
 
-        self.wire_connection_label.set_label(wire_text)
+        cls.wire_connection_label.set_label(wire_text)
         wlan_card = ""
         if wlan_list:
             for wlan_card in wlan_list:
                 if cards[wlan_card]['state']['connection'] == 'Connected':
                     wifi_text = 'WiFi card detected and connected to an ' \
                         'access point'
-                    self.wifi_connection_image.set_from_stock(Gtk.STOCK_YES, 5)
+                    cls.wifi_connection_image.set_from_stock(Gtk.STOCK_YES, 5)
                     break
             else:
                 wifi_text = 'WiFi card detected but not connected to an ' \
                     'access point'
-                self.wifi_connection_image.set_from_stock(Gtk.STOCK_NO, 5)
+                cls.wifi_connection_image.set_from_stock(Gtk.STOCK_NO, 5)
         else:
             wifi_text = 'WiFi card not detected or not supported'
-            self.wifi_connection_image.set_from_stock(Gtk.STOCK_NO, 5)
+            cls.wifi_connection_image.set_from_stock(Gtk.STOCK_NO, 5)
 
-        self.wifi_connection_label.set_label(wifi_text)
+        cls.wifi_connection_label.set_label(wifi_text)
 
-        self.connection_box = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, homogeneous=True, spacing=20)
+        cls.connection_box = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, homogeneous=True, spacing=20)
         if wlan_card:
             # add a default card variable
             sw = Gtk.ScrolledWindow()
             sw.set_shadow_type(Gtk.ShadowType.ETCHED_IN)
             sw.set_policy(Gtk.PolicyType.AUTOMATIC, Gtk.PolicyType.AUTOMATIC)
-            self.store = Gtk.ListStore(GdkPixbuf.Pixbuf, str, str)
-            for ssid in self.network_info['cards'][wlan_card]['info']:
-                ssid_info = self.network_info['cards'][wlan_card]['info'][ssid]
+            cls.store = Gtk.ListStore(GdkPixbuf.Pixbuf, str, str)
+            for ssid in cls.network_info['cards'][wlan_card]['info']:
+                ssid_info = cls.network_info['cards'][wlan_card]['info'][ssid]
                 bar = ssid_info[4]
                 stat = NetworkSetup.wifi_stat(bar)
                 pixbuf = Gtk.IconTheme.get_default().load_icon(stat, 32, 0)
-                self.store.append([pixbuf, ssid, f'{ssid_info}'])
+                cls.store.append([pixbuf, ssid, f'{ssid_info}'])
             treeview = Gtk.TreeView()
-            treeview.set_model(self.store)
+            treeview.set_model(cls.store)
             treeview.set_rules_hint(True)
             pixbuf_cell = Gtk.CellRendererPixbuf()
             pixbuf_column = Gtk.TreeViewColumn('Stat', pixbuf_cell)
@@ -175,84 +211,139 @@ class NetworkSetup:
             treeview.append_column(column)
             tree_selection = treeview.get_selection()
             tree_selection.set_mode(Gtk.SelectionMode.SINGLE)
-            tree_selection.connect("changed", self.wifi_setup, wlan_card)
+            tree_selection.connect("changed", cls.wifi_setup, wlan_card)
             sw.add(treeview)
-            self.connection_box.pack_start(sw, True, True, 50)
+            cls.connection_box.pack_start(sw, True, True, 50)
 
         main_grid = Gtk.Grid()
         main_grid.set_row_spacing(10)
         main_grid.set_column_spacing(10)
         main_grid.set_column_homogeneous(True)
         main_grid.set_row_homogeneous(True)
-        self.vbox1.pack_start(main_grid, True, True, 10)
-        main_grid.attach(self.wire_connection_image, 2, 1, 1, 1)
-        main_grid.attach(self.wire_connection_label, 3, 1, 8, 1)
-        main_grid.attach(self.wifi_connection_image, 2, 2, 1, 1)
-        main_grid.attach(self.wifi_connection_label, 3, 2, 8, 1)
-        main_grid.attach(self.connection_box, 1, 4, 10, 5)
+        cls.vbox1.pack_start(main_grid, True, True, 10)
+        main_grid.attach(cls.wire_connection_image, 2, 1, 1, 1)
+        main_grid.attach(cls.wire_connection_label, 3, 1, 8, 1)
+        main_grid.attach(cls.wifi_connection_image, 2, 2, 1, 1)
+        main_grid.attach(cls.wifi_connection_label, 3, 2, 8, 1)
+        main_grid.attach(cls.connection_box, 1, 4, 10, 5)
 
-    def wifi_setup(self, tree_selection, wifi_card):
+    @classmethod
+    def wifi_setup(cls, tree_selection: Gtk.TreeSelection, wifi_card: str) -> None:
+        """
+        Handle WiFi network selection from the list.
+
+        Args:
+            tree_selection: TreeSelection containing the selected SSID
+            wifi_card: Name of the wireless network interface
+        """
         model, treeiter = tree_selection.get_selected()
         if treeiter is not None:
             ssid = model[treeiter][1]
-            ssid_info = self.network_info['cards'][wifi_card]['info'][ssid]
+            ssid_info = cls.network_info['cards'][wifi_card]['info'][ssid]
             caps = ssid_info[6]
             print(ssid)  # added the code to authenticate.
             print(ssid_info)
             if caps == 'E' or caps == 'ES':
                 if f'"{ssid}"' in open("/etc/wpa_supplicant.conf").read():
-                    self.try_to_connect_to_ssid(ssid, ssid_info, wifi_card)
+                    cls.try_to_connect_to_ssid(ssid, ssid_info, wifi_card)
                 else:
                     NetworkSetup.open_wpa_supplicant(ssid)
-                    self.try_to_connect_to_ssid(ssid, ssid_info, wifi_card)
+                    cls.try_to_connect_to_ssid(ssid, ssid_info, wifi_card)
             else:
                 if f'"{ssid}"' in open('/etc/wpa_supplicant.conf').read():
-                    self.try_to_connect_to_ssid(ssid, ssid_info, wifi_card)
+                    cls.try_to_connect_to_ssid(ssid, ssid_info, wifi_card)
                 else:
-                    self.authentication(ssid_info, wifi_card, False)
+                    cls.authentication(ssid_info, wifi_card, False)
 
-    def add_to_wpa_supplicant(self, _widget, ssid_info, card):
-        pwd = self.password.get_text()
+    @classmethod
+    def add_to_wpa_supplicant(cls, _widget: Gtk.Widget, ssid_info: tuple, card: str) -> None:
+        """
+        Add WiFi credentials to wpa_supplicant config and attempt connection.
+
+        Args:
+            _widget: Widget that triggered this callback
+            ssid_info: Tuple containing SSID information
+            card: Name of the wireless network interface
+        """
+        pwd = cls.password.get_text()
         NetworkSetup.setup_wpa_supplicant(ssid_info[0], ssid_info, pwd)
-        _thread.start_new_thread(
-            self.try_to_connect_to_ssid,
-            (ssid_info[0], ssid_info, card)
+        thr = threading.Thread(
+            target=cls.try_to_connect_to_ssid,
+            args=(ssid_info[0], ssid_info, card),
+            daemon=True
         )
-        self.window.hide()
+        thr.start()
+        cls.window.hide()
 
-    def try_to_connect_to_ssid(self, ssid, ssid_info, card):
+    @classmethod
+    def try_to_connect_to_ssid(cls, ssid: str, ssid_info: tuple, card: str) -> None:
+        """
+        Attempt to connect to a WiFi network.
+
+        Args:
+            ssid: SSID of the network
+            ssid_info: Tuple containing SSID information
+            card: Name of the wireless network interface
+        """
         if connectToSsid(ssid, card) is False:
             delete_ssid_wpa_supplicant_config(ssid)
-            GLib.idle_add(self.restart_authentication, ssid_info, card)
+            GLib.idle_add(cls.restart_authentication, ssid_info, card)
         else:
             for _ in list(range(30)):
                 if nic_status(card) == 'associated':
-                    self.network_info = networkdictionary()
-                    print(self.network_info)
-                    self.update_network_detection()
+                    cls.network_info = networkdictionary()
+                    print(cls.network_info)
+                    cls.update_network_detection()
                     break
                 sleep(1)
             else:
                 delete_ssid_wpa_supplicant_config(ssid)
-                GLib.idle_add(self.restart_authentication, ssid_info, card)
+                GLib.idle_add(cls.restart_authentication, ssid_info, card)
         return
 
-    def restart_authentication(self, ssid_info, card):
-        self.authentication(ssid_info, card, True)
+    @classmethod
+    def restart_authentication(cls, ssid_info: tuple, card: str) -> None:
+        """
+        Restart authentication after failed connection attempt.
 
-    def on_check(self, widget):
+        Args:
+            ssid_info: Tuple containing SSID information
+            card: Name of the wireless network interface
+        """
+        cls.authentication(ssid_info, card, True)
+
+    @classmethod
+    def on_check(cls, widget: Gtk.CheckButton) -> None:
+        """
+        Toggle password visibility in the authentication dialog.
+
+        Args:
+            widget: CheckButton widget that controls password visibility
+        """
         if widget.get_active():
-            self.password.set_visibility(True)
+            cls.password.set_visibility(True)
         else:
-            self.password.set_visibility(False)
+            cls.password.set_visibility(False)
 
-    def authentication(self, ssid_info, card, failed):
-        self.window = Gtk.Window()
-        self.window.set_title("wi-Fi Network Authentication Required")
-        self.window.set_border_width(0)
-        self.window.set_size_request(500, 200)
+    @classmethod
+    def authentication(cls, ssid_info: tuple, card: str, failed: bool) -> str:
+        """
+        Display WiFi authentication dialog.
+
+        Args:
+            ssid_info: Tuple containing SSID information
+            card: Name of the wireless network interface
+            failed: Whether previous authentication attempt failed
+
+        Returns:
+            str: Status message
+        """
+        cls.window = Gtk.Window()
+        cls.window.set_title("wi-Fi Network Authentication Required")
+        cls.window.set_border_width(0)
+        cls.window.set_size_request(500, 200)
         box1 = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, homogeneous=False, spacing=0)
-        self.window.add(box1)
+        cls.window.add(box1)
         box1.show()
         box2 = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, homogeneous=False, spacing=10)
         box2.set_border_width(10)
@@ -266,14 +357,14 @@ class NetworkSetup:
         label = Gtk.Label(label=f"<b><span size='large'>{title}</span></b>")
         label.set_use_markup(True)
         pwd_label = Gtk.Label(label="Password:")
-        self.password = Gtk.Entry()
-        self.password.set_visibility(False)
+        cls.password = Gtk.Entry()
+        cls.password.set_visibility(False)
         check = Gtk.CheckButton(label="Show password")
-        check.connect("toggled", self.on_check)
+        check.connect("toggled", cls.on_check)
         table = Gtk.Table(1, 2, True)
         table.attach(label, 0, 5, 0, 1)
         table.attach(pwd_label, 1, 2, 2, 3)
-        table.attach(self.password, 2, 4, 2, 3)
+        table.attach(cls.password, 2, 4, 2, 3)
         table.attach(check, 2, 4, 3, 4)
         box2.pack_start(table, False, False, 0)
         box2 = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, homogeneous=False, spacing=10)
@@ -282,22 +373,37 @@ class NetworkSetup:
         box2.show()
         # Add create_scheme button
         cancel = Gtk.Button(stock=Gtk.STOCK_CANCEL)
-        cancel.connect("clicked", self.close)
+        cancel.connect("clicked", cls.close)
         connect = Gtk.Button(stock=Gtk.STOCK_CONNECT)
-        connect.connect("clicked", self.add_to_wpa_supplicant, ssid_info, card)
+        connect.connect("clicked", cls.add_to_wpa_supplicant, ssid_info, card)
         table = Gtk.Table(1, 2, True)
         table.set_col_spacings(10)
         table.attach(connect, 4, 5, 0, 1)
         table.attach(cancel, 3, 4, 0, 1)
         box2.pack_end(table, True, True, 5)
-        self.window.show_all()
+        cls.window.show_all()
         return 'Done'
 
-    def close(self, _widget):
-        self.window.hide()
+    @classmethod
+    def close(cls, _widget: Gtk.Widget) -> None:
+        """
+        Close the authentication dialog.
+
+        Args:
+            _widget: Widget that triggered this callback
+        """
+        cls.window.hide()
 
     @staticmethod
-    def setup_wpa_supplicant(ssid, ssid_info, pwd):
+    def setup_wpa_supplicant(ssid: str, ssid_info: tuple, pwd: str) -> None:
+        """
+        Write WiFi credentials to wpa_supplicant configuration.
+
+        Args:
+            ssid: SSID of the network
+            ssid_info: Tuple containing SSID security information
+            pwd: Password for the network
+        """
         if 'RSN' in ssid_info[-1]:
             ws = '\nnetwork={'
             ws += f'\n ssid="{ssid}"'
@@ -324,7 +430,13 @@ class NetworkSetup:
         wsf.close()
 
     @staticmethod
-    def open_wpa_supplicant(ssid):
+    def open_wpa_supplicant(ssid: str) -> None:
+        """
+        Add open (no password) WiFi network to wpa_supplicant configuration.
+
+        Args:
+            ssid: SSID of the network
+        """
         ws = '\nnetwork={'
         ws += f'\n ssid={ssid}'
         ws += '\n key_mgmt=NONE\n}\n'

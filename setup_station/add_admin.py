@@ -12,6 +12,7 @@ from setup_station.common import (
     password_strength,
 )
 from setup_station.system_calls import set_admin_user
+from setup_station.interface_controller import Button
 
 cssProvider = Gtk.CssProvider()
 cssProvider.load_from_path(css_path)
@@ -247,10 +248,10 @@ class AddAdminUser:
 
             if passwords_match and password_allowed:
                 cls.img.set_from_stock(Gtk.STOCK_YES, 5)
-                # Enable next button logic would go here
+                Button.next_button.set_sensitive(True)
             else:
                 cls.img.set_from_stock(Gtk.STOCK_NO, 5)
-                # Disable next button logic would go here
+                Button.next_button.set_sensitive(False)
 
 
 # Backward compatibility alias

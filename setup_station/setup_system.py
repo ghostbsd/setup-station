@@ -58,7 +58,7 @@ def setup_system(progress_bar: Gtk.ProgressBar) -> None:
 
 class SetupWindow:
 
-    def __init__(self):
+    def __init__(self) -> None:
         self.vBox = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, homogeneous=False, spacing=0)
         self.vBox.show()
         label = Gtk.Label(label="Getting everything ready", name="Header")
@@ -91,13 +91,13 @@ class SetupWindow:
         image.show()
         h_box.pack_end(image, True, True, 20)
 
-    def get_model(self):
+    def get_model(self) -> Gtk.Box:
         return self.vBox
 
 
 class SetupProgress:
 
-    def __init__(self):
+    def __init__(self) -> None:
         self.pbar = Gtk.ProgressBar()
         self.pbar.set_show_text(True)
         thr = threading.Thread(
@@ -108,5 +108,5 @@ class SetupProgress:
         thr.start()
         self.pbar.show()
 
-    def get_progressbar(self):
+    def get_progressbar(self) -> Gtk.ProgressBar:
         return self.pbar

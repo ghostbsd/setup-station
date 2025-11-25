@@ -4,11 +4,11 @@ Contains the data class and some commonly used variables for setup-station-init
 import os
 import gettext
 
-logo: str = "/usr/local/lib/setup-station-init/image/logo.png"
-gif_logo: str = "/usr/local/lib/setup-station-init/image/G_logo.gif"
+logo: str = "/usr/local/lib/setup-station/image/logo.png"
+gif_logo: str = "/usr/local/lib/setup-station/image/G_logo.gif"
 pc_sysinstall: str = "/usr/local/sbin/pc-sysinstall"
-tmp: str = "/tmp/.setup-station-init"
-css_path: str = "/usr/local/lib/setup-station-init/ghostbsd-style.css"
+tmp: str = "/tmp/.setup-station"
+css_path: str = "/usr/local/lib/setup-station/ghostbsd-style.css"
 
 
 class SetupData:

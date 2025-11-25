@@ -2,7 +2,7 @@ import re
 import os
 from subprocess import run
 
-from data import pc_sysinstall
+from setup_station.data import pc_sysinstall
 
 
 def replace_pattern(current: str, new: str, file: str) -> None:
