@@ -3,10 +3,14 @@ gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk, GLib, Gdk
 import threading
 from time import sleep
+from setup_station.language import Language
+from setup_station.keyboard import Keyboard
+from setup_station.timezone import TimeZone
+from setup_station.add_admin import AddAdminUser
+from setup_station.data import css_path, gif_logo
 
-setup_dir = "/usr/local/lib/setup-station"
 cssProvider = Gtk.CssProvider()
-cssProvider.load_from_path('/usr/local/lib/setup-station/ghostbsd-style.css')
+cssProvider.load_from_path(css_path)
 screen = Gdk.Screen.get_default()
 styleContext = Gtk.StyleContext()
 styleContext.add_provider_for_screen(
@@ -32,22 +36,24 @@ def setup_system(progress_bar: Gtk.ProgressBar) -> None:
     This function is used to set up the system.
     :param progress_bar: The progress bar to update.
     """
-    # Localize is needed here.
-
     GLib.idle_add(update_progress, progress_bar, "Setting system language")
+    Language.save_language()
     sleep(1)
-    # GLib.idle_add(update_progress, progressbar, "Setting system language")
-    # kb.save_keyboard()
-    # sleep(1)
-    # GLib.idle_add(update_progress, progressbar, "Setting system language")
-    # tz.save_timezone()
-    # sleep(1)
-    # GLib.idle_add(update_progress, progressbar, "Setting system language")
-    # admin_user.save_adminuser()
-    # sleep(1)
-    # GLib.idle_add(update_progress, progressbar, "Setting system language")
 
-    # main_window.hide()
+    GLib.idle_add(update_progress, progress_bar, "Setting keyboard layout")
+    Keyboard.save_keyboard()
+    sleep(1)
+
+    GLib.idle_add(update_progress, progress_bar, "Setting timezone")
+    TimeZone.apply_timezone()
+    sleep(1)
+
+    GLib.idle_add(update_progress, progress_bar, "Creating admin user")
+    AddAdminUser.save_admin_user()
+    sleep(1)
+
+    GLib.idle_add(update_progress, progress_bar, "Setup complete!")
+    sleep(1)
 
 
 class SetupWindow:
@@ -80,7 +86,7 @@ class SetupWindow:
         h_box2.pack_start(label2, True, True, 0)
 
         image = Gtk.Image()
-        image.set_from_file(f"{setup_dir}/image/G_logo.gif")
+        image.set_from_file(gif_logo)
         # image.set_size_request(width=256, height=256)
         image.show()
         h_box.pack_end(image, True, True, 20)

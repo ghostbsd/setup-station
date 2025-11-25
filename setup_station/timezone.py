@@ -13,10 +13,6 @@ from setup_station.data import (
 )
 from setup_station.window import Window
 
-# Ensure temp directory exists
-if not os.path.exists(tmp):
-    os.makedirs(tmp)
-
 tzdictionary = timezone_dictionary()
 
 cssProvider = Gtk.CssProvider()
@@ -104,7 +100,13 @@ class TimeZone:
 
     @classmethod
     def apply_timezone(cls) -> None:
-        """Apply timezone configuration to the system."""
+        """
+        Apply timezone configuration to the system.
+
+        Raises:
+            ValueError: If no timezone selected or timezone is invalid
+            RuntimeError: If timezone configuration fails
+        """
         from setup_station.system_calls import set_timezone
         if not SetupData.timezone:
             raise ValueError("No timezone selected. Please select a continent and city.")

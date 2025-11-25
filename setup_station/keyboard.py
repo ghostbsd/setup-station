@@ -4,7 +4,6 @@ Keyboard configuration module following the utility class pattern.
 import gi
 gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk, Gdk
-import os
 from setup_station.system_calls import (
     keyboard_dictionary,
     keyboard_models,
@@ -13,14 +12,8 @@ from setup_station.system_calls import (
 )
 from setup_station.data import (
     SetupData,
-    tmp,
     css_path
 )
-from setup_station.window import Window
-
-# Ensure temp directory exists
-if not os.path.exists(tmp):
-    os.makedirs(tmp)
 
 kb_dictionary = keyboard_dictionary()
 kbm_dictionary = keyboard_models()
@@ -126,7 +119,10 @@ class Keyboard:
             kb_lv = kb_dictionary[value]
             cls.kb_layout = kb_lv['layout']
             cls.kb_variant = kb_lv['variant']
-            change_keyboard(cls.kb_layout, cls.kb_variant)
+            try:
+                change_keyboard(cls.kb_layout, cls.kb_variant)
+            except RuntimeError as e:
+                print(f"Warning: Failed to apply keyboard layout immediately: {e}")
             # Save to SetupData
             SetupData.keyboard_layout = cls.kb_layout
             SetupData.keyboard_variant = cls.kb_variant or ""
@@ -138,7 +134,10 @@ class Keyboard:
         if treeiter is not None:
             value = model[treeiter][0]
             cls.kb_model = kbm_dictionary[value]
-            change_keyboard(cls.kb_layout, cls.kb_variant, cls.kb_model)
+            try:
+                change_keyboard(cls.kb_layout, cls.kb_variant, cls.kb_model)
+            except RuntimeError as e:
+                print(f"Warning: Failed to apply keyboard model immediately: {e}")
             # Save to SetupData
             SetupData.keyboard_model = cls.kb_model
 
@@ -160,7 +159,13 @@ class Keyboard:
 
     @classmethod
     def save_keyboard(cls) -> None:
-        """Apply keyboard configuration to the system."""
+        """
+        Apply keyboard configuration to the system.
+
+        Raises:
+            IOError: If file operations fail
+            RuntimeError: If keyboard configuration fails
+        """
         cls.save_keyboard_data()
         set_keyboard(
             SetupData.keyboard_layout,

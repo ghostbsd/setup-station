@@ -1,79 +1,8 @@
 """
-Contains the data class and some commonly used variables for setup-station
+Password validation utilities for setup-station.
 """
 import re
 import warnings
-import os
-import gettext
-
-be_name: str = "default"
-logo: str = "/usr/local/lib/setup-station/image/logo.png"
-gif_logo: str = "/usr/local/lib/setup-station/image/G_logo.gif"
-pc_sysinstall: str = "/usr/local/sbin/pc-sysinstall"
-tmp: str = "/tmp/.setup-station"
-css_path: str = "/usr/local/lib/setup-station/ghostbsd-style.css"
-
-
-class SetupData:
-    """
-    Centralized data storage for setup configuration
-    """
-    # Language and keyboard configuration
-    language: str = ""
-    keyboard_layout: str = ""
-    keyboard_variant: str = ""
-    keyboard_model: str = ""
-    
-    # Timezone configuration
-    timezone: str = ""
-    
-    # Network configuration
-    network_interface: str = ""
-    network_config: dict = {}
-    
-    # User configuration
-    username: str = ""
-    user_fullname: str = ""
-    user_password: str = ""
-    user_shell: str = "/usr/local/bin/fish"
-    user_home_directory: str = ""
-    hostname: str = ""
-    
-    # Root password (same as user password for setup-station)
-    root_password: str = ""
-    
-    @classmethod
-    def reset(cls) -> None:
-        """Reset all setup data"""
-        cls.language = ""
-        cls.keyboard_layout = ""
-        cls.keyboard_variant = ""
-        cls.keyboard_model = ""
-        cls.timezone = ""
-        cls.network_interface = ""
-        cls.network_config = {}
-        cls.username = ""
-        cls.user_fullname = ""
-        cls.user_password = ""
-        cls.user_shell = "/usr/local/bin/fish"
-        cls.user_home_directory = ""
-        cls.hostname = ""
-        cls.root_password = ""
-
-
-# Default zfs datasets layout
-zfs_datasets = "/," \
-    "/home(mountpoint=/home)," \
-    "/tmp(mountpoint=/tmp|exec=on|setuid=off)," \
-    "/usr(mountpoint=/usr|canmount=off)," \
-    "/usr/ports(setuid=off)," \
-    "/usr/src," \
-    "/var(mountpoint=/var|canmount=off)," \
-    "/var/audit(exec=off|setuid=off)," \
-    "/var/crash(exec=off|setuid=off)," \
-    "/var/log(exec=off|setuid=off)," \
-    "/var/mail(atime=on)," \
-    "/var/tmp(setuid=off)"
 
 
 def lower_case(text: str) -> bool:
@@ -136,7 +65,7 @@ def lower_upper(text: str) -> bool:
 
 
 # Find if password contain only lower and upper case and
-def lower_upper_number(text) -> bool:
+def lower_upper_number(text: str) -> bool:
     """
     Find if password contain only lower and upper case and
     :param text: password
@@ -149,7 +78,7 @@ def lower_upper_number(text) -> bool:
 
 # Find if password contain only lowercase, uppercase numbers
 # and some special character.
-def all_character(text):
+def all_character(text: str) -> bool:
     """
     Find if password contain only lowercase, uppercase numbers
     and some special character.
@@ -162,7 +91,17 @@ def all_character(text):
     return not bool(search(text))
 
 
-def password_strength(password, label3):
+def password_strength(password: str) -> str:
+    """
+    Evaluate password strength and return the message.
+
+    Args:
+        password: The password to evaluate
+
+    Returns:
+        str: Message describing password strength or validation error
+    """
+
     same_character_type = any(
         [
             lower_case(password),
@@ -177,57 +116,74 @@ def password_strength(password, label3):
             lower_upper(password)
         ]
     )
-    if ' ' in password or '\t' in password:
-        label3.set_text("Space not allowed")
+
+    # Passwords that should not be allowed
+    not_allowed = {'password', 'Password', 'PASSWORD'}
+
+    # Check if a password is not allowed
+    if password in not_allowed:
+        return "Password not allowed"
+    elif ' ' in password or '\t' in password:
+        return "Space not allowed"
     elif len(password) <= 4:
-        label3.set_text("Super Weak")
+        return "Super Weak"
     elif len(password) <= 8 and same_character_type:
-        label3.set_text("Super Weak")
+        return "Super Weak"
     elif len(password) <= 8 and mix_character:
-        label3.set_text("Very Weak")
+        return "Very Weak"
     elif len(password) <= 8 and lower_upper_number(password):
-        label3.set_text("Fairly Weak")
+        return "Fairly Weak"
     elif len(password) <= 8 and all_character(password):
-        label3.set_text("Weak")
+        return "Weak"
     elif len(password) <= 12 and same_character_type:
-        label3.set_text("Very Weak")
+        return "Very Weak"
     elif len(password) <= 12 and mix_character:
-        label3.set_text("Fairly Weak")
+        return "Fairly Weak"
     elif len(password) <= 12 and lower_upper_number(password):
-        label3.set_text("Weak")
+        return "Weak"
     elif len(password) <= 12 and all_character(password):
-        label3.set_text("Strong")
+        return "Strong"
     elif len(password) <= 16 and same_character_type:
-        label3.set_text("Fairly Weak")
+        return "Fairly Weak"
     elif len(password) <= 16 and mix_character:
-        label3.set_text("Weak")
+        return "Weak"
     elif len(password) <= 16 and lower_upper_number(password):
-        label3.set_text("Strong")
+        return "Strong"
     elif len(password) <= 16 and all_character(password):
-        label3.set_text("Fairly Strong")
+        return "Fairly Strong"
     elif len(password) <= 20 and same_character_type:
-        label3.set_text("Weak")
+        return "Weak"
     elif len(password) <= 20 and mix_character:
-        label3.set_text("Strong")
+        return "Strong"
     elif len(password) <= 20 and lower_upper_number(password):
-        label3.set_text("Fairly Strong")
+        return "Fairly Strong"
     elif len(password) <= 20 and all_character(password):
-        label3.set_text("Very Strong")
+        return "Very Strong"
     elif len(password) <= 24 and same_character_type:
-        label3.set_text("Strong")
+        return "Strong"
     elif len(password) <= 24 and mix_character:
-        label3.set_text("Fairly Strong")
+        return "Fairly Strong"
     elif len(password) <= 24 and lower_upper_number(password):
-        label3.set_text("Very Strong")
+        return "Very Strong"
     elif len(password) <= 24 and all_character(password):
-        label3.set_text("Super Strong")
+        return "Super Strong"
     elif same_character_type:
-        label3.set_text("Fairly Strong")
+        return "Fairly Strong"
     else:
-        label3.set_text("Super Strong")
+        return "Super Strong"
 
 
 def deprecated(*, version: str, reason: str):
+    """
+    Decorator to mark functions as deprecated.
+
+    Args:
+        version: Version in which the function was deprecated
+        reason: Reason for deprecation
+
+    Returns:
+        Decorator function
+    """
     def decorator(func):
         def wrapper(*args, **kwargs):
             warnings.warn(

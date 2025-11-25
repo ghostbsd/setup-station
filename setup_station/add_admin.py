@@ -4,22 +4,14 @@ This module is used to add the admin user following the utility class pattern.
 import gi
 gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk, Gdk
-import os
 from setup_station.data import (
     SetupData,
-    tmp, 
     css_path
 )
 from setup_station.common import (
-    password_strength, 
-    deprecated
+    password_strength,
 )
 from setup_station.system_calls import set_admin_user
-from setup_station.window import Window
-
-# Ensure temp directory exists
-if not os.path.exists(tmp):
-    os.makedirs(tmp)
 
 cssProvider = Gtk.CssProvider()
 cssProvider.load_from_path(css_path)
@@ -60,14 +52,32 @@ class AddAdminUser:
     @classmethod
     def save_user_data(cls) -> None:
         """Save user data to SetupData."""
-        if cls.user and cls.name and cls.password:
-            SetupData.username = cls.user.get_text()
-            SetupData.user_fullname = cls.name.get_text()
-            SetupData.user_password = cls.password.get_text()
-            SetupData.user_shell = cls.shell
-            SetupData.user_home_directory = f'/home/{SetupData.username}'
-            SetupData.hostname = f'{SetupData.username}-ghostbsd'
-            SetupData.root_password = SetupData.user_password
+        # Validate all widgets exist before accessing
+        if not all([cls.user, cls.name, cls.password, cls.host]):
+            raise ValueError("UI widgets not initialized")
+
+        # Get values from widgets
+        username = cls.user.get_text()
+        fullname = cls.name.get_text()
+        password = cls.password.get_text()
+        hostname = cls.host.get_text()
+
+        # Basic validation - just check not empty
+        if not username:
+            raise ValueError("Username is required")
+        if not fullname:
+            raise ValueError("Full name is required")
+        if not password:
+            raise ValueError("Password is required")
+
+        # Save to SetupData
+        SetupData.username = username
+        SetupData.user_fullname = fullname
+        SetupData.user_password = password
+        SetupData.user_shell = cls.shell
+        SetupData.user_home_directory = f'/home/{username}'
+        SetupData.hostname = hostname if hostname else f'{username}-ghostbsd'
+        SetupData.root_password = password
 
     @classmethod
     def get_user_information(cls) -> dict:
@@ -83,11 +93,17 @@ class AddAdminUser:
 
     @classmethod
     def save_admin_user(cls) -> None:
-        """Save admin user configuration and apply system changes."""
+        """
+        Save admin user configuration and apply system changes.
+
+        Raises:
+            ValueError: If user data validation fails
+            subprocess.CalledProcessError: If system commands fail
+        """
         cls.save_user_data()
         set_admin_user(
             SetupData.username,
-            SetupData.user_fullname, 
+            SetupData.user_fullname,
             SetupData.user_password,
             SetupData.user_shell,
             SetupData.user_home_directory,
@@ -219,9 +235,17 @@ class AddAdminUser:
         """Verify password matches and check strength."""
         if cls.password and cls.repassword and cls.label3 and cls.img:
             password = cls.password.get_text()
-            password_strength(password, cls.label3)
             repassword = cls.repassword.get_text()
-            if password == repassword and password != "" and " " not in password:
+
+            # Get password strength message and display it
+            strength_message = password_strength(password)
+            cls.label3.set_text(strength_message)
+
+            # Check if passwords match, meet requirements, and are allowed
+            passwords_match = password == repassword and password != "" and " " not in password
+            password_allowed = strength_message not in ["Password not allowed", "Space not allowed"]
+
+            if passwords_match and password_allowed:
                 cls.img.set_from_stock(Gtk.STOCK_YES, 5)
                 # Enable next button logic would go here
             else:

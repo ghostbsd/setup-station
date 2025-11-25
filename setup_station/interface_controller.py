@@ -10,8 +10,6 @@ from gi.repository import Gtk
 from setup_station.setup_system import SetupWindow, SetupProgress
 from setup_station.window import Window
 from setup_station.data import SetupData, get_text
-import os
-import shutil
 
 
 class Button:
@@ -137,9 +135,9 @@ class Interface:
 
     @classmethod
     def delete(cls, _widget: Gtk.Widget, _event=None) -> None:
-        """Close the main window."""
-        if os.path.exists('/tmp/.setup-station'):
-            shutil.rmtree('/tmp/.setup-station')
+        """
+        Close the main window and clean up application state.
+        """
         SetupData.reset()
         Gtk.main_quit()
 

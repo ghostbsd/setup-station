@@ -10,10 +10,10 @@ from NetworkMgr.net_api import (
     delete_ssid_wpa_supplicant_config,
     nic_status
 )
+from setup_station.data import css_path
 
-logo = "/usr/local/lib/setup-station/logo.png"
 cssProvider = Gtk.CssProvider()
-cssProvider.load_from_path('/usr/local/lib/setup-station/ghostbsd-style.css')
+cssProvider.load_from_path(css_path)
 screen = Gdk.Screen.get_default()
 styleContext = Gtk.StyleContext()
 styleContext.add_provider_for_screen(

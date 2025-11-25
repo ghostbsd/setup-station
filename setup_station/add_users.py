@@ -3,9 +3,10 @@ import gi
 gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk, Gdk
 from setup_station.common import password_strength
+from setup_station.data import css_path
 
 cssProvider = Gtk.CssProvider()
-cssProvider.load_from_path('/usr/local/lib/setup-station/ghostbsd-style.css')
+cssProvider.load_from_path(css_path)
 screen = Gdk.Screen.get_default()
 styleContext = Gtk.StyleContext()
 styleContext.add_provider_for_screen(

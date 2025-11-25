@@ -4,23 +4,17 @@ Language selection module following the utility class pattern.
 import gi
 gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk, Gdk
-import os
 from setup_station.system_calls import (
     language_dictionary,
     localize_system
 )
 from setup_station.data import (
     SetupData,
-    tmp,
     gif_logo,
     css_path,
     get_text
 )
 from setup_station.window import Window
-
-# Ensure temp directory exists
-if not os.path.exists(tmp):
-    os.makedirs(tmp)
 
 lang_dictionary = language_dictionary()
 
@@ -110,7 +104,7 @@ class Language:
         Window.set_title(get_text("GhostBSD Initial Setup"))
 
     @classmethod
-    def setup_language_columns(cls, treeView: Gtk.TreeView) -> None:
+    def setup_language_columns(cls, treeview: Gtk.TreeView) -> None:
         """
         Configure the language selection treeview with appropriate columns.
         
@@ -129,7 +123,7 @@ class Language:
         # Store reference for updating
         cls.language_column_header = column_header
         column.set_sort_column_id(0)
-        treeView.append_column(column)
+        treeview.append_column(column)
 
     @classmethod
     def initialize(cls) -> None:
@@ -235,30 +229,22 @@ class Language:
         return SetupData.language_code or cls.language
 
     @classmethod
-    def save_selection(cls) -> None:
-        """
-        Save the current language selection.
-        
-        This method is maintained for compatibility but language selection
-        is now automatically saved to SetupData when chosen.
-        """
-        # Language is now saved in SetupData automatically
-        pass
-
-    @classmethod
-    def save_language_data(cls) -> None:
-        """Save language data to SetupData."""
-        if cls.language:
-            SetupData.language_code = cls.language
-
-    @classmethod
     def save_language(cls) -> None:
         """
         Apply the language configuration to the system.
-        
-        This method applies the selected language to the system for 
+
+        This method applies the selected language to the system for
         permanent configuration during setup.
+
+        Raises:
+            IOError: If file operations fail during localization
+            ValueError: If language code is invalid
         """
         language_code = SetupData.language_code or cls.language
-        if language_code:
+        if not language_code:
+            raise ValueError("No language selected. Please select a language before proceeding.")
+
+        try:
             localize_system(language_code)
+        except (IOError, ValueError) as e:
+            raise IOError(f"Failed to apply language settings: {e}") from e
