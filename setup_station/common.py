@@ -7,85 +7,97 @@ import warnings
 
 def lower_case(text: str) -> bool:
     """
-    Find if password contain only lower case.
-    :param text: password
+    Check if password contains only lowercase letters.
 
-    :return: True if password contain only lower case
+    Args:
+        text: Password string to validate
+
+    Returns:
+        bool: True if password contains only lowercase letters (a-z)
     """
     search = re.compile(r'[^a-z]').search
     return not bool(search(text))
 
 
-# Find if password contain only upper case
 def upper_case(text: str) -> bool:
     """
-    Find if password contain only upper case.
-    :param text: password
+    Check if password contains only uppercase letters.
 
-    :return: True if password contain only upper case
+    Args:
+        text: Password string to validate
+
+    Returns:
+        bool: True if password contains only uppercase letters (A-Z)
     """
     search = re.compile(r'[^A-Z]').search
     return not bool(search(text))
 
 
-# Find if password contain only lower case and number
 def lower_and_number(text: str) -> bool:
     """
-    Find if password contain only lower case and number.
-    :param text: password
+    Check if password contains only lowercase letters and numbers.
 
-    :return: True if password contain only lower case and number
+    Args:
+        text: Password string to validate
+
+    Returns:
+        bool: True if password contains only lowercase letters (a-z) and digits (0-9)
     """
     search = re.compile(r'[^a-z0-9]').search
     return not bool(search(text))
 
 
-# Find if password contain only upper case and number
 def upper_and_number(text: str) -> bool:
     """
-    Find if password contain only upper case and number.
-    :param text: password
+    Check if password contains only uppercase letters and numbers.
 
-    :return: True if password contain only upper case and number
+    Args:
+        text: Password string to validate
+
+    Returns:
+        bool: True if password contains only uppercase letters (A-Z) and digits (0-9)
     """
     search = re.compile(r'[^A-Z0-9]').search
     return not bool(search(text))
 
 
-# Find if password contain only lower and upper case and
 def lower_upper(text: str) -> bool:
     """
-    Find if password contain only lower and upper case and
-    :param text: password
+    Check if password contains only lowercase and uppercase letters.
 
-    :return: True if password contain only lower and upper case and
+    Args:
+        text: Password string to validate
+
+    Returns:
+        bool: True if password contains only letters (a-z, A-Z) without numbers or special characters
     """
     search = re.compile(r'[^a-zA-Z]').search
     return not bool(search(text))
 
 
-# Find if password contain only lower and upper case and
 def lower_upper_number(text: str) -> bool:
     """
-    Find if password contain only lower and upper case and
-    :param text: password
+    Check if password contains only letters and numbers.
 
-    :return: True if password contain only lower and upper case and
+    Args:
+        text: Password string to validate
+
+    Returns:
+        bool: True if password contains only letters (a-z, A-Z) and digits (0-9) without special characters
     """
     search = re.compile(r'[^a-zA-Z0-9]').search
     return not bool(search(text))
 
 
-# Find if password contain only lowercase, uppercase numbers
-# and some special character.
 def all_character(text: str) -> bool:
     """
-    Find if password contain only lowercase, uppercase numbers
-    and some special character.
-    :param text: password
+    Check if password contains letters, numbers, and allowed special characters.
 
-    :return: True if password contain only lowercase, uppercase numbers
-    and some special character.
+    Args:
+        text: Password string to validate
+
+    Returns:
+        bool: True if password contains only allowed characters (a-z, A-Z, 0-9, and ~!@#$%^&*_+":;'-)
     """
     search = re.compile(r'[^a-zA-Z0-9~!@#$%^&*_+":;\'-]').search
     return not bool(search(text))
