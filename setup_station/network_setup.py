@@ -13,7 +13,7 @@ from NetworkMgr.net_api import (
     delete_ssid_wpa_supplicant_config,
     nic_status
 )
-from setup_station.data import css_path
+from setup_station.data import css_path, get_text
 
 cssProvider = Gtk.CssProvider()
 cssProvider.load_from_path(css_path)
@@ -97,15 +97,15 @@ class NetworkSetup:
             for card in wire_list:
                 if cards[card]['state']['connection'] == 'Connected':
 
-                    wire_text = 'Network card connected to the internet'
+                    wire_text = get_text('Network card connected to the internet')
                     cls.wire_connection_image.set_from_stock(Gtk.STOCK_YES, 5)
                     print('Connected True')
                     break
             else:
-                wire_text = 'Network card not connected to the internet'
+                wire_text = get_text('Network card not connected to the internet')
                 cls.wire_connection_image.set_from_stock(Gtk.STOCK_NO, 5)
         else:
-            wire_text = 'No network card detected'
+            wire_text = get_text('No network card detected')
             cls.wire_connection_image.set_from_stock(Gtk.STOCK_NO, 5)
 
         cls.wire_connection_label.set_label(wire_text)
@@ -113,16 +113,14 @@ class NetworkSetup:
         if wlan_list:
             for wlan_card in wlan_list:
                 if cards[wlan_card]['state']['connection'] == 'Connected':
-                    wifi_text = 'WiFi card detected and connected to an ' \
-                        'access point'
+                    wifi_text = get_text('WiFi card detected and connected to an access point')
                     cls.wifi_connection_image.set_from_stock(Gtk.STOCK_YES, 5)
                     break
             else:
-                wifi_text = 'WiFi card detected but not connected to an ' \
-                    'access point'
+                wifi_text = get_text('WiFi card detected but not connected to an access point')
                 cls.wifi_connection_image.set_from_stock(Gtk.STOCK_NO, 5)
         else:
-            wifi_text = "WiFi card not detected or not supported"
+            wifi_text = get_text("WiFi card not detected or not supported")
             cls.wifi_connection_image.set_from_stock(Gtk.STOCK_NO, 5)
 
         cls.wifi_connection_label.set_label(wifi_text)
@@ -154,15 +152,15 @@ class NetworkSetup:
         if wire_list:
             for card in wire_list:
                 if cards[card]['state']['connection'] == 'Connected':
-                    wire_text = 'Network card connected to the internet'
+                    wire_text = get_text('Network card connected to the internet')
                     cls.wire_connection_image.set_from_stock(Gtk.STOCK_YES, 5)
                     print('Connected True')
                     break
             else:
-                wire_text = 'Network card not connected to the internet'
+                wire_text = get_text('Network card not connected to the internet')
                 cls.wire_connection_image.set_from_stock(Gtk.STOCK_NO, 5)
         else:
-            wire_text = 'No network card detected'
+            wire_text = get_text('No network card detected')
             cls.wire_connection_image.set_from_stock(Gtk.STOCK_NO, 5)
 
         cls.wire_connection_label.set_label(wire_text)
@@ -170,16 +168,14 @@ class NetworkSetup:
         if wlan_list:
             for wlan_card in wlan_list:
                 if cards[wlan_card]['state']['connection'] == 'Connected':
-                    wifi_text = 'WiFi card detected and connected to an ' \
-                        'access point'
+                    wifi_text = get_text('WiFi card detected and connected to an access point')
                     cls.wifi_connection_image.set_from_stock(Gtk.STOCK_YES, 5)
                     break
             else:
-                wifi_text = 'WiFi card detected but not connected to an ' \
-                    'access point'
+                wifi_text = get_text('WiFi card detected but not connected to an access point')
                 cls.wifi_connection_image.set_from_stock(Gtk.STOCK_NO, 5)
         else:
-            wifi_text = 'WiFi card not detected or not supported'
+            wifi_text = get_text('WiFi card not detected or not supported')
             cls.wifi_connection_image.set_from_stock(Gtk.STOCK_NO, 5)
 
         cls.wifi_connection_label.set_label(wifi_text)
@@ -201,12 +197,12 @@ class NetworkSetup:
             treeview.set_model(cls.store)
             treeview.set_rules_hint(True)
             pixbuf_cell = Gtk.CellRendererPixbuf()
-            pixbuf_column = Gtk.TreeViewColumn('Stat', pixbuf_cell)
+            pixbuf_column = Gtk.TreeViewColumn(get_text('Stat'), pixbuf_cell)
             pixbuf_column.add_attribute(pixbuf_cell, "pixbuf", 0)
             pixbuf_column.set_resizable(True)
             treeview.append_column(pixbuf_column)
             cell = Gtk.CellRendererText()
-            column = Gtk.TreeViewColumn('SSID', cell, text=1)
+            column = Gtk.TreeViewColumn(get_text('SSID'), cell, text=1)
             column.set_sort_column_id(1)
             treeview.append_column(column)
             tree_selection = treeview.get_selection()
@@ -339,7 +335,7 @@ class NetworkSetup:
             str: Status message
         """
         cls.window = Gtk.Window()
-        cls.window.set_title("wi-Fi Network Authentication Required")
+        cls.window.set_title(get_text("WiFi Network Authentication Required"))
         cls.window.set_border_width(0)
         cls.window.set_size_request(500, 200)
         box1 = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, homogeneous=False, spacing=0)
@@ -351,15 +347,15 @@ class NetworkSetup:
         box2.show()
         # Creating MBR or GPT drive
         if failed:
-            title = f"{ssid_info[0]} Wi-Fi Network Authentication failed"
+            title = ssid_info[0] + " " + get_text("Wi-Fi Network Authentication failed")
         else:
-            title = f"Authentication required by {ssid_info[0]} Wi-Fi Network"
+            title = get_text("Authentication required by") + " " + ssid_info[0] + " " + get_text("Wi-Fi Network")
         label = Gtk.Label(label=f"<b><span size='large'>{title}</span></b>")
         label.set_use_markup(True)
-        pwd_label = Gtk.Label(label="Password:")
+        pwd_label = Gtk.Label(label=get_text("Password:"))
         cls.password = Gtk.Entry()
         cls.password.set_visibility(False)
-        check = Gtk.CheckButton(label="Show password")
+        check = Gtk.CheckButton(label=get_text("Show password"))
         check.connect("toggled", cls.on_check)
         table = Gtk.Table(1, 2, True)
         table.attach(label, 0, 5, 0, 1)

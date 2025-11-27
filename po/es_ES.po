@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-25 08:31-0400\n"
+"POT-Creation-Date: 2025-11-27 09:09-0400\n"
 "PO-Revision-Date: 2025-11-25 08:34-0400\n"
 "Last-Translator: Eric Turgeon <EMAIL@ADDRESS>\n"
 "Language-Team: Spanish <es@tp.org.es>\n"
@@ -16,6 +16,90 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: setup_station/add_admin.py:132
+msgid "The initial root password will be set to the admin user password."
+msgstr ""
+
+#: setup_station/add_admin.py:214 setup_station/common.py:138
+msgid "Password not allowed"
+msgstr ""
+
+#: setup_station/add_admin.py:214 setup_station/common.py:140
+msgid "Space not allowed"
+msgstr ""
+
+#: setup_station/add_users.py:57
+msgid "User Setup"
+msgstr ""
+
+#: setup_station/add_users.py:68
+msgid "User Account"
+msgstr ""
+
+#: setup_station/add_users.py:71
+msgid "User name"
+msgstr ""
+
+#: setup_station/add_users.py:73
+msgid "Real name"
+msgstr ""
+
+#: setup_station/add_users.py:76
+msgid "Password"
+msgstr ""
+
+#: setup_station/add_users.py:80
+msgid "Verify Password"
+msgstr ""
+
+#: setup_station/add_users.py:84
+msgid "Shell"
+msgstr ""
+
+#: setup_station/add_users.py:97
+msgid "Set Hostname"
+msgstr ""
+
+#: setup_station/add_users.py:102
+msgid "Hostname"
+msgstr ""
+
+#: setup_station/common.py:142 setup_station/common.py:144
+msgid "Super Weak"
+msgstr ""
+
+#: setup_station/common.py:146 setup_station/common.py:152
+msgid "Very Weak"
+msgstr ""
+
+#: setup_station/common.py:148 setup_station/common.py:154
+#: setup_station/common.py:160
+msgid "Fairly Weak"
+msgstr ""
+
+#: setup_station/common.py:150 setup_station/common.py:156
+#: setup_station/common.py:162 setup_station/common.py:168
+msgid "Weak"
+msgstr ""
+
+#: setup_station/common.py:158 setup_station/common.py:164
+#: setup_station/common.py:170 setup_station/common.py:176
+msgid "Strong"
+msgstr ""
+
+#: setup_station/common.py:166 setup_station/common.py:172
+#: setup_station/common.py:178 setup_station/common.py:184
+msgid "Fairly Strong"
+msgstr ""
+
+#: setup_station/common.py:174 setup_station/common.py:180
+msgid "Very Strong"
+msgstr ""
+
+#: setup_station/common.py:182 setup_station/common.py:186
+msgid "Super Strong"
+msgstr ""
 
 #: setup_station/interface_controller.py:22
 #: setup_station/interface_controller.py:31
@@ -64,6 +148,114 @@ msgstr ""
 msgid "Progress Bar"
 msgstr ""
 
+#: setup_station/keyboard.py:41
+msgid "Type here to test your keyboard"
+msgstr ""
+
+#: setup_station/keyboard.py:96
+msgid "Keyboard Layout"
+msgstr ""
+
+#: setup_station/keyboard.py:108
+msgid "Keyboard Models"
+msgstr ""
+
 #: setup_station/language.py:96 setup_station/language.py:162
 msgid "Please select your language:"
+msgstr ""
+
+#: setup_station/network_setup.py:100 setup_station/network_setup.py:155
+msgid "Network card connected to the internet"
+msgstr ""
+
+#: setup_station/network_setup.py:105 setup_station/network_setup.py:160
+msgid "Network card not connected to the internet"
+msgstr ""
+
+#: setup_station/network_setup.py:108 setup_station/network_setup.py:163
+msgid "No network card detected"
+msgstr ""
+
+#: setup_station/network_setup.py:116 setup_station/network_setup.py:171
+msgid "WiFi card detected and connected to an access point"
+msgstr ""
+
+#: setup_station/network_setup.py:120 setup_station/network_setup.py:175
+msgid "WiFi card detected but not connected to an access point"
+msgstr ""
+
+#: setup_station/network_setup.py:123 setup_station/network_setup.py:178
+msgid "WiFi card not detected or not supported"
+msgstr ""
+
+#: setup_station/network_setup.py:200
+msgid "Stat"
+msgstr ""
+
+#: setup_station/network_setup.py:205
+msgid "SSID"
+msgstr ""
+
+#: setup_station/network_setup.py:338
+msgid "WiFi Network Authentication Required"
+msgstr ""
+
+#: setup_station/network_setup.py:350
+msgid "Wi-Fi Network Authentication failed"
+msgstr ""
+
+#: setup_station/network_setup.py:352
+msgid "Authentication required by"
+msgstr ""
+
+#: setup_station/network_setup.py:352
+msgid "Wi-Fi Network"
+msgstr ""
+
+#: setup_station/network_setup.py:355
+msgid "Password:"
+msgstr ""
+
+#: setup_station/network_setup.py:358
+msgid "Show password"
+msgstr ""
+
+#: setup_station/setup_system.py:39
+msgid "Setting system language"
+msgstr ""
+
+#: setup_station/setup_system.py:43
+msgid "Setting keyboard layout"
+msgstr ""
+
+#: setup_station/setup_system.py:47
+msgid "Setting timezone"
+msgstr ""
+
+#: setup_station/setup_system.py:51
+msgid "Creating admin user"
+msgstr ""
+
+#: setup_station/setup_system.py:55
+msgid "Setup complete!"
+msgstr ""
+
+#: setup_station/setup_system.py:64
+msgid "Getting everything ready"
+msgstr ""
+
+#: setup_station/setup_system.py:76
+msgid "This should not take too long."
+msgstr ""
+
+#: setup_station/setup_system.py:78
+msgid "Don't turn your system off."
+msgstr ""
+
+#: setup_station/timezone.py:57
+msgid "Continent"
+msgstr ""
+
+#: setup_station/timezone.py:69
+msgid "City"
 msgstr ""

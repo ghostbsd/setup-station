@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-25 08:31-0400\n"
+"POT-Creation-Date: 2025-11-27 09:09-0400\n"
 "PO-Revision-Date: 2025-11-25 08:34-0400\n"
 "Last-Translator: Eric Turgeon <EMAIL@ADDRESS>\n"
 "Language-Team: French <traduc@traduc.org>\n"
@@ -17,53 +17,245 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
+#: setup_station/add_admin.py:132
+msgid "The initial root password will be set to the admin user password."
+msgstr "Le mot de passe root initial sera défini sur le mot de passe de l'utilisateur administrateur."
+
+#: setup_station/add_admin.py:214 setup_station/common.py:138
+msgid "Password not allowed"
+msgstr "Mot de passe non autorisé"
+
+#: setup_station/add_admin.py:214 setup_station/common.py:140
+msgid "Space not allowed"
+msgstr "Espace non autorisé"
+
+#: setup_station/add_users.py:57
+msgid "User Setup"
+msgstr "Configuration utilisateur"
+
+#: setup_station/add_users.py:68
+msgid "User Account"
+msgstr "Compte utilisateur"
+
+#: setup_station/add_users.py:71
+msgid "User name"
+msgstr "Nom d'utilisateur"
+
+#: setup_station/add_users.py:73
+msgid "Real name"
+msgstr "Nom réel"
+
+#: setup_station/add_users.py:76
+msgid "Password"
+msgstr "Mot de passe"
+
+#: setup_station/add_users.py:80
+msgid "Verify Password"
+msgstr "Vérifier le mot de passe"
+
+#: setup_station/add_users.py:84
+msgid "Shell"
+msgstr "Shell"
+
+#: setup_station/add_users.py:97
+msgid "Set Hostname"
+msgstr "Définir le nom d'hôte"
+
+#: setup_station/add_users.py:102
+msgid "Hostname"
+msgstr "Nom d'hôte"
+
+#: setup_station/common.py:142 setup_station/common.py:144
+msgid "Super Weak"
+msgstr "Très faible"
+
+#: setup_station/common.py:146 setup_station/common.py:152
+msgid "Very Weak"
+msgstr "Très faible"
+
+#: setup_station/common.py:148 setup_station/common.py:154
+#: setup_station/common.py:160
+msgid "Fairly Weak"
+msgstr "Assez faible"
+
+#: setup_station/common.py:150 setup_station/common.py:156
+#: setup_station/common.py:162 setup_station/common.py:168
+msgid "Weak"
+msgstr "Faible"
+
+#: setup_station/common.py:158 setup_station/common.py:164
+#: setup_station/common.py:170 setup_station/common.py:176
+msgid "Strong"
+msgstr "Fort"
+
+#: setup_station/common.py:166 setup_station/common.py:172
+#: setup_station/common.py:178 setup_station/common.py:184
+msgid "Fairly Strong"
+msgstr "Assez fort"
+
+#: setup_station/common.py:174 setup_station/common.py:180
+msgid "Very Strong"
+msgstr "Très fort"
+
+#: setup_station/common.py:182 setup_station/common.py:186
+msgid "Super Strong"
+msgstr "Très fort"
+
 #: setup_station/interface_controller.py:22
 #: setup_station/interface_controller.py:31
 msgid "Back"
-msgstr ""
+msgstr "Retour"
 
 #: setup_station/interface_controller.py:24
 #: setup_station/interface_controller.py:32
 msgid "Next"
-msgstr ""
+msgstr "Suivant"
 
 #: setup_station/interface_controller.py:118 setup_station/language.py:104
 msgid "GhostBSD Initial Setup"
-msgstr ""
+msgstr "Configuration initiale de GhostBSD"
 
 #: setup_station/interface_controller.py:119 setup_station/language.py:102
 #: setup_station/language.py:119
 msgid "Language"
-msgstr ""
+msgstr "Langue"
 
 #: setup_station/interface_controller.py:131
 msgid "Button"
-msgstr ""
+msgstr "Bouton"
 
 #: setup_station/interface_controller.py:155
 msgid "Keyboard"
-msgstr ""
+msgstr "Clavier"
 
 #: setup_station/interface_controller.py:168
 msgid "Time Zone"
-msgstr ""
+msgstr "Fuseau horaire"
 
 #: setup_station/interface_controller.py:180
 msgid "Network"
-msgstr ""
+msgstr "Réseau"
 
 #: setup_station/interface_controller.py:192
 msgid "Admin User"
-msgstr ""
+msgstr "Utilisateur administrateur"
 
 #: setup_station/interface_controller.py:204
 msgid "Setup GhostBSD"
-msgstr ""
+msgstr "Configurer GhostBSD"
 
 #: setup_station/interface_controller.py:213
 msgid "Progress Bar"
-msgstr ""
+msgstr "Barre de progression"
+
+#: setup_station/keyboard.py:41
+msgid "Type here to test your keyboard"
+msgstr "Tapez ici pour tester votre clavier"
+
+#: setup_station/keyboard.py:96
+msgid "Keyboard Layout"
+msgstr "Disposition du clavier"
+
+#: setup_station/keyboard.py:108
+msgid "Keyboard Models"
+msgstr "Modèles de clavier"
 
 #: setup_station/language.py:96 setup_station/language.py:162
 msgid "Please select your language:"
-msgstr ""
+msgstr "Veuillez sélectionner votre langue :"
+
+#: setup_station/network_setup.py:100 setup_station/network_setup.py:155
+msgid "Network card connected to the internet"
+msgstr "Carte réseau connectée à Internet"
+
+#: setup_station/network_setup.py:105 setup_station/network_setup.py:160
+msgid "Network card not connected to the internet"
+msgstr "Carte réseau non connectée à Internet"
+
+#: setup_station/network_setup.py:108 setup_station/network_setup.py:163
+msgid "No network card detected"
+msgstr "Aucune carte réseau détectée"
+
+#: setup_station/network_setup.py:116 setup_station/network_setup.py:171
+msgid "WiFi card detected and connected to an access point"
+msgstr "Carte WiFi détectée et connectée à un point d'accès"
+
+#: setup_station/network_setup.py:120 setup_station/network_setup.py:175
+msgid "WiFi card detected but not connected to an access point"
+msgstr "Carte WiFi détectée mais non connectée à un point d'accès"
+
+#: setup_station/network_setup.py:123 setup_station/network_setup.py:178
+msgid "WiFi card not detected or not supported"
+msgstr "Carte WiFi non détectée ou non prise en charge"
+
+#: setup_station/network_setup.py:200
+msgid "Stat"
+msgstr "État"
+
+#: setup_station/network_setup.py:205
+msgid "SSID"
+msgstr "SSID"
+
+#: setup_station/network_setup.py:338
+msgid "WiFi Network Authentication Required"
+msgstr "Authentification réseau WiFi requise"
+
+#: setup_station/network_setup.py:350
+msgid "Wi-Fi Network Authentication failed"
+msgstr "Échec de l'authentification du réseau Wi-Fi"
+
+#: setup_station/network_setup.py:352
+msgid "Authentication required by"
+msgstr "Authentification requise par"
+
+#: setup_station/network_setup.py:352
+msgid "Wi-Fi Network"
+msgstr "Réseau Wi-Fi"
+
+#: setup_station/network_setup.py:355
+msgid "Password:"
+msgstr "Mot de passe :"
+
+#: setup_station/network_setup.py:358
+msgid "Show password"
+msgstr "Afficher le mot de passe"
+
+#: setup_station/setup_system.py:39
+msgid "Setting system language"
+msgstr "Configuration de la langue du système"
+
+#: setup_station/setup_system.py:43
+msgid "Setting keyboard layout"
+msgstr "Configuration de la disposition du clavier"
+
+#: setup_station/setup_system.py:47
+msgid "Setting timezone"
+msgstr "Configuration du fuseau horaire"
+
+#: setup_station/setup_system.py:51
+msgid "Creating admin user"
+msgstr "Création de l'utilisateur administrateur"
+
+#: setup_station/setup_system.py:55
+msgid "Setup complete!"
+msgstr "Configuration terminée !"
+
+#: setup_station/setup_system.py:64
+msgid "Getting everything ready"
+msgstr "Préparation en cours"
+
+#: setup_station/setup_system.py:76
+msgid "This should not take too long."
+msgstr "Cela ne devrait pas prendre trop de temps."
+
+#: setup_station/setup_system.py:78
+msgid "Don't turn your system off."
+msgstr "N'éteignez pas votre système."
+
+#: setup_station/timezone.py:57
+msgid "Continent"
+msgstr "Continent"
+
+#: setup_station/timezone.py:69
+msgid "City"
+msgstr "Ville"

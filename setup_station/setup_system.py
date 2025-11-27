@@ -7,7 +7,7 @@ from setup_station.language import Language
 from setup_station.keyboard import Keyboard
 from setup_station.timezone import TimeZone
 from setup_station.add_admin import AddAdminUser
-from setup_station.data import css_path, gif_logo
+from setup_station.data import css_path, gif_logo, get_text
 
 cssProvider = Gtk.CssProvider()
 cssProvider.load_from_path(css_path)
@@ -36,23 +36,23 @@ def setup_system(progress_bar: Gtk.ProgressBar) -> None:
     This function is used to set up the system.
     :param progress_bar: The progress bar to update.
     """
-    GLib.idle_add(update_progress, progress_bar, "Setting system language")
+    GLib.idle_add(update_progress, progress_bar, get_text("Setting system language"))
     Language.save_language()
     sleep(1)
 
-    GLib.idle_add(update_progress, progress_bar, "Setting keyboard layout")
+    GLib.idle_add(update_progress, progress_bar, get_text("Setting keyboard layout"))
     Keyboard.save_keyboard()
     sleep(1)
 
-    GLib.idle_add(update_progress, progress_bar, "Setting timezone")
+    GLib.idle_add(update_progress, progress_bar, get_text("Setting timezone"))
     TimeZone.apply_timezone()
     sleep(1)
 
-    GLib.idle_add(update_progress, progress_bar, "Creating admin user")
+    GLib.idle_add(update_progress, progress_bar, get_text("Creating admin user"))
     AddAdminUser.save_admin_user()
     sleep(1)
 
-    GLib.idle_add(update_progress, progress_bar, "Setup complete!")
+    GLib.idle_add(update_progress, progress_bar, get_text("Setup complete!"))
     sleep(1)
 
 
@@ -61,7 +61,7 @@ class SetupWindow:
     def __init__(self) -> None:
         self.vBox = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, homogeneous=False, spacing=0)
         self.vBox.show()
-        label = Gtk.Label(label="Getting everything ready", name="Header")
+        label = Gtk.Label(label=get_text("Getting everything ready"), name="Header")
         label.set_property("height-request", 50)
         self.vBox.pack_start(label, False, False, 0)
 
@@ -73,8 +73,9 @@ class SetupWindow:
         label2 = Gtk.Label(name="sideText")
 
         label2.set_markup(
-            "This should not take too long.\n\n"
-            "Don't turn your system off."
+            get_text("This should not take too long.") +
+            "\n\n" +
+            get_text("Don't turn your system off.")
         )
         label2.set_justify(Gtk.Justification.LEFT)
         label2.set_line_wrap(True)

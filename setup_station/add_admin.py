@@ -6,7 +6,8 @@ gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk, Gdk
 from setup_station.data import (
     SetupData,
-    css_path
+    css_path,
+    get_text
 )
 from setup_station.common import (
     password_strength,
@@ -75,7 +76,7 @@ class AddAdminUser:
         SetupData.username = username
         SetupData.user_fullname = fullname
         SetupData.user_password = password
-        SetupData.user_shell = cls.shell
+        SetupData.user_shell = '/usr/local/bin/zsh'
         SetupData.user_home_directory = f'/home/{username}'
         SetupData.hostname = hostname if hostname else f'{username}-ghostbsd'
         SetupData.root_password = password
@@ -112,27 +113,6 @@ class AddAdminUser:
         )
 
     @classmethod
-    def on_shell(cls, widget: Gtk.ComboBoxText) -> None:
-        """Handle shell selection changes."""
-        shell = widget.get_active_text()
-        if shell == 'sh':
-            cls.shell = '/bin/sh'
-        elif shell == 'csh':
-            cls.shell = '/bin/csh'
-        elif shell == 'tcsh':
-            cls.shell = '/bin/tcsh'
-        elif shell == 'fish':
-            cls.shell = '/usr/local/bin/fish'
-        elif shell == 'bash':
-            cls.shell = '/usr/local/bin/bash'
-        elif shell == 'rbash':
-            cls.shell = '/usr/local/bin/rbash'
-        elif shell == 'zsh':
-            cls.shell = '/usr/local/bin/zsh'
-        elif shell == 'ksh':
-            cls.shell = '/usr/local/bin/ksh93'
-
-    @classmethod
     def user_and_host(cls, _widget: Gtk.Entry) -> None:
         """Auto-generate username and hostname from full name."""
         if cls.name and cls.user and cls.host:
@@ -149,7 +129,7 @@ class AddAdminUser:
         """Initialize the user interface components."""
         cls.vbox1 = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, homogeneous=False, spacing=0)
         cls.vbox1.show()
-        admin_message = Gtk.Label(label="The initial root password will be set to the admin user password.")
+        admin_message = Gtk.Label(label=get_text("The initial root password will be set to the admin user password."))
         cls.vbox1.pack_start(admin_message, False, False, 0)
         
         box2 = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, homogeneous=False, spacing=0)
@@ -180,19 +160,6 @@ class AddAdminUser:
         cls.repassword = Gtk.Entry()
         cls.repassword.set_visibility(False)
         cls.repassword.connect("changed", cls.password_verification)
-        
-        shell_label = Gtk.Label(label="Shell")
-        shell = Gtk.ComboBoxText()
-        shell.append_text('sh')
-        shell.append_text('csh')
-        shell.append_text('tcsh')
-        shell.append_text('fish')
-        shell.append_text('bash')
-        shell.append_text('rbash')
-        shell.append_text('ksh')
-        shell.append_text('zsh')
-        shell.set_active(3)  # Default to fish
-        shell.connect("changed", cls.on_shell)
         
         hostname_label = Gtk.Label(label='<b>Set Hostname</b>')
         hostname_label.set_use_markup(True)
@@ -244,7 +211,7 @@ class AddAdminUser:
 
             # Check if passwords match, meet requirements, and are allowed
             passwords_match = password == repassword and password != "" and " " not in password
-            password_allowed = strength_message not in ["Password not allowed", "Space not allowed"]
+            password_allowed = strength_message not in [get_text("Password not allowed"), get_text("Space not allowed")]
 
             if passwords_match and password_allowed:
                 cls.img.set_from_stock(Gtk.STOCK_YES, 5)

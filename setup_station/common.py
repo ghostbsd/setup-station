@@ -3,6 +3,7 @@ Password validation utilities for setup-station and setup-station-init.
 """
 import re
 import warnings
+from setup_station.data import get_text
 
 
 def lower_case(text: str) -> bool:
@@ -134,55 +135,55 @@ def password_strength(password: str) -> str:
 
     # Check if a password is not allowed
     if password in not_allowed:
-        return "Password not allowed"
+        return get_text("Password not allowed")
     elif ' ' in password or '\t' in password:
-        return "Space not allowed"
+        return get_text("Space not allowed")
     elif len(password) <= 4:
-        return "Super Weak"
+        return get_text("Super Weak")
     elif len(password) <= 8 and same_character_type:
-        return "Super Weak"
+        return get_text("Super Weak")
     elif len(password) <= 8 and mix_character:
-        return "Very Weak"
+        return get_text("Very Weak")
     elif len(password) <= 8 and lower_upper_number(password):
-        return "Fairly Weak"
+        return get_text("Fairly Weak")
     elif len(password) <= 8 and all_character(password):
-        return "Weak"
+        return get_text("Weak")
     elif len(password) <= 12 and same_character_type:
-        return "Very Weak"
+        return get_text("Very Weak")
     elif len(password) <= 12 and mix_character:
-        return "Fairly Weak"
+        return get_text("Fairly Weak")
     elif len(password) <= 12 and lower_upper_number(password):
-        return "Weak"
+        return get_text("Weak")
     elif len(password) <= 12 and all_character(password):
-        return "Strong"
+        return get_text("Strong")
     elif len(password) <= 16 and same_character_type:
-        return "Fairly Weak"
+        return get_text("Fairly Weak")
     elif len(password) <= 16 and mix_character:
-        return "Weak"
+        return get_text("Weak")
     elif len(password) <= 16 and lower_upper_number(password):
-        return "Strong"
+        return get_text("Strong")
     elif len(password) <= 16 and all_character(password):
-        return "Fairly Strong"
+        return get_text("Fairly Strong")
     elif len(password) <= 20 and same_character_type:
-        return "Weak"
+        return get_text("Weak")
     elif len(password) <= 20 and mix_character:
-        return "Strong"
+        return get_text("Strong")
     elif len(password) <= 20 and lower_upper_number(password):
-        return "Fairly Strong"
+        return get_text("Fairly Strong")
     elif len(password) <= 20 and all_character(password):
-        return "Very Strong"
+        return get_text("Very Strong")
     elif len(password) <= 24 and same_character_type:
-        return "Strong"
+        return get_text("Strong")
     elif len(password) <= 24 and mix_character:
-        return "Fairly Strong"
+        return get_text("Fairly Strong")
     elif len(password) <= 24 and lower_upper_number(password):
-        return "Very Strong"
+        return get_text("Very Strong")
     elif len(password) <= 24 and all_character(password):
-        return "Super Strong"
+        return get_text("Super Strong")
     elif same_character_type:
-        return "Fairly Strong"
+        return get_text("Fairly Strong")
     else:
-        return "Super Strong"
+        return get_text("Super Strong")
 
 
 def deprecated(*, version: str, reason: str):

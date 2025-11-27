@@ -12,7 +12,8 @@ from setup_station.system_calls import (
 )
 from setup_station.data import (
     SetupData,
-    css_path
+    css_path,
+    get_text
 )
 
 kb_dictionary = keyboard_dictionary()
@@ -37,6 +38,7 @@ class PlaceHolderEntry(Gtk.Entry):
 
     def __init__(self, *args, **kwds):
         Gtk.Entry.__init__(self, *args, **kwds)
+        self.placeholder = get_text('Type here to test your keyboard')
         self.set_text(self.placeholder)
         # self.modify_text(Gtk.STATE_NORMAL, Gtk.gdk.color_parse("#4d4d4d"))
         self._default = True
@@ -91,7 +93,7 @@ class Keyboard:
         """Setup the keyboard layout column in the tree view."""
         cell = Gtk.CellRendererText()
         column = Gtk.TreeViewColumn(None, cell, text=0)
-        column_header = Gtk.Label(label='<b>Keyboard Layout</b>')
+        column_header = Gtk.Label(label='<b>' + get_text('Keyboard Layout') + '</b>')
         column_header.set_use_markup(True)
         column_header.show()
         column.set_widget(column_header)
@@ -103,7 +105,7 @@ class Keyboard:
         """Setup the keyboard model column in the tree view."""
         cell = Gtk.CellRendererText()
         column = Gtk.TreeViewColumn(None, cell, text=0)
-        column_header = Gtk.Label(label='<b>Keyboard Models</b>')
+        column_header = Gtk.Label(label='<b>' + get_text('Keyboard Models') + '</b>')
         column_header.set_use_markup(True)
         column_header.show()
         column.set_widget(column_header)

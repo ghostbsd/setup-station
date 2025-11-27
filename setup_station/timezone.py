@@ -9,7 +9,8 @@ from setup_station.system_calls import timezone_dictionary
 from setup_station.data import (
     SetupData,
     tmp,
-    css_path
+    css_path,
+    get_text
 )
 from setup_station.window import Window
 
@@ -53,7 +54,7 @@ class TimeZone:
         """Setup the continent column in the tree view."""
         cell = Gtk.CellRendererText()
         column = Gtk.TreeViewColumn(None, cell, text=0)
-        column_header = Gtk.Label(label='<b>Continent</b>')
+        column_header = Gtk.Label(label='<b>' + get_text('Continent') + '</b>')
         column_header.set_use_markup(True)
         column_header.show()
         column.set_widget(column_header)
@@ -65,7 +66,7 @@ class TimeZone:
         """Setup the city column in the tree view."""
         cell = Gtk.CellRendererText()
         column = Gtk.TreeViewColumn(None, cell, text=0)
-        column_header = Gtk.Label(label='<b>City</b>')
+        column_header = Gtk.Label(label='<b>' + get_text('City') + '</b>')
         column_header.set_use_markup(True)
         column_header.show()
         column.set_widget(column_header)
