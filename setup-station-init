@@ -1,0 +1,58 @@
+#!/usr/local/bin/python
+"""
+Setup Station executable module.
+
+This is the main entry point for the Setup Station GTK+ application.
+It initializes all page components and sets up the main window interface.
+"""
+import gi
+gi.require_version('Gtk', '3.0')
+from gi.repository import Gtk
+
+from setup_station.language import Language
+from setup_station.keyboard import Keyboard
+from setup_station.timezone import TimeZone
+from setup_station.network_setup import NetworkSetup
+from setup_station.add_admin import AddUser
+from setup_station.data import logo
+from setup_station.window import Window
+from setup_station.interface_controller import Interface, Button
+
+
+class MainWindow:
+    """
+    Setup Station main window class.
+    
+    This class initializes the main GTK window and sets up all page components
+    for the setup wizard interface.
+    """
+
+    def __init__(self) -> None:
+        """
+        Initialize the Setup Station main window.
+        
+        Sets up page assignments to Interface class, configures the main window
+        properties, and creates the main interface layout.
+        """
+        Interface.language = Language
+        Interface.keyboard = Keyboard
+        Interface.timezone = TimeZone
+        Interface.network_setup = NetworkSetup
+        Interface.add_admin = AddUser
+        Window.connect("delete_event", Interface.delete)
+        Window.set_border_width(0)
+        Window.set_default_size(800, 500)
+        Window.set_size_request(800, 500)
+        Window.set_title("GhostBSD Initial Setup")
+        Window.set_border_width(0)
+        Window.set_icon_from_file(logo)
+        main_box = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, homogeneous=False, spacing=0)
+        main_box.show()
+        Window.add(main_box)
+        main_box.pack_start(Interface.get_interface(), True, True, 0)
+        Window.show_all()
+        Button.show_initial()
+
+
+MainWindow()
+Gtk.main()
