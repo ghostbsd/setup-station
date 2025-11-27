@@ -23,7 +23,7 @@ class AddUsers:
         name = self.name.get_text()
         up = self.password.get_text()
         shell = self.sh
-        hf = '/home/%s' % self.user.get_text()
+        hf = f'/home/{self.user.get_text()}'
         hst = self.host.get_text()
         ul = [uname, name, up, shell, hf]
 
@@ -48,7 +48,7 @@ class AddUsers:
 
     def user_and_host(self, _widget):
         username = self.name.get_text().split()
-        self.host.set_text("%s-ghostbsd-pc" % username[0].lower())
+        self.host.set_text(f"{username[0].lower()}-ghostbsd-pc")
         self.user.set_text(username[0].lower())
 
     def __init__(self, button3):
@@ -132,7 +132,8 @@ class AddUsers:
 
     def password_verification(self, _widget, button3):
         password = self.password.get_text()
-        password_strength(password, self.label3)
+        strength_message = password_strength(password)
+        self.label3.set_label(strength_message)
         repassword = self.repassword.get_text()
         if password == repassword and password != "" and " " not in password:
             self.img.set_from_stock(Gtk.STOCK_YES, 5)

@@ -49,8 +49,7 @@ def language_dictionary() -> dict:
     """
     try:
         result = run(
-            f'{pc_sysinstall} query-langs',
-            shell=True,
+            [pc_sysinstall, 'query-langs'],
             capture_output=True,
             text=True,
             check=True
@@ -118,8 +117,7 @@ def keyboard_dictionary() -> dict:
     try:
         # Get keyboard layouts
         result1 = run(
-            f'{pc_sysinstall} xkeyboard-layouts',
-            shell=True,
+            [pc_sysinstall, 'xkeyboard-layouts'],
             capture_output=True,
             text=True,
             check=True
@@ -135,8 +133,7 @@ def keyboard_dictionary() -> dict:
 
         # Get keyboard variants
         result2 = run(
-            f'{pc_sysinstall} xkeyboard-variants',
-            shell=True,
+            [pc_sysinstall, 'xkeyboard-variants'],
             capture_output=True,
             text=True,
             check=True
@@ -167,8 +164,7 @@ def keyboard_models() -> dict:
     """
     try:
         result = run(
-            f'{pc_sysinstall} xkeyboard-models',
-            shell=True,
+            [pc_sysinstall, 'xkeyboard-models'],
             capture_output=True,
             text=True,
             check=True
@@ -404,8 +400,12 @@ def set_admin_user(username: str, name: str, password: str, shell: str, homedir:
     if homedir and ('..' in homedir or not homedir.startswith('/')):
         raise ValueError(f"Invalid home directory path: '{homedir}'. Must be absolute path without '..'")
 
+    # Validate hostname is not empty
+    if not hostname or not hostname.strip():
+        raise ValueError("Hostname cannot be empty")
+
     # Validate hostname format (RFC 1123)
-    if hostname and not re.match(r'^[a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?(\.[a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?)*$', hostname, re.IGNORECASE):
+    if not re.match(r'^[a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?(\.[a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?)*$', hostname, re.IGNORECASE):
         raise ValueError(f"Invalid hostname format: '{hostname}'. Must follow RFC 1123 hostname rules.")
 
     # Set Root user password (password read from stdin with -h 0)

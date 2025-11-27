@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-27 09:09-0400\n"
+"POT-Creation-Date: 2025-11-27 13:23-0400\n"
 "PO-Revision-Date: 2025-11-25 08:34-0400\n"
 "Last-Translator: Eric Turgeon <EMAIL@ADDRESS>\n"
 "Language-Team: French <traduc@traduc.org>\n"
@@ -19,13 +19,15 @@ msgstr ""
 
 #: setup_station/add_admin.py:132
 msgid "The initial root password will be set to the admin user password."
-msgstr "Le mot de passe root initial sera défini sur le mot de passe de l'utilisateur administrateur."
+msgstr ""
+"Le mot de passe root initial sera défini sur le mot de passe de "
+"l'utilisateur administrateur."
 
-#: setup_station/add_admin.py:214 setup_station/common.py:138
+#: setup_station/add_admin.py:214 setup_station/common.py:99
 msgid "Password not allowed"
 msgstr "Mot de passe non autorisé"
 
-#: setup_station/add_admin.py:214 setup_station/common.py:140
+#: setup_station/add_admin.py:214 setup_station/common.py:101
 msgid "Space not allowed"
 msgstr "Espace non autorisé"
 
@@ -65,40 +67,31 @@ msgstr "Définir le nom d'hôte"
 msgid "Hostname"
 msgstr "Nom d'hôte"
 
-#: setup_station/common.py:142 setup_station/common.py:144
-msgid "Super Weak"
-msgstr "Très faible"
-
-#: setup_station/common.py:146 setup_station/common.py:152
+#: setup_station/common.py:118
 msgid "Very Weak"
 msgstr "Très faible"
 
-#: setup_station/common.py:148 setup_station/common.py:154
-#: setup_station/common.py:160
+#: setup_station/common.py:119 setup_station/common.py:122
 msgid "Fairly Weak"
 msgstr "Assez faible"
 
-#: setup_station/common.py:150 setup_station/common.py:156
-#: setup_station/common.py:162 setup_station/common.py:168
+#: setup_station/common.py:120 setup_station/common.py:123
+#: setup_station/common.py:126
 msgid "Weak"
 msgstr "Faible"
 
-#: setup_station/common.py:158 setup_station/common.py:164
-#: setup_station/common.py:170 setup_station/common.py:176
+#: setup_station/common.py:121 setup_station/common.py:124
+#: setup_station/common.py:127 setup_station/common.py:130
 msgid "Strong"
 msgstr "Fort"
 
-#: setup_station/common.py:166 setup_station/common.py:172
-#: setup_station/common.py:178 setup_station/common.py:184
+#: setup_station/common.py:125 setup_station/common.py:128
+#: setup_station/common.py:131
 msgid "Fairly Strong"
 msgstr "Assez fort"
 
-#: setup_station/common.py:174 setup_station/common.py:180
+#: setup_station/common.py:129 setup_station/common.py:132
 msgid "Very Strong"
-msgstr "Très fort"
-
-#: setup_station/common.py:182 setup_station/common.py:186
-msgid "Super Strong"
 msgstr "Très fort"
 
 #: setup_station/interface_controller.py:22
@@ -259,3 +252,9 @@ msgstr "Continent"
 #: setup_station/timezone.py:69
 msgid "City"
 msgstr "Ville"
+
+#~ msgid "Super Weak"
+#~ msgstr "Très faible"
+
+#~ msgid "Super Strong"
+#~ msgstr "Très fort"

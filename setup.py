@@ -155,7 +155,7 @@ setup(
     description="Setup Station - GhostBSD post-installation setup utility",
     license='BSD',
     author='Eric Turgeon',
-    url='https://github/GhostBSD/setup-station/',
+    url='https://github.com/GhostBSD/setup-station/',
     package_dir={'': '.'},
     install_requires=['setuptools'],
     packages=['setup_station'],

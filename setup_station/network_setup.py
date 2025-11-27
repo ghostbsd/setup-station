@@ -289,7 +289,7 @@ class NetworkSetup:
                 if nic_status(card) == 'associated':
                     cls.network_info = networkdictionary()
                     print(cls.network_info)
-                    cls.update_network_detection()
+                    GLib.idle_add(cls.update_network_detection)
                     break
                 sleep(1)
             else:
@@ -421,9 +421,8 @@ class NetworkSetup:
             ws += '\n wep_tx_keyidx=0'
             ws += f'\n wep_key0={pwd}\n'
             ws += '}\n'
-        wsf = open("/etc/wpa_supplicant.conf", 'a')
-        wsf.writelines(ws)
-        wsf.close()
+        with open("/etc/wpa_supplicant.conf", 'a') as wsf:
+            wsf.writelines(ws)
 
     @staticmethod
     def open_wpa_supplicant(ssid: str) -> None:
@@ -434,7 +433,7 @@ class NetworkSetup:
             ssid: SSID of the network
         """
         ws = '\nnetwork={'
-        ws += f'\n ssid={ssid}'
+        ws += f'\n ssid="{ssid}"'
         ws += '\n key_mgmt=NONE\n}\n'
         with open("/etc/wpa_supplicant.conf", 'a') as wsf:
             wsf.writelines(ws)

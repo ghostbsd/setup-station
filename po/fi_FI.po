@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-27 09:09-0400\n"
+"POT-Creation-Date: 2025-11-27 13:23-0400\n"
 "PO-Revision-Date: 2025-11-25 08:34-0400\n"
 "Last-Translator: Eric Turgeon <EMAIL@ADDRESS>\n"
 "Language-Team: Finnish <translation-team-fi@lists.sourceforge.net>\n"
@@ -21,11 +21,11 @@ msgstr ""
 msgid "The initial root password will be set to the admin user password."
 msgstr ""
 
-#: setup_station/add_admin.py:214 setup_station/common.py:138
+#: setup_station/add_admin.py:214 setup_station/common.py:99
 msgid "Password not allowed"
 msgstr ""
 
-#: setup_station/add_admin.py:214 setup_station/common.py:140
+#: setup_station/add_admin.py:214 setup_station/common.py:101
 msgid "Space not allowed"
 msgstr ""
 
@@ -65,40 +65,31 @@ msgstr ""
 msgid "Hostname"
 msgstr ""
 
-#: setup_station/common.py:142 setup_station/common.py:144
-msgid "Super Weak"
-msgstr ""
-
-#: setup_station/common.py:146 setup_station/common.py:152
+#: setup_station/common.py:118
 msgid "Very Weak"
 msgstr ""
 
-#: setup_station/common.py:148 setup_station/common.py:154
-#: setup_station/common.py:160
+#: setup_station/common.py:119 setup_station/common.py:122
 msgid "Fairly Weak"
 msgstr ""
 
-#: setup_station/common.py:150 setup_station/common.py:156
-#: setup_station/common.py:162 setup_station/common.py:168
+#: setup_station/common.py:120 setup_station/common.py:123
+#: setup_station/common.py:126
 msgid "Weak"
 msgstr ""
 
-#: setup_station/common.py:158 setup_station/common.py:164
-#: setup_station/common.py:170 setup_station/common.py:176
+#: setup_station/common.py:121 setup_station/common.py:124
+#: setup_station/common.py:127 setup_station/common.py:130
 msgid "Strong"
 msgstr ""
 
-#: setup_station/common.py:166 setup_station/common.py:172
-#: setup_station/common.py:178 setup_station/common.py:184
+#: setup_station/common.py:125 setup_station/common.py:128
+#: setup_station/common.py:131
 msgid "Fairly Strong"
 msgstr ""
 
-#: setup_station/common.py:174 setup_station/common.py:180
+#: setup_station/common.py:129 setup_station/common.py:132
 msgid "Very Strong"
-msgstr ""
-
-#: setup_station/common.py:182 setup_station/common.py:186
-msgid "Super Strong"
 msgstr ""
 
 #: setup_station/interface_controller.py:22
