@@ -3,10 +3,6 @@ gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk, GLib, Gdk
 import threading
 from time import sleep
-from setup_station.language import Language
-from setup_station.keyboard import Keyboard
-from setup_station.timezone import TimeZone
-from setup_station.add_admin import AddAdminUser
 from setup_station.data import css_path, gif_logo, get_text
 
 cssProvider = Gtk.CssProvider()
@@ -36,6 +32,11 @@ def setup_system(progress_bar: Gtk.ProgressBar) -> None:
     This function is used to set up the system.
     :param progress_bar: The progress bar to update.
     """
+    from setup_station.language import Language
+    from setup_station.keyboard import Keyboard
+    from setup_station.timezone import TimeZone
+    from setup_station.add_admin import AddAdminUser
+
     GLib.idle_add(update_progress, progress_bar, get_text("Setting system language"))
     Language.save_language()
     sleep(1)
