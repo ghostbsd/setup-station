@@ -65,14 +65,14 @@ class SetupData:
 def get_text(text: str) -> str:
     """
     Global translation function that always returns current language translation.
-    
+
     Args:
         text: Text to translate
-        
+
     Returns:
         str: Translated text in current language
     """
     # Force reload of translations for current language
-    gettext.bindtextdomain('setup-station-init', '/usr/local/share/locale')
-    gettext.textdomain('setup-station-init')
+    gettext.bindtextdomain('setup-station', '/usr/local/share/locale')
+    gettext.textdomain('setup-station')
     return gettext.gettext(text)
