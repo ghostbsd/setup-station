@@ -16,6 +16,9 @@ def is_same_type(text: str) -> bool:
     Returns:
         bool: True if password is all lowercase, all uppercase, or all digits
     """
+    # ^[a-z]+$ - only lowercase letters from start to end
+    # ^[A-Z]+$ - only uppercase letters from start to end
+    # ^[0-9]+$ - only digits from start to end
     return bool(re.match(r'^[a-z]+$|^[A-Z]+$|^[0-9]+$', text))
 
 
@@ -29,7 +32,15 @@ def mix_character(text: str) -> bool:
     Returns:
         bool: True if password contains lower+number, upper+number, or lower+upper
     """
-    return bool(re.match(r'^[a-z0-9]+$|^[A-Z0-9]+$|^[a-zA-Z]+$', text))
+    # ^(?=.*[a-z])(?=.*[0-9])[a-z0-9]+$ - must have at least one lowercase AND one digit, only lowercase/digits allowed
+    # ^(?=.*[A-Z])(?=.*[0-9])[A-Z0-9]+$ - must have at least one uppercase AND one digit, only uppercase/digits allowed
+    # ^(?=.*[a-z])(?=.*[A-Z])[a-zA-Z]+$ - must have at least one lowercase AND one uppercase, only letters allowed
+    return bool(
+        re.match(
+            r'^(?=.*[a-z])(?=.*[0-9])[a-z0-9]+$|^(?=.*[A-Z])(?=.*[0-9])[A-Z0-9]+$|^(?=.*[a-z])(?=.*[A-Z])[a-zA-Z]+$',
+            text
+        )
+    )
 
 
 def lower_upper_number(text: str) -> bool:
@@ -40,9 +51,11 @@ def lower_upper_number(text: str) -> bool:
         text: Password string to validate
 
     Returns:
-        bool: True if password contains only letters (a-z, A-Z) and digits (0-9)
+        bool: True if password contains lowercase, uppercase, and digits
     """
-    return bool(re.match(r'^[a-zA-Z0-9]+$', text))
+    # ^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$ - must have lowercase AND uppercase AND digit,
+    # only letters/digits allowed
+    return bool(re.match(r'^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$', text))
 
 
 def all_character(text: str) -> bool:
@@ -53,9 +66,16 @@ def all_character(text: str) -> bool:
         text: Password string to validate
 
     Returns:
-        bool: True if password contains allowed characters (a-z, A-Z, 0-9, and ~!@#$%^&*_+":;'-)
+        bool: True if password contains lowercase, uppercase, digits, and special characters
     """
-    return bool(re.match(r'^[a-zA-Z0-9~!@#$%^&*_+":;\'-]+$', text))
+    # ^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[~!@#$%^&*_+":;\'-])[a-zA-Z0-9~!@#$%^&*_+":;\'-]+$
+    # must have lowercase AND uppercase AND digit AND special char, only those characters allowed
+    return bool(
+        re.match(
+            r'^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[~!@#$%^&*_+":;\'-])[a-zA-Z0-9~!@#$%^&*_+":;\'-]+$',
+            text
+        )
+    )
 
 
 def _get_complexity_tier(password: str) -> int:
