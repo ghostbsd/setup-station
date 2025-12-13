@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-27 13:23-0400\n"
+"POT-Creation-Date: 2025-12-13 15:41-0400\n"
 "PO-Revision-Date: 2025-11-25 08:34-0400\n"
 "Last-Translator: Eric Turgeon <EMAIL@ADDRESS>\n"
 "Language-Team: Portuguese <translation-team-pt@googlegroups.com>\n"
@@ -21,11 +21,11 @@ msgstr ""
 msgid "The initial root password will be set to the admin user password."
 msgstr ""
 
-#: setup_station/add_admin.py:214 setup_station/common.py:99
+#: setup_station/add_admin.py:214 setup_station/common.py:119
 msgid "Password not allowed"
 msgstr ""
 
-#: setup_station/add_admin.py:214 setup_station/common.py:101
+#: setup_station/add_admin.py:214 setup_station/common.py:121
 msgid "Space not allowed"
 msgstr ""
 
@@ -65,30 +65,30 @@ msgstr ""
 msgid "Hostname"
 msgstr ""
 
-#: setup_station/common.py:118
+#: setup_station/common.py:138
 msgid "Very Weak"
 msgstr ""
 
-#: setup_station/common.py:119 setup_station/common.py:122
+#: setup_station/common.py:139 setup_station/common.py:142
 msgid "Fairly Weak"
 msgstr ""
 
-#: setup_station/common.py:120 setup_station/common.py:123
-#: setup_station/common.py:126
+#: setup_station/common.py:140 setup_station/common.py:143
+#: setup_station/common.py:146
 msgid "Weak"
 msgstr ""
 
-#: setup_station/common.py:121 setup_station/common.py:124
-#: setup_station/common.py:127 setup_station/common.py:130
+#: setup_station/common.py:141 setup_station/common.py:144
+#: setup_station/common.py:147 setup_station/common.py:150
 msgid "Strong"
 msgstr ""
 
-#: setup_station/common.py:125 setup_station/common.py:128
-#: setup_station/common.py:131
+#: setup_station/common.py:145 setup_station/common.py:148
+#: setup_station/common.py:151
 msgid "Fairly Strong"
 msgstr ""
 
-#: setup_station/common.py:129 setup_station/common.py:132
+#: setup_station/common.py:149 setup_station/common.py:152
 msgid "Very Strong"
 msgstr ""
 
@@ -211,36 +211,52 @@ msgstr ""
 msgid "Show password"
 msgstr ""
 
-#: setup_station/setup_system.py:39
+#: setup_station/setup_system.py:47
 msgid "Setting system language"
 msgstr ""
 
-#: setup_station/setup_system.py:43
+#: setup_station/setup_system.py:52
 msgid "Setting keyboard layout"
 msgstr ""
 
-#: setup_station/setup_system.py:47
+#: setup_station/setup_system.py:57
 msgid "Setting timezone"
 msgstr ""
 
-#: setup_station/setup_system.py:51
+#: setup_station/setup_system.py:62
 msgid "Creating admin user"
 msgstr ""
 
-#: setup_station/setup_system.py:55
+#: setup_station/setup_system.py:67
+msgid "Enabling display manager"
+msgstr ""
+
+#: setup_station/setup_system.py:72
+msgid "Removing system setup autologin"
+msgstr ""
+
+#: setup_station/setup_system.py:77
 msgid "Setup complete!"
 msgstr ""
 
-#: setup_station/setup_system.py:64
+#: setup_station/setup_system.py:83
+msgid "Configuration complete."
+msgstr ""
+
+#: setup_station/setup_system.py:85
+msgid "Starting the login screen..."
+msgstr ""
+
+#: setup_station/setup_system.py:104
 msgid "Getting everything ready"
 msgstr ""
 
-#: setup_station/setup_system.py:76
-msgid "This should not take too long."
+#: setup_station/setup_system.py:116
+msgid "Setting up your system."
 msgstr ""
 
-#: setup_station/setup_system.py:78
-msgid "Don't turn your system off."
+#: setup_station/setup_system.py:118
+msgid "Please do not turn off your computer."
 msgstr ""
 
 #: setup_station/timezone.py:57
