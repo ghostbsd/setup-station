@@ -12,7 +12,7 @@ Setup Station is a GTK3-based Python application that runs automatically after G
 - Network settings (WiFi/Ethernet)
 - Admin user account creation
 
-After completing the setup, the system automatically starts the lightdm login screen.
+After completing the setup, the system automatically starts the LightDM login screen.
 
 ## Installation
 
