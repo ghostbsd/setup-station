@@ -1,6 +1,6 @@
 import re
 import os
-from subprocess import run
+from subprocess import run, Popen
 
 from setup_station.data import pc_sysinstall
 
@@ -435,3 +435,59 @@ def set_admin_user(username: str, name: str, password: str, shell: str, homedir:
     # Set hostname
     run(['sysrc', f'hostname={hostname}'], check=True)
     run(['hostname', hostname], check=True)
+
+
+def enable_lightdm() -> None:
+    """
+    Enable lightdm display manager in rc.conf.
+
+    This replaces lightdm_enable="NO" with lightdm_enable="YES" in /etc/rc.conf
+    to ensure the display manager starts on boot.
+
+    Raises:
+        RuntimeError: If sysrc command fails
+    """
+    try:
+        run(['sysrc', 'lightdm_enable=YES'], check=True)
+    except Exception as e:
+        raise RuntimeError(f"Failed to enable lightdm: {e}") from e
+
+
+def start_lightdm() -> None:
+    """
+    Start the lightdm display manager service without waiting.
+
+    This starts lightdm immediately using Popen, allowing the setup to exit
+    without blocking. Output goes to terminal for debugging.
+
+    Raises:
+        OSError: If service executable cannot be found
+    """
+    Popen(['service', 'lightdm', 'start'])
+
+
+def remove_ghostbsd_autologin() -> None:
+    """
+    Remove GhostBSD live user autologin configuration.
+
+    This function:
+    1. Removes ghostbsd user references from /etc/gettytab
+    2. Replaces ghostbsd with Pc (standard getty) in /etc/ttys for ttyv0
+
+    These changes disable the live system's autologin feature and restore
+    normal terminal login behavior.
+
+    Raises:
+        IOError: If file operations fail
+        RuntimeError: If sed command fails
+    """
+    try:
+        # Remove ghostbsd entries from /etc/gettytab
+        run(['sed', '-i', '', '/ghostbsd/d', '/etc/gettytab'], check=True)
+
+        # Replace ghostbsd with Pc in /etc/ttys for ttyv0
+        run(['sed', '-i', '', '/ttyv0/s/ghostbsd/Pc/g', '/etc/ttys'], check=True)
+    except Exception as e:
+        raise RuntimeError(f"Failed to remove ghostbsd autologin configuration: {e}") from e
+
+
