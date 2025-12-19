@@ -1,0 +1,36 @@
+#!/bin/sh
+#
+# PROVIDE: ghostbsd_setup
+# REQUIRE: LOGIN FILESYSTEMS
+# BEFORE: lightdm
+# KEYWORD: shutdown
+
+. /etc/rc.subr
+
+name="ghostbsd_setup"
+rcvar="${name}_enable"
+start_cmd="${name}_start"
+stop_cmd=":"
+
+ghostbsd_setup_start()
+{
+    # Create .xinitrc for root to run setup
+    cat > /root/.xinitrc <<'EOF'
+exec marco &
+exec feh --bg-fill /usr/local/share/backgrounds/ghostbsd/blue-layered-stripes.jpg &
+exec setup-station-init
+EOF
+    chmod 755 /root/.xinitrc
+
+    # Start X as root - this will block until setup-station-init exits
+    su -l root -c "startx -- :0 vt09"
+
+    # Cleanup
+    rm -f /root/.xinitrc
+
+    # Disable this service for future boots
+    sysrc ghostbsd_setup_enable=NO
+}
+
+load_rc_config $name
+run_rc_command "$1"

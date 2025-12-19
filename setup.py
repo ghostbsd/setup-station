@@ -14,7 +14,7 @@ from DistUtilsExtra.command.build_i18n import build_i18n
 from DistUtilsExtra.command.clean_i18n import clean_i18n
 
 prefix = sys.prefix
-__VERSION__ = '0.1'
+__VERSION__ = '0.3'
 PROGRAM_VERSION = __VERSION__
 
 
@@ -142,7 +142,8 @@ lib_setup_station_image = [
 data_files = [
     (f'{prefix}/lib/setup-station', ['src/ghostbsd-style.css']),
     (f'{prefix}/lib/setup-station/image', lib_setup_station_image),
-    (f'{prefix}/share/applications', ['src/setup-station.desktop'])
+    (f'{prefix}/share/applications', ['src/setup-station.desktop']),
+    (f'{prefix}/etc/rc.d', ['src/ghostbsd_setup'])
 ]
 
 # Add locale files if they exist
