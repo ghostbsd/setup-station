@@ -143,7 +143,7 @@ data_files = [
     (f'{prefix}/lib/setup-station', ['src/ghostbsd-style.css']),
     (f'{prefix}/lib/setup-station/image', lib_setup_station_image),
     (f'{prefix}/share/applications', ['src/setup-station.desktop']),
-    (f'{prefix}/etc/rc.d', ['src/ghostbsd_setup'])
+    (f'{prefix}/etc/rc.d', ['src/initial_setup'])
 ]
 
 # Add locale files if they exist

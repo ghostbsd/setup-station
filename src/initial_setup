@@ -1,18 +1,18 @@
 #!/bin/sh
 #
-# PROVIDE: ghostbsd_setup
+# PROVIDE: initial_setup
 # REQUIRE: LOGIN FILESYSTEMS
 # BEFORE: lightdm
 # KEYWORD: shutdown
 
 . /etc/rc.subr
 
-name="ghostbsd_setup"
+name="initial_setup"
 rcvar="${name}_enable"
 start_cmd="${name}_start"
 stop_cmd=":"
 
-ghostbsd_setup_start()
+initial_setup_start()
 {
     # Create .xinitrc for root to run setup
     cat > /root/.xinitrc <<'EOF'
@@ -29,7 +29,7 @@ EOF
     rm -f /root/.xinitrc
 
     # Disable this service for future boots
-    sysrc ghostbsd_setup_enable=NO
+    sysrc initial_setup_enable=NO
 }
 
 load_rc_config $name
