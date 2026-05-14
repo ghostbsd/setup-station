@@ -39,8 +39,7 @@ def setup_system(progress_bar: Gtk.ProgressBar) -> None:
     from setup_station.add_admin import AddAdminUser
     from setup_station.system_calls import (
         enable_lightdm,
-        remove_ghostbsd_autologin,
-        start_lightdm
+        remove_ghostbsd_autologin
     )
 
     # Step 0/6: Setting system language
@@ -77,7 +76,7 @@ def setup_system(progress_bar: Gtk.ProgressBar) -> None:
     GLib.idle_add(update_progress, progress_bar, 1, get_text("Setup complete!"))
     sleep(1)
 
-    # Update label text before starting lightdm
+    # Update label text before exiting
     def update_label():
         SetupWindow.slide_text.set_markup(
             get_text("Configuration complete.") +
@@ -88,11 +87,8 @@ def setup_system(progress_bar: Gtk.ProgressBar) -> None:
     GLib.idle_add(update_label)
     sleep(2)
 
-    # Start lightdm and exit
-    start_lightdm()
-
-    import sys
-    sys.exit(0)
+    # Quit GTK main loop - X will exit and rc.d service will continue boot to lightdm
+    GLib.idle_add(Gtk.main_quit)
 
 
 class SetupWindow:
