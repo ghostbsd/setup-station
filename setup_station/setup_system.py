@@ -56,6 +56,7 @@ def setup_system(progress_bar: Gtk.ProgressBar) -> None:
     # Step 2/6: Setting timezone
     GLib.idle_add(update_progress, progress_bar, 2/6, get_text("Setting timezone"))
     TimeZone.apply_timezone()
+    TimeZone.apply_utc_clock()
     sleep(1)
 
     # Step 3/6: Creating admin user

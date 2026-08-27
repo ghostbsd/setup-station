@@ -317,14 +317,18 @@ def timezone_dictionary() -> dict:
 
 def set_timezone(timezone: str) -> None:
     """
-    Set the system timezone by copying the appropriate zoneinfo file.
+    Set the system timezone by linking the appropriate zoneinfo file.
+
+    /etc/localtime is a symlink, the same way tzsetup(8) creates it. A copy
+    freezes the zone at setup time so tzdata updates never reach the system,
+    and tools that read the zone name from the link target see nothing set.
 
     Args:
         timezone: Timezone string (e.g., 'America/New_York', 'Europe/London')
 
     Raises:
         ValueError: If timezone is invalid, contains path traversal, or not found
-        RuntimeError: If timezone copy command fails
+        RuntimeError: If the timezone cannot be written
     """
     if not timezone:
         raise ValueError("Timezone cannot be empty")
@@ -341,13 +345,46 @@ def set_timezone(timezone: str) -> None:
     zoneinfo_path = f"/usr/share/zoneinfo/{timezone}"
     localtime_path = "/etc/localtime"
 
-    if not os.path.exists(zoneinfo_path):
+    if not os.path.isfile(zoneinfo_path):
         raise ValueError(f"Timezone '{timezone}' not found in /usr/share/zoneinfo/")
 
     try:
-        run(['cp', zoneinfo_path, localtime_path], check=True)
+        if os.path.lexists(localtime_path):
+            os.remove(localtime_path)
+        os.symlink(zoneinfo_path, localtime_path)
+        # Saved for tzsetup -r and for the login / lock screens
+        with open('/var/db/zoneinfo', 'w') as zoneinfo:
+            zoneinfo.write(f'{timezone}\n')
     except Exception as e:
         raise RuntimeError(f"Failed to set timezone '{timezone}': {e}") from e
+
+
+def set_utc_clock(utc: bool) -> None:
+    """
+    Record whether the hardware clock keeps UTC or local time.
+
+    The presence of /etc/wall_cmos_clock makes the kernel read the RTC as
+    local time, see adjkerntz(8). The image ships that file, so UTC means
+    removing it. adjkerntz -i applies the answer to the running system, so
+    the clock is right without a second reboot.
+
+    Args:
+        utc: True when the hardware clock keeps UTC
+
+    Raises:
+        RuntimeError: If the hardware clock mode cannot be set
+    """
+    wall_cmos_clock = "/etc/wall_cmos_clock"
+
+    try:
+        if utc:
+            if os.path.lexists(wall_cmos_clock):
+                os.remove(wall_cmos_clock)
+        else:
+            open(wall_cmos_clock, 'a').close()
+        run(['adjkerntz', '-i'], check=True)
+    except Exception as e:
+        raise RuntimeError(f"Failed to set the hardware clock mode: {e}") from e
 
 
 def set_admin_user(username: str, name: str, password: str, shell: str, homedir: str, hostname: str) -> None:
