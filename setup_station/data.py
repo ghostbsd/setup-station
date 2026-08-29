@@ -28,7 +28,8 @@ class SetupData:
     
     # Timezone configuration
     timezone: str = ""
-    
+    utc_clock: bool = True
+
     # Network configuration
     network_config: dict = {}
 
@@ -52,6 +53,7 @@ class SetupData:
         cls.keyboard_model = ""
         cls.keyboard_model_code = ""
         cls.timezone = ""
+        cls.utc_clock = True
         cls.network_config = {}
         cls.username = ""
         cls.user_fullname = ""

@@ -48,6 +48,7 @@ class TimeZone:
     citytreeView: Gtk.TreeView | None = None
     city_store: Gtk.TreeStore | None = None
     continenttree_selection: Gtk.TreeSelection | None = None
+    utc_check: Gtk.CheckButton | None = None
 
     @classmethod
     def continent_columns(cls, treeView: Gtk.TreeView) -> None:
@@ -100,6 +101,11 @@ class TimeZone:
                 SetupData.timezone = f'{cls.continent}/{cls.city}'
 
     @classmethod
+    def utc_selection(cls, check_button: Gtk.CheckButton) -> None:
+        """Handle the hardware clock selection."""
+        SetupData.utc_clock = check_button.get_active()
+
+    @classmethod
     def apply_timezone(cls) -> None:
         """
         Apply timezone configuration to the system.
@@ -112,6 +118,17 @@ class TimeZone:
         if not SetupData.timezone:
             raise ValueError("No timezone selected. Please select a continent and city.")
         set_timezone(SetupData.timezone)
+
+    @classmethod
+    def apply_utc_clock(cls) -> None:
+        """
+        Apply the hardware clock configuration to the system.
+
+        Raises:
+            RuntimeError: If the hardware clock mode cannot be set
+        """
+        from setup_station.system_calls import set_utc_clock
+        set_utc_clock(SetupData.utc_clock)
 
     @classmethod
     def _initialize_ui(cls) -> None:
@@ -164,6 +181,21 @@ class TimeZone:
         sw.add(cls.citytreeView)
         sw.show()
         hbox.pack_start(sw, True, True, 5)
+
+        # Unchecked writes /etc/wall_cmos_clock, see adjkerntz(8)
+        cls.utc_check = Gtk.CheckButton.new_with_label(
+            get_text('Hardware clock uses UTC (uncheck when dual-booting Windows)')
+        )
+        cls.utc_check.set_active(SetupData.utc_clock)
+        cls.utc_check.set_tooltip_text(
+            get_text(
+                'Windows keeps the hardware clock on local time. '
+                'Leave this checked on any other machine.'
+            )
+        )
+        cls.utc_check.connect("toggled", cls.utc_selection)
+        cls.utc_check.show()
+        box2.pack_start(cls.utc_check, False, False, 5)
 
     @classmethod
     def get_model(cls) -> Gtk.Box:
