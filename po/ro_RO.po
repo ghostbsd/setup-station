@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-13 15:41-0400\n"
+"POT-Creation-Date: 2026-08-30 09:15-0300\n"
 "PO-Revision-Date: 2025-11-25 08:34-0400\n"
 "Last-Translator: Eric Turgeon <EMAIL@ADDRESS>\n"
 "Language-Team: Romanian <translation-team-ro@lists.sourceforge.net>\n"
@@ -212,15 +212,15 @@ msgstr ""
 msgid "Show password"
 msgstr ""
 
-#: setup_station/setup_system.py:47
+#: setup_station/setup_system.py:46
 msgid "Setting system language"
 msgstr ""
 
-#: setup_station/setup_system.py:52
+#: setup_station/setup_system.py:51
 msgid "Setting keyboard layout"
 msgstr ""
 
-#: setup_station/setup_system.py:57
+#: setup_station/setup_system.py:56
 msgid "Setting timezone"
 msgstr ""
 
@@ -233,7 +233,7 @@ msgid "Enabling display manager"
 msgstr ""
 
 #: setup_station/setup_system.py:72
-msgid "Removing system setup autologin"
+msgid "Disabling first boot setup"
 msgstr ""
 
 #: setup_station/setup_system.py:77
@@ -248,22 +248,32 @@ msgstr ""
 msgid "Starting the login screen..."
 msgstr ""
 
-#: setup_station/setup_system.py:104
+#: setup_station/setup_system.py:101
 msgid "Getting everything ready"
 msgstr ""
 
-#: setup_station/setup_system.py:116
+#: setup_station/setup_system.py:113
 msgid "Setting up your system."
 msgstr ""
 
-#: setup_station/setup_system.py:118
+#: setup_station/setup_system.py:115
 msgid "Please do not turn off your computer."
 msgstr ""
 
-#: setup_station/timezone.py:57
+#: setup_station/timezone.py:58
 msgid "Continent"
 msgstr ""
 
-#: setup_station/timezone.py:69
+#: setup_station/timezone.py:70
 msgid "City"
+msgstr ""
+
+#: setup_station/timezone.py:187
+msgid "Hardware clock uses UTC (uncheck when dual-booting Windows)"
+msgstr ""
+
+#: setup_station/timezone.py:192
+msgid ""
+"Windows keeps the hardware clock on local time. Leave this checked on any "
+"other machine."
 msgstr ""
