@@ -517,10 +517,6 @@ def disable_initial_setup() -> None:
     try:
         if os.path.exists('/etc/rc.conf.d/initial_setup'):
             os.remove('/etc/rc.conf.d/initial_setup')
-
-        # The variable is absent from rc.conf on current installs, and sysrc
-        # exits non-zero in that case, so this is deliberately unchecked.
-        run(['sysrc', '-qx', 'initial_setup_enable'])
     except Exception as e:
         raise RuntimeError(f"Failed to disable initial setup: {e}") from e
 
