@@ -39,7 +39,7 @@ def setup_system(progress_bar: Gtk.ProgressBar) -> None:
     from setup_station.add_admin import AddAdminUser
     from setup_station.system_calls import (
         enable_lightdm,
-        remove_ghostbsd_autologin
+        disable_initial_setup
     )
 
     # Step 0/6: Setting system language
@@ -68,9 +68,9 @@ def setup_system(progress_bar: Gtk.ProgressBar) -> None:
     enable_lightdm()
     sleep(1)
 
-    # Step 5/6: Removing system setup autologin
-    GLib.idle_add(update_progress, progress_bar, 5/6, get_text("Removing system setup autologin"))
-    remove_ghostbsd_autologin()
+    # Step 5/6: Disabling first boot setup
+    GLib.idle_add(update_progress, progress_bar, 5/6, get_text("Disabling first boot setup"))
+    disable_initial_setup()
     sleep(1)
 
     # Step 6/6: Setup complete

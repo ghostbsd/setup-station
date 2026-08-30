@@ -503,28 +503,21 @@ def start_lightdm() -> None:
     Popen(['service', 'lightdm', 'start'])
 
 
-def remove_ghostbsd_autologin() -> None:
+def disable_initial_setup() -> None:
     """
-    Remove GhostBSD live user autologin configuration.
+    Disable the initial_setup service so it does not run again on next boot.
 
-    This function:
-    1. Removes ghostbsd user references from /etc/gettytab
-    2. Replaces ghostbsd with Pc (standard getty) in /etc/ttys for ttyv0
-
-    These changes disable the live system's autologin feature and restore
-    normal terminal login behavior.
+    The installer enables the service by writing /etc/rc.conf.d/initial_setup.
+    Older installs set initial_setup_enable in /etc/rc.conf instead, so clear
+    both locations.
 
     Raises:
-        IOError: If file operations fail
-        RuntimeError: If sed command fails
+        RuntimeError: If the service cannot be disabled
     """
     try:
-        # Remove ghostbsd entries from /etc/gettytab
-        run(['sed', '-i', '', '/ghostbsd/d', '/etc/gettytab'], check=True)
-
-        # Replace ghostbsd with Pc in /etc/ttys for ttyv0
-        run(['sed', '-i', '', '/ttyv0/s/ghostbsd/Pc/g', '/etc/ttys'], check=True)
+        if os.path.exists('/etc/rc.conf.d/initial_setup'):
+            os.remove('/etc/rc.conf.d/initial_setup')
     except Exception as e:
-        raise RuntimeError(f"Failed to remove ghostbsd autologin configuration: {e}") from e
+        raise RuntimeError(f"Failed to disable initial setup: {e}") from e
 
 

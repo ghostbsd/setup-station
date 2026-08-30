@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-13 15:41-0400\n"
+"POT-Creation-Date: 2026-08-30 09:15-0300\n"
 "PO-Revision-Date: 2025-11-25 08:34-0400\n"
 "Last-Translator: Eric Turgeon <EMAIL@ADDRESS>\n"
 "Language-Team: French <traduc@traduc.org>\n"
@@ -213,15 +213,15 @@ msgstr "Mot de passe :"
 msgid "Show password"
 msgstr "Afficher le mot de passe"
 
-#: setup_station/setup_system.py:47
+#: setup_station/setup_system.py:46
 msgid "Setting system language"
 msgstr "Configuration de la langue du système"
 
-#: setup_station/setup_system.py:52
+#: setup_station/setup_system.py:51
 msgid "Setting keyboard layout"
 msgstr "Configuration de la disposition du clavier"
 
-#: setup_station/setup_system.py:57
+#: setup_station/setup_system.py:56
 msgid "Setting timezone"
 msgstr "Configuration du fuseau horaire"
 
@@ -234,8 +234,8 @@ msgid "Enabling display manager"
 msgstr "Activation du gestionnaire d'affichage"
 
 #: setup_station/setup_system.py:72
-msgid "Removing system setup autologin"
-msgstr "Suppression de la connexion automatique de configuration"
+msgid "Disabling first boot setup"
+msgstr "Désactivation de la configuration au premier démarrage"
 
 #: setup_station/setup_system.py:77
 msgid "Setup complete!"
@@ -249,25 +249,42 @@ msgstr "Configuration terminée."
 msgid "Starting the login screen..."
 msgstr "Démarrage de l'écran de connexion..."
 
-#: setup_station/setup_system.py:104
+#: setup_station/setup_system.py:101
 msgid "Getting everything ready"
 msgstr "Préparation en cours"
 
-#: setup_station/setup_system.py:116
+#: setup_station/setup_system.py:113
 msgid "Setting up your system."
 msgstr "Configuration de votre système."
 
-#: setup_station/setup_system.py:118
+#: setup_station/setup_system.py:115
 msgid "Please do not turn off your computer."
 msgstr "Veuillez ne pas éteindre votre ordinateur."
 
-#: setup_station/timezone.py:57
+#: setup_station/timezone.py:58
 msgid "Continent"
 msgstr "Continent"
 
-#: setup_station/timezone.py:69
+#: setup_station/timezone.py:70
 msgid "City"
 msgstr "Ville"
+
+#: setup_station/timezone.py:187
+msgid "Hardware clock uses UTC (uncheck when dual-booting Windows)"
+msgstr ""
+"L'horloge matérielle utilise UTC (décochez en cas de double amorçage avec "
+"Windows)"
+
+#: setup_station/timezone.py:192
+msgid ""
+"Windows keeps the hardware clock on local time. Leave this checked on any "
+"other machine."
+msgstr ""
+"Windows conserve l'horloge matérielle à l'heure locale. Laissez cette option "
+"cochée sur toute autre machine."
+
+#~ msgid "Removing system setup autologin"
+#~ msgstr "Suppression de la connexion automatique de configuration"
 
 #~ msgid "This should not take too long."
 #~ msgstr "Cela ne devrait pas prendre trop de temps."
