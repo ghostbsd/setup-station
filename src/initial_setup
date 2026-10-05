@@ -14,10 +14,15 @@ stop_cmd=":"
 
 initial_setup_start()
 {
-    # Create .xinitrc for root to run setup
+    HOME=/root dbus-run-session -- \
+        gsettings set org.mate.session required-components-list "['windowmanager']"
+    HOME=/root dbus-run-session -- \
+        gsettings set org.mate.background show-desktop-icons false
+
+    mkdir -p /root/.setup-station-autostart
+
     cat > /root/.xinitrc <<'EOF'
-exec marco &
-exec feh --bg-fill /usr/local/share/backgrounds/ghostbsd/blue-layered-stripes.jpg &
+ck-launch-session mate-session --autostart=/root/.setup-station-autostart &
 exec setup-station-init
 EOF
     chmod 755 /root/.xinitrc
@@ -25,8 +30,13 @@ EOF
     # Start X as root - this will block until setup-station-init exits
     su -l root -c "startx -- :0 vt09"
 
-    # Cleanup
     rm -f /root/.xinitrc
+    rmdir /root/.setup-station-autostart
+
+    HOME=/root dbus-run-session -- \
+        gsettings reset org.mate.session required-components-list
+    HOME=/root dbus-run-session -- \
+        gsettings reset org.mate.background show-desktop-icons
 }
 
 load_rc_config $name
