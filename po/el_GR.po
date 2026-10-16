@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-16 18:05-0300\n"
+"POT-Creation-Date: 2026-10-16 18:51-0300\n"
 "PO-Revision-Date: 2025-11-25 08:34-0400\n"
 "Last-Translator: Eric Turgeon <EMAIL@ADDRESS>\n"
 "Language-Team: Greek <team@lists.gnome.gr>\n"
@@ -19,266 +19,343 @@ msgstr ""
 
 #: setup_station/add_admin.py:132
 msgid "The initial root password will be set to the admin user password."
-msgstr ""
+msgstr "Ο αρχικός κωδικός του root θα είναι ο κωδικός του διαχειριστή."
 
 #: setup_station/add_admin.py:214 setup_station/common.py:119
 msgid "Password not allowed"
-msgstr ""
+msgstr "Ο κωδικός δεν επιτρέπεται"
 
 #: setup_station/add_admin.py:214 setup_station/common.py:121
 msgid "Space not allowed"
-msgstr ""
+msgstr "Δεν επιτρέπονται κενά"
 
 #: setup_station/add_users.py:57
 msgid "User Setup"
-msgstr ""
+msgstr "Ρύθμιση χρήστη"
 
 #: setup_station/add_users.py:68
 msgid "User Account"
-msgstr ""
+msgstr "Λογαριασμός χρήστη"
 
 #: setup_station/add_users.py:71
 msgid "User name"
-msgstr ""
+msgstr "Όνομα χρήστη"
 
 #: setup_station/add_users.py:73
 msgid "Real name"
-msgstr ""
+msgstr "Πλήρες όνομα"
 
 #: setup_station/add_users.py:76
 msgid "Password"
-msgstr ""
+msgstr "Κωδικός πρόσβασης"
 
 #: setup_station/add_users.py:80
 msgid "Verify Password"
-msgstr ""
+msgstr "Επιβεβαίωση κωδικού"
 
 #: setup_station/add_users.py:84
 msgid "Shell"
-msgstr ""
+msgstr "Κέλυφος"
 
 #: setup_station/add_users.py:97
 msgid "Set Hostname"
-msgstr ""
+msgstr "Ορισμός ονόματος υπολογιστή"
 
 #: setup_station/add_users.py:102
 msgid "Hostname"
-msgstr ""
+msgstr "Όνομα υπολογιστή"
 
 #: setup_station/common.py:138
 msgid "Very Weak"
-msgstr ""
+msgstr "Πολύ αδύναμος"
 
 #: setup_station/common.py:139 setup_station/common.py:142
 msgid "Fairly Weak"
-msgstr ""
+msgstr "Αρκετά αδύναμος"
 
 #: setup_station/common.py:140 setup_station/common.py:143
 #: setup_station/common.py:146
 msgid "Weak"
-msgstr ""
+msgstr "Αδύναμος"
 
 #: setup_station/common.py:141 setup_station/common.py:144
 #: setup_station/common.py:147 setup_station/common.py:150
 msgid "Strong"
-msgstr ""
+msgstr "Ισχυρός"
 
 #: setup_station/common.py:145 setup_station/common.py:148
 #: setup_station/common.py:151
 msgid "Fairly Strong"
-msgstr ""
+msgstr "Αρκετά ισχυρός"
 
 #: setup_station/common.py:149 setup_station/common.py:152
 msgid "Very Strong"
-msgstr ""
+msgstr "Πολύ ισχυρός"
 
 #: setup_station/interface_controller.py:22
 #: setup_station/interface_controller.py:31
 msgid "Back"
-msgstr ""
+msgstr "Πίσω"
 
 #: setup_station/interface_controller.py:24
 #: setup_station/interface_controller.py:32
 msgid "Next"
-msgstr ""
+msgstr "Επόμενο"
 
 #: setup_station/interface_controller.py:118 setup_station/language.py:104
 msgid "GhostBSD Initial Setup"
-msgstr ""
+msgstr "Αρχική ρύθμιση του GhostBSD"
 
 #: setup_station/interface_controller.py:119 setup_station/language.py:102
 #: setup_station/language.py:119
 msgid "Language"
-msgstr ""
+msgstr "Γλώσσα"
 
 #: setup_station/interface_controller.py:131
 msgid "Button"
-msgstr ""
+msgstr "Κουμπί"
 
 #: setup_station/interface_controller.py:155
 msgid "Keyboard"
-msgstr ""
+msgstr "Πληκτρολόγιο"
 
 #: setup_station/interface_controller.py:168
 msgid "Time Zone"
-msgstr ""
+msgstr "Ζώνη ώρας"
 
 #: setup_station/interface_controller.py:180
 msgid "Network"
-msgstr ""
+msgstr "Δίκτυο"
 
 #: setup_station/interface_controller.py:192
 msgid "Admin User"
-msgstr ""
+msgstr "Διαχειριστής"
 
 #: setup_station/interface_controller.py:204
 msgid "Setup GhostBSD"
-msgstr ""
+msgstr "Ρύθμιση του GhostBSD"
 
 #: setup_station/interface_controller.py:213
 msgid "Progress Bar"
-msgstr ""
+msgstr "Γραμμή προόδου"
 
 #: setup_station/keyboard.py:41
 msgid "Type here to test your keyboard"
-msgstr ""
+msgstr "Πληκτρολογήστε εδώ για να δοκιμάσετε το πληκτρολόγιο"
 
 #: setup_station/keyboard.py:96
 msgid "Keyboard Layout"
-msgstr ""
+msgstr "Διάταξη πληκτρολογίου"
 
 #: setup_station/keyboard.py:108
 msgid "Keyboard Models"
-msgstr ""
+msgstr "Μοντέλα πληκτρολογίου"
 
 #: setup_station/language.py:96 setup_station/language.py:162
 msgid "Please select your language:"
-msgstr ""
+msgstr "Επιλέξτε τη γλώσσα σας:"
 
-#: setup_station/network_setup.py:113 setup_station/network_setup.py:168
+#: setup_station/network_setup.py:154
 msgid "Network card connected to the internet"
-msgstr ""
+msgstr "Η κάρτα δικτύου είναι συνδεδεμένη στο διαδίκτυο"
 
-#: setup_station/network_setup.py:118 setup_station/network_setup.py:173
+#: setup_station/network_setup.py:160
 msgid "Network card not connected to the internet"
-msgstr ""
+msgstr "Η κάρτα δικτύου δεν είναι συνδεδεμένη στο διαδίκτυο"
 
-#: setup_station/network_setup.py:121 setup_station/network_setup.py:176
+#: setup_station/network_setup.py:163
 msgid "No network card detected"
-msgstr ""
+msgstr "Δεν εντοπίστηκε κάρτα δικτύου"
 
-#: setup_station/network_setup.py:129 setup_station/network_setup.py:184
+#: setup_station/network_setup.py:172
 msgid "WiFi card detected and connected to an access point"
-msgstr ""
+msgstr "Εντοπίστηκε κάρτα Wi-Fi συνδεδεμένη σε σημείο πρόσβασης"
 
-#: setup_station/network_setup.py:133 setup_station/network_setup.py:188
+#: setup_station/network_setup.py:176
 msgid "WiFi card detected but not connected to an access point"
 msgstr ""
+"Εντοπίστηκε κάρτα Wi-Fi, αλλά δεν είναι συνδεδεμένη σε σημείο πρόσβασης"
 
-#: setup_station/network_setup.py:136 setup_station/network_setup.py:191
+#: setup_station/network_setup.py:179
 msgid "WiFi card not detected or not supported"
-msgstr ""
+msgstr "Η κάρτα Wi-Fi δεν εντοπίστηκε ή δεν υποστηρίζεται"
 
-#: setup_station/network_setup.py:210
-msgid "Stat"
-msgstr ""
+#: setup_station/network_setup.py:201 setup_station/network_setup.py:270
+msgid "Rescan"
+msgstr "Νέα αναζήτηση"
 
-#: setup_station/network_setup.py:215
-msgid "SSID"
-msgstr ""
-
-#: setup_station/network_setup.py:290 setup_station/network_setup.py:426
+#: setup_station/network_setup.py:397
 #, python-brace-format
-msgid "Could not connect to {ssid}"
-msgstr ""
+msgid "Connecting to {ssid}..."
+msgstr "Σύνδεση στο {ssid}..."
 
-#: setup_station/network_setup.py:372
+#: setup_station/network_setup.py:429
 #, python-brace-format
 msgid "Connected to {ssid}, but it could not be saved"
-msgstr ""
+msgstr "Συνδέθηκε στο {ssid}, αλλά δεν ήταν δυνατή η αποθήκευση του δικτύου"
 
-#: setup_station/network_setup.py:414
-msgid "WiFi Network Authentication Required"
-msgstr ""
+#: setup_station/network_setup.py:480 setup_station/network_setup.py:518
+#: setup_station/network_setup.py:689
+#, python-brace-format
+msgid "Could not connect to {ssid}"
+msgstr "Δεν ήταν δυνατή η σύνδεση στο {ssid}"
 
-#: setup_station/network_setup.py:428
-msgid "Authentication required by"
-msgstr ""
+#: setup_station/network_setup.py:505
+msgid "Wi-Fi Network Authentication Required"
+msgstr "Απαιτείται πιστοποίηση δικτύου Wi-Fi"
 
-#: setup_station/network_setup.py:428
-msgid "Wi-Fi Network"
-msgstr ""
+#: setup_station/network_setup.py:520
+#, python-brace-format
+msgid "Authentication required by {ssid} Wi-Fi Network"
+msgstr "Το δίκτυο Wi-Fi {ssid} απαιτεί πιστοποίηση"
 
-#: setup_station/network_setup.py:431
+#: setup_station/network_setup.py:523 setup_station/network_setup.py:741
 msgid "Password:"
-msgstr ""
+msgstr "Κωδικός πρόσβασης:"
 
-#: setup_station/network_setup.py:434
+#: setup_station/network_setup.py:526
 msgid "Show password"
-msgstr ""
+msgstr "Εμφάνιση κωδικού"
+
+#: setup_station/network_setup.py:681
+msgid "Enterprise Wi-Fi Authentication"
+msgstr "Εταιρική πιστοποίηση Wi-Fi"
+
+#: setup_station/network_setup.py:691
+#, python-brace-format
+msgid "Enterprise Authentication for {ssid}"
+msgstr "Εταιρική πιστοποίηση για {ssid}"
+
+#: setup_station/network_setup.py:697
+#, python-brace-format
+msgid "Security: {security}"
+msgstr "Ασφάλεια: {security}"
+
+#: setup_station/network_setup.py:711
+msgid "EAP Method:"
+msgstr "Μέθοδος EAP:"
+
+#: setup_station/network_setup.py:720
+msgid "Inner Auth:"
+msgstr "Εσωτερική πιστοποίηση:"
+
+#: setup_station/network_setup.py:725
+msgid "Username:"
+msgstr "Όνομα χρήστη:"
+
+#: setup_station/network_setup.py:729
+msgid "Optional - for privacy"
+msgstr "Προαιρετικό, για ιδιωτικότητα"
+
+#: setup_station/network_setup.py:730
+msgid "Anonymous ID:"
+msgstr "Ανώνυμο αναγνωριστικό:"
+
+#: setup_station/network_setup.py:738
+msgid "Show"
+msgstr "Εμφάνιση"
+
+#: setup_station/network_setup.py:745
+msgid "Certificates (*.pem, *.crt, *.cer)"
+msgstr "Πιστοποιητικά (*.pem, *.crt, *.cer)"
+
+#: setup_station/network_setup.py:747
+msgid "Select CA Certificate"
+msgstr "Επιλογή πιστοποιητικού CA"
+
+#: setup_station/network_setup.py:752
+msgid "CA Certificate:"
+msgstr "Πιστοποιητικό CA:"
+
+#: setup_station/network_setup.py:757
+msgid "Select Client Certificate"
+msgstr "Επιλογή πιστοποιητικού πελάτη"
+
+#: setup_station/network_setup.py:760
+msgid "Client Cert:"
+msgstr "Πιστοπ. πελάτη:"
+
+#: setup_station/network_setup.py:765
+msgid "Select Private Key"
+msgstr "Επιλογή ιδιωτικού κλειδιού"
+
+#: setup_station/network_setup.py:766
+msgid "Key files (*.pem, *.key, *.p12)"
+msgstr "Αρχεία κλειδιών (*.pem, *.key, *.p12)"
+
+#: setup_station/network_setup.py:770
+msgid "Private Key:"
+msgstr "Ιδιωτικό κλειδί:"
+
+#: setup_station/network_setup.py:777
+msgid "Key Password:"
+msgstr "Κωδικός κλειδιού:"
 
 #: setup_station/setup_system.py:46
 msgid "Setting system language"
-msgstr ""
+msgstr "Ορισμός γλώσσας συστήματος"
 
 #: setup_station/setup_system.py:51
 msgid "Setting keyboard layout"
-msgstr ""
+msgstr "Ορισμός διάταξης πληκτρολογίου"
 
 #: setup_station/setup_system.py:56
 msgid "Setting timezone"
-msgstr ""
+msgstr "Ορισμός ζώνης ώρας"
 
 #: setup_station/setup_system.py:62
 msgid "Creating admin user"
-msgstr ""
+msgstr "Δημιουργία διαχειριστή"
 
 #: setup_station/setup_system.py:67
 msgid "Enabling display manager"
-msgstr ""
+msgstr "Ενεργοποίηση διαχειριστή οθόνης"
 
 #: setup_station/setup_system.py:72
 msgid "Disabling first boot setup"
-msgstr ""
+msgstr "Απενεργοποίηση ρύθμισης πρώτης εκκίνησης"
 
 #: setup_station/setup_system.py:77
 msgid "Setup complete!"
-msgstr ""
+msgstr "Η ρύθμιση ολοκληρώθηκε!"
 
 #: setup_station/setup_system.py:83
 msgid "Configuration complete."
-msgstr ""
+msgstr "Η διαμόρφωση ολοκληρώθηκε."
 
 #: setup_station/setup_system.py:85
 msgid "Starting the login screen..."
-msgstr ""
+msgstr "Εκκίνηση της οθόνης σύνδεσης..."
 
 #: setup_station/setup_system.py:101
 msgid "Getting everything ready"
-msgstr ""
+msgstr "Προετοιμασία"
 
 #: setup_station/setup_system.py:113
 msgid "Setting up your system."
-msgstr ""
+msgstr "Ρύθμιση του συστήματός σας."
 
 #: setup_station/setup_system.py:115
 msgid "Please do not turn off your computer."
-msgstr ""
+msgstr "Μην απενεργοποιήσετε τον υπολογιστή σας."
 
 #: setup_station/timezone.py:58
 msgid "Continent"
-msgstr ""
+msgstr "Ήπειρος"
 
 #: setup_station/timezone.py:70
 msgid "City"
-msgstr ""
+msgstr "Πόλη"
 
 #: setup_station/timezone.py:187
 msgid "Hardware clock uses UTC (uncheck when dual-booting Windows)"
 msgstr ""
+"Το ρολόι υλικού χρησιμοποιεί UTC (αποεπιλέξτε σε διπλή εκκίνηση με Windows)"
 
 #: setup_station/timezone.py:192
 msgid ""
 "Windows keeps the hardware clock on local time. Leave this checked on any "
 "other machine."
 msgstr ""
+"Τα Windows κρατούν το ρολόι υλικού σε τοπική ώρα. Αφήστε το επιλεγμένο σε "
+"κάθε άλλο υπολογιστή."

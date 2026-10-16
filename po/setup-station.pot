@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-16 18:05-0300\n"
+"POT-Creation-Date: 2026-10-16 18:51-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -155,66 +155,139 @@ msgstr ""
 msgid "Please select your language:"
 msgstr ""
 
-#: setup_station/network_setup.py:113 setup_station/network_setup.py:168
+#: setup_station/network_setup.py:154
 msgid "Network card connected to the internet"
 msgstr ""
 
-#: setup_station/network_setup.py:118 setup_station/network_setup.py:173
+#: setup_station/network_setup.py:160
 msgid "Network card not connected to the internet"
 msgstr ""
 
-#: setup_station/network_setup.py:121 setup_station/network_setup.py:176
+#: setup_station/network_setup.py:163
 msgid "No network card detected"
 msgstr ""
 
-#: setup_station/network_setup.py:129 setup_station/network_setup.py:184
+#: setup_station/network_setup.py:172
 msgid "WiFi card detected and connected to an access point"
 msgstr ""
 
-#: setup_station/network_setup.py:133 setup_station/network_setup.py:188
+#: setup_station/network_setup.py:176
 msgid "WiFi card detected but not connected to an access point"
 msgstr ""
 
-#: setup_station/network_setup.py:136 setup_station/network_setup.py:191
+#: setup_station/network_setup.py:179
 msgid "WiFi card not detected or not supported"
 msgstr ""
 
-#: setup_station/network_setup.py:210
-msgid "Stat"
+#: setup_station/network_setup.py:201 setup_station/network_setup.py:270
+msgid "Rescan"
 msgstr ""
 
-#: setup_station/network_setup.py:215
-msgid "SSID"
-msgstr ""
-
-#: setup_station/network_setup.py:290 setup_station/network_setup.py:426
+#: setup_station/network_setup.py:397
 #, python-brace-format
-msgid "Could not connect to {ssid}"
+msgid "Connecting to {ssid}..."
 msgstr ""
 
-#: setup_station/network_setup.py:372
+#: setup_station/network_setup.py:429
 #, python-brace-format
 msgid "Connected to {ssid}, but it could not be saved"
 msgstr ""
 
-#: setup_station/network_setup.py:414
-msgid "WiFi Network Authentication Required"
+#: setup_station/network_setup.py:480 setup_station/network_setup.py:518
+#: setup_station/network_setup.py:689
+#, python-brace-format
+msgid "Could not connect to {ssid}"
 msgstr ""
 
-#: setup_station/network_setup.py:428
-msgid "Authentication required by"
+#: setup_station/network_setup.py:505
+msgid "Wi-Fi Network Authentication Required"
 msgstr ""
 
-#: setup_station/network_setup.py:428
-msgid "Wi-Fi Network"
+#: setup_station/network_setup.py:520
+#, python-brace-format
+msgid "Authentication required by {ssid} Wi-Fi Network"
 msgstr ""
 
-#: setup_station/network_setup.py:431
+#: setup_station/network_setup.py:523 setup_station/network_setup.py:741
 msgid "Password:"
 msgstr ""
 
-#: setup_station/network_setup.py:434
+#: setup_station/network_setup.py:526
 msgid "Show password"
+msgstr ""
+
+#: setup_station/network_setup.py:681
+msgid "Enterprise Wi-Fi Authentication"
+msgstr ""
+
+#: setup_station/network_setup.py:691
+#, python-brace-format
+msgid "Enterprise Authentication for {ssid}"
+msgstr ""
+
+#: setup_station/network_setup.py:697
+#, python-brace-format
+msgid "Security: {security}"
+msgstr ""
+
+#: setup_station/network_setup.py:711
+msgid "EAP Method:"
+msgstr ""
+
+#: setup_station/network_setup.py:720
+msgid "Inner Auth:"
+msgstr ""
+
+#: setup_station/network_setup.py:725
+msgid "Username:"
+msgstr ""
+
+#: setup_station/network_setup.py:729
+msgid "Optional - for privacy"
+msgstr ""
+
+#: setup_station/network_setup.py:730
+msgid "Anonymous ID:"
+msgstr ""
+
+#: setup_station/network_setup.py:738
+msgid "Show"
+msgstr ""
+
+#: setup_station/network_setup.py:745
+msgid "Certificates (*.pem, *.crt, *.cer)"
+msgstr ""
+
+#: setup_station/network_setup.py:747
+msgid "Select CA Certificate"
+msgstr ""
+
+#: setup_station/network_setup.py:752
+msgid "CA Certificate:"
+msgstr ""
+
+#: setup_station/network_setup.py:757
+msgid "Select Client Certificate"
+msgstr ""
+
+#: setup_station/network_setup.py:760
+msgid "Client Cert:"
+msgstr ""
+
+#: setup_station/network_setup.py:765
+msgid "Select Private Key"
+msgstr ""
+
+#: setup_station/network_setup.py:766
+msgid "Key files (*.pem, *.key, *.p12)"
+msgstr ""
+
+#: setup_station/network_setup.py:770
+msgid "Private Key:"
+msgstr ""
+
+#: setup_station/network_setup.py:777
+msgid "Key Password:"
 msgstr ""
 
 #: setup_station/setup_system.py:46

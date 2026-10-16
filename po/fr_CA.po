@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-16 18:05-0300\n"
+"POT-Creation-Date: 2026-10-16 18:51-0300\n"
 "PO-Revision-Date: 2025-11-25 08:34-0400\n"
 "Last-Translator: Eric Turgeon <EMAIL@ADDRESS>\n"
 "Language-Team: French <traduc@traduc.org>\n"
@@ -20,8 +20,8 @@ msgstr ""
 #: setup_station/add_admin.py:132
 msgid "The initial root password will be set to the admin user password."
 msgstr ""
-"Le mot de passe root initial sera défini sur le mot de passe de "
-"l'utilisateur administrateur."
+"Le mot de passe root initial sera défini sur le mot de passe de l'utilisateur"
+" administrateur."
 
 #: setup_station/add_admin.py:214 setup_station/common.py:119
 msgid "Password not allowed"
@@ -157,67 +157,140 @@ msgstr "Modèles de clavier"
 msgid "Please select your language:"
 msgstr "Veuillez sélectionner votre langue :"
 
-#: setup_station/network_setup.py:113 setup_station/network_setup.py:168
+#: setup_station/network_setup.py:154
 msgid "Network card connected to the internet"
 msgstr "Carte réseau connectée à Internet"
 
-#: setup_station/network_setup.py:118 setup_station/network_setup.py:173
+#: setup_station/network_setup.py:160
 msgid "Network card not connected to the internet"
 msgstr "Carte réseau non connectée à Internet"
 
-#: setup_station/network_setup.py:121 setup_station/network_setup.py:176
+#: setup_station/network_setup.py:163
 msgid "No network card detected"
 msgstr "Aucune carte réseau détectée"
 
-#: setup_station/network_setup.py:129 setup_station/network_setup.py:184
+#: setup_station/network_setup.py:172
 msgid "WiFi card detected and connected to an access point"
 msgstr "Carte WiFi détectée et connectée à un point d'accès"
 
-#: setup_station/network_setup.py:133 setup_station/network_setup.py:188
+#: setup_station/network_setup.py:176
 msgid "WiFi card detected but not connected to an access point"
 msgstr "Carte WiFi détectée mais non connectée à un point d'accès"
 
-#: setup_station/network_setup.py:136 setup_station/network_setup.py:191
+#: setup_station/network_setup.py:179
 msgid "WiFi card not detected or not supported"
 msgstr "Carte WiFi non détectée ou non prise en charge"
 
-#: setup_station/network_setup.py:210
-msgid "Stat"
-msgstr "État"
+#: setup_station/network_setup.py:201 setup_station/network_setup.py:270
+msgid "Rescan"
+msgstr "Actualiser"
 
-#: setup_station/network_setup.py:215
-msgid "SSID"
-msgstr "SSID"
-
-#: setup_station/network_setup.py:290 setup_station/network_setup.py:426
+#: setup_station/network_setup.py:397
 #, python-brace-format
-msgid "Could not connect to {ssid}"
-msgstr ""
+msgid "Connecting to {ssid}..."
+msgstr "Connexion à {ssid}..."
 
-#: setup_station/network_setup.py:372
+#: setup_station/network_setup.py:429
 #, python-brace-format
 msgid "Connected to {ssid}, but it could not be saved"
-msgstr ""
+msgstr "Connecté à {ssid}, mais le réseau n'a pas pu être enregistré"
 
-#: setup_station/network_setup.py:414
-msgid "WiFi Network Authentication Required"
-msgstr "Authentification réseau WiFi requise"
+#: setup_station/network_setup.py:480 setup_station/network_setup.py:518
+#: setup_station/network_setup.py:689
+#, python-brace-format
+msgid "Could not connect to {ssid}"
+msgstr "Impossible de se connecter à {ssid}"
 
-#: setup_station/network_setup.py:428
-msgid "Authentication required by"
-msgstr "Authentification requise par"
+#: setup_station/network_setup.py:505
+msgid "Wi-Fi Network Authentication Required"
+msgstr "Authentification du réseau Wi-Fi requise"
 
-#: setup_station/network_setup.py:428
-msgid "Wi-Fi Network"
-msgstr "Réseau Wi-Fi"
+#: setup_station/network_setup.py:520
+#, python-brace-format
+msgid "Authentication required by {ssid} Wi-Fi Network"
+msgstr "Le réseau Wi-Fi {ssid} requiert une authentification"
 
-#: setup_station/network_setup.py:431
+#: setup_station/network_setup.py:523 setup_station/network_setup.py:741
 msgid "Password:"
 msgstr "Mot de passe :"
 
-#: setup_station/network_setup.py:434
+#: setup_station/network_setup.py:526
 msgid "Show password"
 msgstr "Afficher le mot de passe"
+
+#: setup_station/network_setup.py:681
+msgid "Enterprise Wi-Fi Authentication"
+msgstr "Authentification Wi-Fi entreprise"
+
+#: setup_station/network_setup.py:691
+#, python-brace-format
+msgid "Enterprise Authentication for {ssid}"
+msgstr "Authentification entreprise pour {ssid}"
+
+#: setup_station/network_setup.py:697
+#, python-brace-format
+msgid "Security: {security}"
+msgstr "Sécurité : {security}"
+
+#: setup_station/network_setup.py:711
+msgid "EAP Method:"
+msgstr "Méthode EAP :"
+
+#: setup_station/network_setup.py:720
+msgid "Inner Auth:"
+msgstr "Auth. interne :"
+
+#: setup_station/network_setup.py:725
+msgid "Username:"
+msgstr "Nom d'utilisateur :"
+
+#: setup_station/network_setup.py:729
+msgid "Optional - for privacy"
+msgstr "Facultatif, pour la confidentialité"
+
+#: setup_station/network_setup.py:730
+msgid "Anonymous ID:"
+msgstr "Identité anonyme :"
+
+#: setup_station/network_setup.py:738
+msgid "Show"
+msgstr "Afficher"
+
+#: setup_station/network_setup.py:745
+msgid "Certificates (*.pem, *.crt, *.cer)"
+msgstr "Certificats (*.pem, *.crt, *.cer)"
+
+#: setup_station/network_setup.py:747
+msgid "Select CA Certificate"
+msgstr "Choisir le certificat CA"
+
+#: setup_station/network_setup.py:752
+msgid "CA Certificate:"
+msgstr "Certificat CA :"
+
+#: setup_station/network_setup.py:757
+msgid "Select Client Certificate"
+msgstr "Choisir le certificat client"
+
+#: setup_station/network_setup.py:760
+msgid "Client Cert:"
+msgstr "Cert. client :"
+
+#: setup_station/network_setup.py:765
+msgid "Select Private Key"
+msgstr "Choisir la clé privée"
+
+#: setup_station/network_setup.py:766
+msgid "Key files (*.pem, *.key, *.p12)"
+msgstr "Fichiers de clé (*.pem, *.key, *.p12)"
+
+#: setup_station/network_setup.py:770
+msgid "Private Key:"
+msgstr "Clé privée :"
+
+#: setup_station/network_setup.py:777
+msgid "Key Password:"
+msgstr "Mot de passe de la clé :"
 
 #: setup_station/setup_system.py:46
 msgid "Setting system language"
@@ -289,8 +362,14 @@ msgstr ""
 "Windows conserve l'horloge matérielle à l'heure locale. Laissez cette option "
 "cochée sur toute autre machine."
 
-#~ msgid "Wi-Fi Network Authentication failed"
-#~ msgstr "Échec de l'authentification du réseau Wi-Fi"
+#~ msgid "Stat"
+#~ msgstr "État"
+
+#~ msgid "SSID"
+#~ msgstr "SSID"
+
+#~ msgid "Wi-Fi Network"
+#~ msgstr "Réseau Wi-Fi"
 
 #~ msgid "Removing system setup autologin"
 #~ msgstr "Suppression de la connexion automatique de configuration"

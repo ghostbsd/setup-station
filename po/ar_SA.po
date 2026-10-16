@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-16 18:05-0300\n"
+"POT-Creation-Date: 2026-10-16 18:51-0300\n"
 "PO-Revision-Date: 2025-11-25 08:34-0400\n"
 "Last-Translator: Eric Turgeon <EMAIL@ADDRESS>\n"
 "Language-Team: Arabic <(nothing)>\n"
@@ -18,266 +18,343 @@ msgstr ""
 
 #: setup_station/add_admin.py:132
 msgid "The initial root password will be set to the admin user password."
-msgstr ""
+msgstr "ستكون كلمة مرور root الأولية هي كلمة مرور المستخدم المسؤول."
 
 #: setup_station/add_admin.py:214 setup_station/common.py:119
 msgid "Password not allowed"
-msgstr ""
+msgstr "كلمة المرور غير مسموح بها"
 
 #: setup_station/add_admin.py:214 setup_station/common.py:121
 msgid "Space not allowed"
-msgstr ""
+msgstr "المسافات غير مسموح بها"
 
 #: setup_station/add_users.py:57
 msgid "User Setup"
-msgstr ""
+msgstr "إعداد المستخدم"
 
 #: setup_station/add_users.py:68
 msgid "User Account"
-msgstr ""
+msgstr "حساب المستخدم"
 
 #: setup_station/add_users.py:71
 msgid "User name"
-msgstr ""
+msgstr "اسم المستخدم"
 
 #: setup_station/add_users.py:73
 msgid "Real name"
-msgstr ""
+msgstr "الاسم الحقيقي"
 
 #: setup_station/add_users.py:76
 msgid "Password"
-msgstr ""
+msgstr "كلمة المرور"
 
 #: setup_station/add_users.py:80
 msgid "Verify Password"
-msgstr ""
+msgstr "تأكيد كلمة المرور"
 
 #: setup_station/add_users.py:84
 msgid "Shell"
-msgstr ""
+msgstr "الصدفة"
 
 #: setup_station/add_users.py:97
 msgid "Set Hostname"
-msgstr ""
+msgstr "تعيين اسم المضيف"
 
 #: setup_station/add_users.py:102
 msgid "Hostname"
-msgstr ""
+msgstr "اسم المضيف"
 
 #: setup_station/common.py:138
 msgid "Very Weak"
-msgstr ""
+msgstr "ضعيفة جدًا"
 
 #: setup_station/common.py:139 setup_station/common.py:142
 msgid "Fairly Weak"
-msgstr ""
+msgstr "ضعيفة نوعًا ما"
 
 #: setup_station/common.py:140 setup_station/common.py:143
 #: setup_station/common.py:146
 msgid "Weak"
-msgstr ""
+msgstr "ضعيفة"
 
 #: setup_station/common.py:141 setup_station/common.py:144
 #: setup_station/common.py:147 setup_station/common.py:150
 msgid "Strong"
-msgstr ""
+msgstr "قوية"
 
 #: setup_station/common.py:145 setup_station/common.py:148
 #: setup_station/common.py:151
 msgid "Fairly Strong"
-msgstr ""
+msgstr "قوية نوعًا ما"
 
 #: setup_station/common.py:149 setup_station/common.py:152
 msgid "Very Strong"
-msgstr ""
+msgstr "قوية جدًا"
 
 #: setup_station/interface_controller.py:22
 #: setup_station/interface_controller.py:31
 msgid "Back"
-msgstr ""
+msgstr "رجوع"
 
 #: setup_station/interface_controller.py:24
 #: setup_station/interface_controller.py:32
 msgid "Next"
-msgstr ""
+msgstr "التالي"
 
 #: setup_station/interface_controller.py:118 setup_station/language.py:104
 msgid "GhostBSD Initial Setup"
-msgstr ""
+msgstr "الإعداد الأولي لـ GhostBSD"
 
 #: setup_station/interface_controller.py:119 setup_station/language.py:102
 #: setup_station/language.py:119
 msgid "Language"
-msgstr ""
+msgstr "اللغة"
 
 #: setup_station/interface_controller.py:131
 msgid "Button"
-msgstr ""
+msgstr "زر"
 
 #: setup_station/interface_controller.py:155
 msgid "Keyboard"
-msgstr ""
+msgstr "لوحة المفاتيح"
 
 #: setup_station/interface_controller.py:168
 msgid "Time Zone"
-msgstr ""
+msgstr "المنطقة الزمنية"
 
 #: setup_station/interface_controller.py:180
 msgid "Network"
-msgstr ""
+msgstr "الشبكة"
 
 #: setup_station/interface_controller.py:192
 msgid "Admin User"
-msgstr ""
+msgstr "المستخدم المسؤول"
 
 #: setup_station/interface_controller.py:204
 msgid "Setup GhostBSD"
-msgstr ""
+msgstr "إعداد GhostBSD"
 
 #: setup_station/interface_controller.py:213
 msgid "Progress Bar"
-msgstr ""
+msgstr "شريط التقدّم"
 
 #: setup_station/keyboard.py:41
 msgid "Type here to test your keyboard"
-msgstr ""
+msgstr "اكتب هنا لاختبار لوحة المفاتيح"
 
 #: setup_station/keyboard.py:96
 msgid "Keyboard Layout"
-msgstr ""
+msgstr "تخطيط لوحة المفاتيح"
 
 #: setup_station/keyboard.py:108
 msgid "Keyboard Models"
-msgstr ""
+msgstr "طرازات لوحة المفاتيح"
 
 #: setup_station/language.py:96 setup_station/language.py:162
 msgid "Please select your language:"
-msgstr ""
+msgstr "يرجى اختيار لغتك:"
 
-#: setup_station/network_setup.py:113 setup_station/network_setup.py:168
+#: setup_station/network_setup.py:154
 msgid "Network card connected to the internet"
-msgstr ""
+msgstr "بطاقة الشبكة متصلة بالإنترنت"
 
-#: setup_station/network_setup.py:118 setup_station/network_setup.py:173
+#: setup_station/network_setup.py:160
 msgid "Network card not connected to the internet"
-msgstr ""
+msgstr "بطاقة الشبكة غير متصلة بالإنترنت"
 
-#: setup_station/network_setup.py:121 setup_station/network_setup.py:176
+#: setup_station/network_setup.py:163
 msgid "No network card detected"
-msgstr ""
+msgstr "لم يُعثر على بطاقة شبكة"
 
-#: setup_station/network_setup.py:129 setup_station/network_setup.py:184
+#: setup_station/network_setup.py:172
 msgid "WiFi card detected and connected to an access point"
-msgstr ""
+msgstr "عُثر على بطاقة Wi-Fi وهي متصلة بنقطة وصول"
 
-#: setup_station/network_setup.py:133 setup_station/network_setup.py:188
+#: setup_station/network_setup.py:176
 msgid "WiFi card detected but not connected to an access point"
-msgstr ""
+msgstr "عُثر على بطاقة Wi-Fi لكنها غير متصلة بنقطة وصول"
 
-#: setup_station/network_setup.py:136 setup_station/network_setup.py:191
+#: setup_station/network_setup.py:179
 msgid "WiFi card not detected or not supported"
-msgstr ""
+msgstr "لم يُعثر على بطاقة Wi-Fi أو أنها غير مدعومة"
 
-#: setup_station/network_setup.py:210
-msgid "Stat"
-msgstr ""
+#: setup_station/network_setup.py:201 setup_station/network_setup.py:270
+msgid "Rescan"
+msgstr "إعادة الفحص"
 
-#: setup_station/network_setup.py:215
-msgid "SSID"
-msgstr ""
-
-#: setup_station/network_setup.py:290 setup_station/network_setup.py:426
+#: setup_station/network_setup.py:397
 #, python-brace-format
-msgid "Could not connect to {ssid}"
-msgstr ""
+msgid "Connecting to {ssid}..."
+msgstr "جارٍ الاتصال بـ {ssid}..."
 
-#: setup_station/network_setup.py:372
+#: setup_station/network_setup.py:429
 #, python-brace-format
 msgid "Connected to {ssid}, but it could not be saved"
-msgstr ""
+msgstr "تم الاتصال بـ {ssid}، لكن تعذّر حفظ الشبكة"
 
-#: setup_station/network_setup.py:414
-msgid "WiFi Network Authentication Required"
-msgstr ""
+#: setup_station/network_setup.py:480 setup_station/network_setup.py:518
+#: setup_station/network_setup.py:689
+#, python-brace-format
+msgid "Could not connect to {ssid}"
+msgstr "تعذّر الاتصال بـ {ssid}"
 
-#: setup_station/network_setup.py:428
-msgid "Authentication required by"
-msgstr ""
+#: setup_station/network_setup.py:505
+msgid "Wi-Fi Network Authentication Required"
+msgstr "مطلوب مصادقة شبكة Wi-Fi"
 
-#: setup_station/network_setup.py:428
-msgid "Wi-Fi Network"
-msgstr ""
+#: setup_station/network_setup.py:520
+#, python-brace-format
+msgid "Authentication required by {ssid} Wi-Fi Network"
+msgstr "شبكة Wi-Fi {ssid} تتطلب المصادقة"
 
-#: setup_station/network_setup.py:431
+#: setup_station/network_setup.py:523 setup_station/network_setup.py:741
 msgid "Password:"
-msgstr ""
+msgstr "كلمة المرور:"
 
-#: setup_station/network_setup.py:434
+#: setup_station/network_setup.py:526
 msgid "Show password"
-msgstr ""
+msgstr "إظهار كلمة المرور"
+
+#: setup_station/network_setup.py:681
+msgid "Enterprise Wi-Fi Authentication"
+msgstr "مصادقة Wi-Fi للمؤسسات"
+
+#: setup_station/network_setup.py:691
+#, python-brace-format
+msgid "Enterprise Authentication for {ssid}"
+msgstr "مصادقة المؤسسات لـ {ssid}"
+
+#: setup_station/network_setup.py:697
+#, python-brace-format
+msgid "Security: {security}"
+msgstr "الأمان: {security}"
+
+#: setup_station/network_setup.py:711
+msgid "EAP Method:"
+msgstr "طريقة EAP:"
+
+#: setup_station/network_setup.py:720
+msgid "Inner Auth:"
+msgstr "المصادقة الداخلية:"
+
+#: setup_station/network_setup.py:725
+msgid "Username:"
+msgstr "اسم المستخدم:"
+
+#: setup_station/network_setup.py:729
+msgid "Optional - for privacy"
+msgstr "اختياري، لحماية الخصوصية"
+
+#: setup_station/network_setup.py:730
+msgid "Anonymous ID:"
+msgstr "المعرّف المجهول:"
+
+#: setup_station/network_setup.py:738
+msgid "Show"
+msgstr "إظهار"
+
+#: setup_station/network_setup.py:745
+msgid "Certificates (*.pem, *.crt, *.cer)"
+msgstr "الشهادات (*.pem, *.crt, *.cer)"
+
+#: setup_station/network_setup.py:747
+msgid "Select CA Certificate"
+msgstr "اختر شهادة CA"
+
+#: setup_station/network_setup.py:752
+msgid "CA Certificate:"
+msgstr "شهادة CA:"
+
+#: setup_station/network_setup.py:757
+msgid "Select Client Certificate"
+msgstr "اختر شهادة العميل"
+
+#: setup_station/network_setup.py:760
+msgid "Client Cert:"
+msgstr "شهادة العميل:"
+
+#: setup_station/network_setup.py:765
+msgid "Select Private Key"
+msgstr "اختر المفتاح الخاص"
+
+#: setup_station/network_setup.py:766
+msgid "Key files (*.pem, *.key, *.p12)"
+msgstr "ملفات المفاتيح (*.pem, *.key, *.p12)"
+
+#: setup_station/network_setup.py:770
+msgid "Private Key:"
+msgstr "المفتاح الخاص:"
+
+#: setup_station/network_setup.py:777
+msgid "Key Password:"
+msgstr "كلمة مرور المفتاح:"
 
 #: setup_station/setup_system.py:46
 msgid "Setting system language"
-msgstr ""
+msgstr "جارٍ تعيين لغة النظام"
 
 #: setup_station/setup_system.py:51
 msgid "Setting keyboard layout"
-msgstr ""
+msgstr "جارٍ تعيين تخطيط لوحة المفاتيح"
 
 #: setup_station/setup_system.py:56
 msgid "Setting timezone"
-msgstr ""
+msgstr "جارٍ تعيين المنطقة الزمنية"
 
 #: setup_station/setup_system.py:62
 msgid "Creating admin user"
-msgstr ""
+msgstr "جارٍ إنشاء المستخدم المسؤول"
 
 #: setup_station/setup_system.py:67
 msgid "Enabling display manager"
-msgstr ""
+msgstr "جارٍ تفعيل مدير العرض"
 
 #: setup_station/setup_system.py:72
 msgid "Disabling first boot setup"
-msgstr ""
+msgstr "جارٍ تعطيل إعداد الإقلاع الأول"
 
 #: setup_station/setup_system.py:77
 msgid "Setup complete!"
-msgstr ""
+msgstr "اكتمل الإعداد!"
 
 #: setup_station/setup_system.py:83
 msgid "Configuration complete."
-msgstr ""
+msgstr "اكتملت التهيئة."
 
 #: setup_station/setup_system.py:85
 msgid "Starting the login screen..."
-msgstr ""
+msgstr "جارٍ تشغيل شاشة تسجيل الدخول..."
 
 #: setup_station/setup_system.py:101
 msgid "Getting everything ready"
-msgstr ""
+msgstr "جارٍ تجهيز كل شيء"
 
 #: setup_station/setup_system.py:113
 msgid "Setting up your system."
-msgstr ""
+msgstr "جارٍ إعداد نظامك."
 
 #: setup_station/setup_system.py:115
 msgid "Please do not turn off your computer."
-msgstr ""
+msgstr "يرجى عدم إطفاء الحاسوب."
 
 #: setup_station/timezone.py:58
 msgid "Continent"
-msgstr ""
+msgstr "القارة"
 
 #: setup_station/timezone.py:70
 msgid "City"
-msgstr ""
+msgstr "المدينة"
 
 #: setup_station/timezone.py:187
 msgid "Hardware clock uses UTC (uncheck when dual-booting Windows)"
 msgstr ""
+"تستخدم ساعة العتاد التوقيت العالمي UTC (ألغِ التحديد عند الإقلاع المزدوج مع "
+"Windows)"
 
 #: setup_station/timezone.py:192
 msgid ""
 "Windows keeps the hardware clock on local time. Leave this checked on any "
 "other machine."
 msgstr ""
+"يضبط Windows ساعة العتاد على التوقيت المحلي. اترك الخيار محددًا على أي جهاز "
+"آخر."

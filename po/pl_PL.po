@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-16 18:05-0300\n"
+"POT-Creation-Date: 2026-10-16 18:51-0300\n"
 "PO-Revision-Date: 2025-11-25 08:34-0400\n"
 "Last-Translator: Eric Turgeon <EMAIL@ADDRESS>\n"
 "Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
@@ -15,271 +15,346 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
-"|| n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: setup_station/add_admin.py:132
 msgid "The initial root password will be set to the admin user password."
-msgstr ""
+msgstr "Początkowe hasło roota będzie takie samo jak hasło administratora."
 
 #: setup_station/add_admin.py:214 setup_station/common.py:119
 msgid "Password not allowed"
-msgstr ""
+msgstr "Niedozwolone hasło"
 
 #: setup_station/add_admin.py:214 setup_station/common.py:121
 msgid "Space not allowed"
-msgstr ""
+msgstr "Spacje są niedozwolone"
 
 #: setup_station/add_users.py:57
 msgid "User Setup"
-msgstr ""
+msgstr "Konfiguracja użytkownika"
 
 #: setup_station/add_users.py:68
 msgid "User Account"
-msgstr ""
+msgstr "Konto użytkownika"
 
 #: setup_station/add_users.py:71
 msgid "User name"
-msgstr ""
+msgstr "Nazwa użytkownika"
 
 #: setup_station/add_users.py:73
 msgid "Real name"
-msgstr ""
+msgstr "Imię i nazwisko"
 
 #: setup_station/add_users.py:76
 msgid "Password"
-msgstr ""
+msgstr "Hasło"
 
 #: setup_station/add_users.py:80
 msgid "Verify Password"
-msgstr ""
+msgstr "Potwierdź hasło"
 
 #: setup_station/add_users.py:84
 msgid "Shell"
-msgstr ""
+msgstr "Powłoka"
 
 #: setup_station/add_users.py:97
 msgid "Set Hostname"
-msgstr ""
+msgstr "Ustaw nazwę hosta"
 
 #: setup_station/add_users.py:102
 msgid "Hostname"
-msgstr ""
+msgstr "Nazwa hosta"
 
 #: setup_station/common.py:138
 msgid "Very Weak"
-msgstr ""
+msgstr "Bardzo słabe"
 
 #: setup_station/common.py:139 setup_station/common.py:142
 msgid "Fairly Weak"
-msgstr ""
+msgstr "Dość słabe"
 
 #: setup_station/common.py:140 setup_station/common.py:143
 #: setup_station/common.py:146
 msgid "Weak"
-msgstr ""
+msgstr "Słabe"
 
 #: setup_station/common.py:141 setup_station/common.py:144
 #: setup_station/common.py:147 setup_station/common.py:150
 msgid "Strong"
-msgstr ""
+msgstr "Silne"
 
 #: setup_station/common.py:145 setup_station/common.py:148
 #: setup_station/common.py:151
 msgid "Fairly Strong"
-msgstr ""
+msgstr "Dość silne"
 
 #: setup_station/common.py:149 setup_station/common.py:152
 msgid "Very Strong"
-msgstr ""
+msgstr "Bardzo silne"
 
 #: setup_station/interface_controller.py:22
 #: setup_station/interface_controller.py:31
 msgid "Back"
-msgstr ""
+msgstr "Wstecz"
 
 #: setup_station/interface_controller.py:24
 #: setup_station/interface_controller.py:32
 msgid "Next"
-msgstr ""
+msgstr "Dalej"
 
 #: setup_station/interface_controller.py:118 setup_station/language.py:104
 msgid "GhostBSD Initial Setup"
-msgstr ""
+msgstr "Wstępna konfiguracja GhostBSD"
 
 #: setup_station/interface_controller.py:119 setup_station/language.py:102
 #: setup_station/language.py:119
 msgid "Language"
-msgstr ""
+msgstr "Język"
 
 #: setup_station/interface_controller.py:131
 msgid "Button"
-msgstr ""
+msgstr "Przycisk"
 
 #: setup_station/interface_controller.py:155
 msgid "Keyboard"
-msgstr ""
+msgstr "Klawiatura"
 
 #: setup_station/interface_controller.py:168
 msgid "Time Zone"
-msgstr ""
+msgstr "Strefa czasowa"
 
 #: setup_station/interface_controller.py:180
 msgid "Network"
-msgstr ""
+msgstr "Sieć"
 
 #: setup_station/interface_controller.py:192
 msgid "Admin User"
-msgstr ""
+msgstr "Administrator"
 
 #: setup_station/interface_controller.py:204
 msgid "Setup GhostBSD"
-msgstr ""
+msgstr "Konfiguracja GhostBSD"
 
 #: setup_station/interface_controller.py:213
 msgid "Progress Bar"
-msgstr ""
+msgstr "Pasek postępu"
 
 #: setup_station/keyboard.py:41
 msgid "Type here to test your keyboard"
-msgstr ""
+msgstr "Pisz tutaj, aby przetestować klawiaturę"
 
 #: setup_station/keyboard.py:96
 msgid "Keyboard Layout"
-msgstr ""
+msgstr "Układ klawiatury"
 
 #: setup_station/keyboard.py:108
 msgid "Keyboard Models"
-msgstr ""
+msgstr "Modele klawiatury"
 
 #: setup_station/language.py:96 setup_station/language.py:162
 msgid "Please select your language:"
-msgstr ""
+msgstr "Wybierz język:"
 
-#: setup_station/network_setup.py:113 setup_station/network_setup.py:168
+#: setup_station/network_setup.py:154
 msgid "Network card connected to the internet"
-msgstr ""
+msgstr "Karta sieciowa połączona z internetem"
 
-#: setup_station/network_setup.py:118 setup_station/network_setup.py:173
+#: setup_station/network_setup.py:160
 msgid "Network card not connected to the internet"
-msgstr ""
+msgstr "Karta sieciowa niepołączona z internetem"
 
-#: setup_station/network_setup.py:121 setup_station/network_setup.py:176
+#: setup_station/network_setup.py:163
 msgid "No network card detected"
-msgstr ""
+msgstr "Nie wykryto karty sieciowej"
 
-#: setup_station/network_setup.py:129 setup_station/network_setup.py:184
+#: setup_station/network_setup.py:172
 msgid "WiFi card detected and connected to an access point"
-msgstr ""
+msgstr "Wykryto kartę Wi-Fi połączoną z punktem dostępu"
 
-#: setup_station/network_setup.py:133 setup_station/network_setup.py:188
+#: setup_station/network_setup.py:176
 msgid "WiFi card detected but not connected to an access point"
-msgstr ""
+msgstr "Wykryto kartę Wi-Fi, ale nie jest połączona z punktem dostępu"
 
-#: setup_station/network_setup.py:136 setup_station/network_setup.py:191
+#: setup_station/network_setup.py:179
 msgid "WiFi card not detected or not supported"
-msgstr ""
+msgstr "Nie wykryto karty Wi-Fi lub nie jest obsługiwana"
 
-#: setup_station/network_setup.py:210
-msgid "Stat"
-msgstr ""
+#: setup_station/network_setup.py:201 setup_station/network_setup.py:270
+msgid "Rescan"
+msgstr "Wyszukaj ponownie"
 
-#: setup_station/network_setup.py:215
-msgid "SSID"
-msgstr ""
-
-#: setup_station/network_setup.py:290 setup_station/network_setup.py:426
+#: setup_station/network_setup.py:397
 #, python-brace-format
-msgid "Could not connect to {ssid}"
-msgstr ""
+msgid "Connecting to {ssid}..."
+msgstr "Łączenie z {ssid}..."
 
-#: setup_station/network_setup.py:372
+#: setup_station/network_setup.py:429
 #, python-brace-format
 msgid "Connected to {ssid}, but it could not be saved"
-msgstr ""
+msgstr "Połączono z {ssid}, ale nie udało się zapisać sieci"
 
-#: setup_station/network_setup.py:414
-msgid "WiFi Network Authentication Required"
-msgstr ""
+#: setup_station/network_setup.py:480 setup_station/network_setup.py:518
+#: setup_station/network_setup.py:689
+#, python-brace-format
+msgid "Could not connect to {ssid}"
+msgstr "Nie można połączyć się z {ssid}"
 
-#: setup_station/network_setup.py:428
-msgid "Authentication required by"
-msgstr ""
+#: setup_station/network_setup.py:505
+msgid "Wi-Fi Network Authentication Required"
+msgstr "Wymagane uwierzytelnienie w sieci Wi-Fi"
 
-#: setup_station/network_setup.py:428
-msgid "Wi-Fi Network"
-msgstr ""
+#: setup_station/network_setup.py:520
+#, python-brace-format
+msgid "Authentication required by {ssid} Wi-Fi Network"
+msgstr "Sieć Wi-Fi {ssid} wymaga uwierzytelnienia"
 
-#: setup_station/network_setup.py:431
+#: setup_station/network_setup.py:523 setup_station/network_setup.py:741
 msgid "Password:"
-msgstr ""
+msgstr "Hasło:"
 
-#: setup_station/network_setup.py:434
+#: setup_station/network_setup.py:526
 msgid "Show password"
-msgstr ""
+msgstr "Pokaż hasło"
+
+#: setup_station/network_setup.py:681
+msgid "Enterprise Wi-Fi Authentication"
+msgstr "Uwierzytelnianie Wi-Fi w trybie Enterprise"
+
+#: setup_station/network_setup.py:691
+#, python-brace-format
+msgid "Enterprise Authentication for {ssid}"
+msgstr "Uwierzytelnianie Enterprise dla {ssid}"
+
+#: setup_station/network_setup.py:697
+#, python-brace-format
+msgid "Security: {security}"
+msgstr "Zabezpieczenia: {security}"
+
+#: setup_station/network_setup.py:711
+msgid "EAP Method:"
+msgstr "Metoda EAP:"
+
+#: setup_station/network_setup.py:720
+msgid "Inner Auth:"
+msgstr "Uwierz. wewnętrzne:"
+
+#: setup_station/network_setup.py:725
+msgid "Username:"
+msgstr "Nazwa użytkownika:"
+
+#: setup_station/network_setup.py:729
+msgid "Optional - for privacy"
+msgstr "Opcjonalne, dla prywatności"
+
+#: setup_station/network_setup.py:730
+msgid "Anonymous ID:"
+msgstr "Anonimowy identyfikator:"
+
+#: setup_station/network_setup.py:738
+msgid "Show"
+msgstr "Pokaż"
+
+#: setup_station/network_setup.py:745
+msgid "Certificates (*.pem, *.crt, *.cer)"
+msgstr "Certyfikaty (*.pem, *.crt, *.cer)"
+
+#: setup_station/network_setup.py:747
+msgid "Select CA Certificate"
+msgstr "Wybierz certyfikat CA"
+
+#: setup_station/network_setup.py:752
+msgid "CA Certificate:"
+msgstr "Certyfikat CA:"
+
+#: setup_station/network_setup.py:757
+msgid "Select Client Certificate"
+msgstr "Wybierz certyfikat klienta"
+
+#: setup_station/network_setup.py:760
+msgid "Client Cert:"
+msgstr "Cert. klienta:"
+
+#: setup_station/network_setup.py:765
+msgid "Select Private Key"
+msgstr "Wybierz klucz prywatny"
+
+#: setup_station/network_setup.py:766
+msgid "Key files (*.pem, *.key, *.p12)"
+msgstr "Pliki kluczy (*.pem, *.key, *.p12)"
+
+#: setup_station/network_setup.py:770
+msgid "Private Key:"
+msgstr "Klucz prywatny:"
+
+#: setup_station/network_setup.py:777
+msgid "Key Password:"
+msgstr "Hasło klucza:"
 
 #: setup_station/setup_system.py:46
 msgid "Setting system language"
-msgstr ""
+msgstr "Ustawianie języka systemu"
 
 #: setup_station/setup_system.py:51
 msgid "Setting keyboard layout"
-msgstr ""
+msgstr "Ustawianie układu klawiatury"
 
 #: setup_station/setup_system.py:56
 msgid "Setting timezone"
-msgstr ""
+msgstr "Ustawianie strefy czasowej"
 
 #: setup_station/setup_system.py:62
 msgid "Creating admin user"
-msgstr ""
+msgstr "Tworzenie administratora"
 
 #: setup_station/setup_system.py:67
 msgid "Enabling display manager"
-msgstr ""
+msgstr "Włączanie menedżera wyświetlania"
 
 #: setup_station/setup_system.py:72
 msgid "Disabling first boot setup"
-msgstr ""
+msgstr "Wyłączanie konfiguracji pierwszego uruchomienia"
 
 #: setup_station/setup_system.py:77
 msgid "Setup complete!"
-msgstr ""
+msgstr "Konfiguracja zakończona!"
 
 #: setup_station/setup_system.py:83
 msgid "Configuration complete."
-msgstr ""
+msgstr "Konfiguracja ukończona."
 
 #: setup_station/setup_system.py:85
 msgid "Starting the login screen..."
-msgstr ""
+msgstr "Uruchamianie ekranu logowania..."
 
 #: setup_station/setup_system.py:101
 msgid "Getting everything ready"
-msgstr ""
+msgstr "Przygotowywanie wszystkiego"
 
 #: setup_station/setup_system.py:113
 msgid "Setting up your system."
-msgstr ""
+msgstr "Konfigurowanie systemu."
 
 #: setup_station/setup_system.py:115
 msgid "Please do not turn off your computer."
-msgstr ""
+msgstr "Nie wyłączaj komputera."
 
 #: setup_station/timezone.py:58
 msgid "Continent"
-msgstr ""
+msgstr "Kontynent"
 
 #: setup_station/timezone.py:70
 msgid "City"
-msgstr ""
+msgstr "Miasto"
 
 #: setup_station/timezone.py:187
 msgid "Hardware clock uses UTC (uncheck when dual-booting Windows)"
 msgstr ""
+"Zegar sprzętowy używa UTC (odznacz przy dwusystemowym rozruchu z Windows)"
 
 #: setup_station/timezone.py:192
 msgid ""
 "Windows keeps the hardware clock on local time. Leave this checked on any "
 "other machine."
 msgstr ""
+"Windows ustawia zegar sprzętowy na czas lokalny. Na każdym innym komputerze "
+"pozostaw zaznaczone."
