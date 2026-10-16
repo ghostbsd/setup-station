@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-30 09:15-0300\n"
+"POT-Creation-Date: 2026-10-16 18:05-0300\n"
 "PO-Revision-Date: 2025-11-25 08:34-0400\n"
 "Last-Translator: Eric Turgeon <EMAIL@ADDRESS>\n"
 "Language-Team: Slovenian <translation-team-sl@lists.sourceforge.net>\n"
@@ -156,59 +156,65 @@ msgstr ""
 msgid "Please select your language:"
 msgstr ""
 
-#: setup_station/network_setup.py:100 setup_station/network_setup.py:155
+#: setup_station/network_setup.py:113 setup_station/network_setup.py:168
 msgid "Network card connected to the internet"
 msgstr ""
 
-#: setup_station/network_setup.py:105 setup_station/network_setup.py:160
+#: setup_station/network_setup.py:118 setup_station/network_setup.py:173
 msgid "Network card not connected to the internet"
 msgstr ""
 
-#: setup_station/network_setup.py:108 setup_station/network_setup.py:163
+#: setup_station/network_setup.py:121 setup_station/network_setup.py:176
 msgid "No network card detected"
 msgstr ""
 
-#: setup_station/network_setup.py:116 setup_station/network_setup.py:171
+#: setup_station/network_setup.py:129 setup_station/network_setup.py:184
 msgid "WiFi card detected and connected to an access point"
 msgstr ""
 
-#: setup_station/network_setup.py:120 setup_station/network_setup.py:175
+#: setup_station/network_setup.py:133 setup_station/network_setup.py:188
 msgid "WiFi card detected but not connected to an access point"
 msgstr ""
 
-#: setup_station/network_setup.py:123 setup_station/network_setup.py:178
+#: setup_station/network_setup.py:136 setup_station/network_setup.py:191
 msgid "WiFi card not detected or not supported"
 msgstr ""
 
-#: setup_station/network_setup.py:200
+#: setup_station/network_setup.py:210
 msgid "Stat"
 msgstr ""
 
-#: setup_station/network_setup.py:205
+#: setup_station/network_setup.py:215
 msgid "SSID"
 msgstr ""
 
-#: setup_station/network_setup.py:338
+#: setup_station/network_setup.py:290 setup_station/network_setup.py:426
+#, python-brace-format
+msgid "Could not connect to {ssid}"
+msgstr ""
+
+#: setup_station/network_setup.py:372
+#, python-brace-format
+msgid "Connected to {ssid}, but it could not be saved"
+msgstr ""
+
+#: setup_station/network_setup.py:414
 msgid "WiFi Network Authentication Required"
 msgstr ""
 
-#: setup_station/network_setup.py:350
-msgid "Wi-Fi Network Authentication failed"
-msgstr ""
-
-#: setup_station/network_setup.py:352
+#: setup_station/network_setup.py:428
 msgid "Authentication required by"
 msgstr ""
 
-#: setup_station/network_setup.py:352
+#: setup_station/network_setup.py:428
 msgid "Wi-Fi Network"
 msgstr ""
 
-#: setup_station/network_setup.py:355
+#: setup_station/network_setup.py:431
 msgid "Password:"
 msgstr ""
 
-#: setup_station/network_setup.py:358
+#: setup_station/network_setup.py:434
 msgid "Show password"
 msgstr ""
 
