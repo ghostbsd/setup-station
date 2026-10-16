@@ -8,10 +8,19 @@ import re
 import threading
 from time import sleep
 from NetworkMgr.net_api import (
-    networkdictionary,
-    connectToSsid,
-    delete_ssid_wpa_supplicant_config,
-    nic_status
+    network_dictionary,
+    scan_networks,
+    request_scan,
+    wait_for_daemon,
+    connect_to_ssid,
+    wait_for_connection,
+    enable_all_networks,
+    wpa_reconfigure,
+    wpa_save_config,
+    ssid_is_saved,
+    save_psk_network,
+    update_psk_network,
+    save_open_network
 )
 from setup_station.data import css_path, get_text
 
@@ -25,6 +34,9 @@ styleContext.add_provider_for_screen(
     Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
 )
 
+# wpa_cli scan returns at once, the results land a few seconds later.
+SCAN_WAIT = 4
+
 
 class NetworkSetup:
     """
@@ -35,6 +47,7 @@ class NetworkSetup:
     # Class variables for UI state
     vbox1: Gtk.Box | None = None
     network_info: dict | None = None
+    networks: dict = {}
     wire_connection_label: Gtk.Label | None = None
     wire_connection_image: Gtk.Image | None = None
     wifi_connection_label: Gtk.Label | None = None
@@ -132,7 +145,7 @@ class NetworkSetup:
 
         Detects network interfaces and creates the interface for wired/wireless setup.
         """
-        cls.network_info = networkdictionary()
+        cls.network_info = network_dictionary()
         print(cls.network_info)
         cls.vbox1 = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, homogeneous=False, spacing=0)
         cls.vbox1.show()
@@ -187,12 +200,9 @@ class NetworkSetup:
             sw.set_shadow_type(Gtk.ShadowType.ETCHED_IN)
             sw.set_policy(Gtk.PolicyType.AUTOMATIC, Gtk.PolicyType.AUTOMATIC)
             cls.store = Gtk.ListStore(GdkPixbuf.Pixbuf, str, str)
-            for ssid in cls.network_info['cards'][wlan_card]['info']:
-                ssid_info = cls.network_info['cards'][wlan_card]['info'][ssid]
-                bar = ssid_info[4]
-                stat = NetworkSetup.wifi_stat(bar)
-                pixbuf = Gtk.IconTheme.get_default().load_icon(stat, 32, 0)
-                cls.store.append([pixbuf, ssid, f'{ssid_info}'])
+            cls.networks = scan_networks(wlan_card)
+            cls.populate_ssid_list()
+            threading.Thread(target=cls.scan_and_refresh, args=(wlan_card,), daemon=True).start()
             treeview = Gtk.TreeView()
             treeview.set_model(cls.store)
             treeview.set_rules_hint(True)
@@ -224,6 +234,40 @@ class NetworkSetup:
         main_grid.attach(cls.connection_box, 1, 4, 10, 5)
 
     @classmethod
+    def populate_ssid_list(cls) -> None:
+        """Fill the access point list from the latest scan of the WiFi card."""
+        cls.store.clear()
+        for ssid, network in cls.networks.items():
+            stat = NetworkSetup.wifi_stat(network['signal'])
+            pixbuf = Gtk.IconTheme.get_default().load_icon(stat, 32, 0)
+            cls.store.append([pixbuf, ssid, network['security']])
+
+    @classmethod
+    def scan_and_refresh(cls, wifi_card: str) -> None:
+        """
+        Scan the WiFi card and hand the results to the UI thread.
+
+        The card may have an empty or stale scan table when the page opens.
+
+        Args:
+            wifi_card: Name of the wireless network interface
+        """
+        if wait_for_daemon(wifi_card) and request_scan(wifi_card):
+            sleep(SCAN_WAIT)
+        GLib.idle_add(cls.refresh_networks, scan_networks(wifi_card))
+
+    @classmethod
+    def refresh_networks(cls, networks: dict) -> None:
+        """
+        Show a new scan of the access points.
+
+        Args:
+            networks: Access points returned by scan_networks()
+        """
+        cls.networks = networks
+        cls.populate_ssid_list()
+
+    @classmethod
     def wifi_setup(cls, tree_selection: Gtk.TreeSelection, wifi_card: str) -> None:
         """
         Handle WiFi network selection from the list.
@@ -235,78 +279,110 @@ class NetworkSetup:
         model, treeiter = tree_selection.get_selected()
         if treeiter is not None:
             ssid = model[treeiter][1]
-            ssid_info = cls.network_info['cards'][wifi_card]['info'][ssid]
-            caps = ssid_info[6]
-            print(ssid)  # added the code to authenticate.
-            print(ssid_info)
-            if caps == 'E' or caps == 'ES':
-                if f'"{ssid}"' in open("/etc/wpa_supplicant.conf").read():
-                    cls.try_to_connect_to_ssid(ssid, ssid_info, wifi_card)
+            network = cls.networks[ssid]
+            # Drop whatever an abandoned attempt left unsaved in the daemon.
+            wpa_reconfigure(wifi_card)
+            if ssid_is_saved(ssid, wifi_card):
+                cls.connect_in_background(network, wifi_card)
+            elif network['security'] == 'OPEN':
+                if save_open_network(ssid, wifi_card) is None:
+                    cls.wifi_connection_label.set_label(
+                        get_text("Could not connect to {ssid}").format(ssid=ssid)
+                    )
+                    cls.wifi_connection_image.set_from_stock(Gtk.STOCK_NO, 5)
                 else:
-                    NetworkSetup.open_wpa_supplicant(ssid)
-                    cls.try_to_connect_to_ssid(ssid, ssid_info, wifi_card)
+                    cls.connect_in_background(network, wifi_card)
             else:
-                if f'"{ssid}"' in open('/etc/wpa_supplicant.conf').read():
-                    cls.try_to_connect_to_ssid(ssid, ssid_info, wifi_card)
-                else:
-                    cls.authentication(ssid_info, wifi_card, False)
+                cls.authentication(network, wifi_card, False)
 
     @classmethod
-    def add_to_wpa_supplicant(cls, _widget: Gtk.Widget, ssid_info: tuple, card: str) -> None:
+    def add_to_wpa_supplicant(cls, _widget: Gtk.Widget, network: dict, card: str) -> None:
         """
-        Add WiFi credentials to wpa_supplicant config and attempt connection.
+        Add WiFi credentials to wpa_supplicant and attempt connection.
 
         Args:
             _widget: Widget that triggered this callback
-            ssid_info: Tuple containing SSID information
+            network: Access point record from scan_networks()
             card: Name of the wireless network interface
         """
         pwd = cls.password.get_text()
-        NetworkSetup.setup_wpa_supplicant(ssid_info[0], ssid_info, pwd)
-        thr = threading.Thread(
-            target=cls.try_to_connect_to_ssid,
-            args=(ssid_info[0], ssid_info, card),
-            daemon=True
-        )
-        thr.start()
+        ssid = network['ssid']
         cls.window.hide()
+        wpa_reconfigure(card)
+        if ssid_is_saved(ssid, card):
+            stored = update_psk_network(ssid, pwd, card)
+        else:
+            stored = save_psk_network(ssid, network['security'], pwd, card) is not None
+        if stored:
+            cls.connect_in_background(network, card)
+        else:
+            cls.authentication(network, card, True)
 
     @classmethod
-    def try_to_connect_to_ssid(cls, ssid: str, ssid_info: tuple, card: str) -> None:
+    def connect_in_background(cls, network: dict, card: str) -> None:
+        """
+        Run the connection attempt off the GTK thread.
+
+        Args:
+            network: Access point record from scan_networks()
+            card: Name of the wireless network interface
+        """
+        threading.Thread(
+            target=cls.try_to_connect_to_ssid,
+            args=(network, card),
+            daemon=True
+        ).start()
+
+    @classmethod
+    def try_to_connect_to_ssid(cls, network: dict, card: str) -> None:
         """
         Attempt to connect to a WiFi network.
 
         Args:
-            ssid: SSID of the network
-            ssid_info: Tuple containing SSID information
+            network: Access point record from scan_networks()
             card: Name of the wireless network interface
         """
-        if connectToSsid(ssid, card) is False:
-            delete_ssid_wpa_supplicant_config(ssid)
-            GLib.idle_add(cls.restart_authentication, ssid_info, card)
+        ssid = network['ssid']
+        connected = connect_to_ssid(ssid, card) and wait_for_connection(card, ssid)
+        # select_network disabled every other saved network. Re-enable them
+        # before saving, or the file keeps them disabled for good.
+        enable_all_networks(card)
+        if connected:
+            saved = wpa_save_config(card)
+            GLib.idle_add(cls.connection_finished, network_dictionary(), ssid, saved)
         else:
-            for _ in list(range(30)):
-                if nic_status(card) == 'associated':
-                    cls.network_info = networkdictionary()
-                    print(cls.network_info)
-                    GLib.idle_add(cls.update_network_detection)
-                    break
-                sleep(1)
-            else:
-                delete_ssid_wpa_supplicant_config(ssid)
-                GLib.idle_add(cls.restart_authentication, ssid_info, card)
-        return
+            wpa_reconfigure(card)
+            GLib.idle_add(cls.restart_authentication, network, card)
 
     @classmethod
-    def restart_authentication(cls, ssid_info: tuple, card: str) -> None:
+    def connection_finished(cls, network_info: dict, ssid: str, saved: bool) -> None:
+        """
+        Show the new connection state once the card is connected.
+
+        Args:
+            network_info: Dictionary returned by network_dictionary()
+            ssid: SSID of the network
+            saved: False when wpa_supplicant.conf could not be written
+        """
+        cls.network_info = network_info
+        print(cls.network_info)
+        cls.update_network_detection()
+        if not saved:
+            cls.wifi_connection_label.set_label(
+                get_text("Connected to {ssid}, but it could not be saved").format(ssid=ssid)
+            )
+
+    @classmethod
+    def restart_authentication(cls, network: dict, card: str) -> None:
         """
         Restart authentication after failed connection attempt.
 
         Args:
-            ssid_info: Tuple containing SSID information
+            network: Access point record from scan_networks()
             card: Name of the wireless network interface
         """
-        cls.authentication(ssid_info, card, True)
+        if network['security'] != 'OPEN':
+            cls.authentication(network, card, True)
 
     @classmethod
     def on_check(cls, widget: Gtk.CheckButton) -> None:
@@ -322,12 +398,12 @@ class NetworkSetup:
             cls.password.set_visibility(False)
 
     @classmethod
-    def authentication(cls, ssid_info: tuple, card: str, failed: bool) -> str:
+    def authentication(cls, network: dict, card: str, failed: bool) -> str:
         """
         Display WiFi authentication dialog.
 
         Args:
-            ssid_info: Tuple containing SSID information
+            network: Access point record from scan_networks()
             card: Name of the wireless network interface
             failed: Whether previous authentication attempt failed
 
@@ -347,9 +423,9 @@ class NetworkSetup:
         box2.show()
         # Creating MBR or GPT drive
         if failed:
-            title = ssid_info[0] + " " + get_text("Wi-Fi Network Authentication failed")
+            title = get_text("Could not connect to {ssid}").format(ssid=network['ssid'])
         else:
-            title = get_text("Authentication required by") + " " + ssid_info[0] + " " + get_text("Wi-Fi Network")
+            title = get_text("Authentication required by") + " " + network['ssid'] + " " + get_text("Wi-Fi Network")
         label = Gtk.Label(label=f"<b><span size='large'>{title}</span></b>")
         label.set_use_markup(True)
         pwd_label = Gtk.Label(label=get_text("Password:"))
@@ -371,7 +447,7 @@ class NetworkSetup:
         cancel = Gtk.Button(stock=Gtk.STOCK_CANCEL)
         cancel.connect("clicked", cls.close)
         connect = Gtk.Button(stock=Gtk.STOCK_CONNECT)
-        connect.connect("clicked", cls.add_to_wpa_supplicant, ssid_info, card)
+        connect.connect("clicked", cls.add_to_wpa_supplicant, network, card)
         table = Gtk.Table(1, 2, True)
         table.set_col_spacings(10)
         table.attach(connect, 4, 5, 0, 1)
@@ -389,51 +465,3 @@ class NetworkSetup:
             _widget: Widget that triggered this callback
         """
         cls.window.hide()
-
-    @staticmethod
-    def setup_wpa_supplicant(ssid: str, ssid_info: tuple, pwd: str) -> None:
-        """
-        Write WiFi credentials to wpa_supplicant configuration.
-
-        Args:
-            ssid: SSID of the network
-            ssid_info: Tuple containing SSID security information
-            pwd: Password for the network
-        """
-        if 'RSN' in ssid_info[-1]:
-            ws = '\nnetwork={'
-            ws += f'\n ssid="{ssid}"'
-            ws += '\n key_mgmt=WPA-PSK'
-            ws += '\n proto=RSN'
-            ws += f'\n psk="{pwd}"\n'
-            ws += '}\n'
-        elif 'WPA' in ssid_info[-1]:
-            ws = '\nnetwork={'
-            ws += f'\n ssid="{ssid}"'
-            ws += '\n key_mgmt=WPA-PSK'
-            ws += '\n proto=WPA'
-            ws += f'\n psk="{pwd}"\n'
-            ws += '}\n'
-        else:
-            ws = '\nnetwork={'
-            ws += f'\n ssid="{ssid}"'
-            ws += '\n key_mgmt=NONE'
-            ws += '\n wep_tx_keyidx=0'
-            ws += f'\n wep_key0={pwd}\n'
-            ws += '}\n'
-        with open("/etc/wpa_supplicant.conf", 'a') as wsf:
-            wsf.writelines(ws)
-
-    @staticmethod
-    def open_wpa_supplicant(ssid: str) -> None:
-        """
-        Add open (no password) WiFi network to wpa_supplicant configuration.
-
-        Args:
-            ssid: SSID of the network
-        """
-        ws = '\nnetwork={'
-        ws += f'\n ssid="{ssid}"'
-        ws += '\n key_mgmt=NONE\n}\n'
-        with open("/etc/wpa_supplicant.conf", 'a') as wsf:
-            wsf.writelines(ws)
