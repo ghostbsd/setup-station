@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-30 09:15-0300\n"
+"POT-Creation-Date: 2026-10-16 18:51-0300\n"
 "PO-Revision-Date: 2025-11-25 08:34-0400\n"
 "Last-Translator: Eric Turgeon <EMAIL@ADDRESS>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
@@ -19,260 +19,341 @@ msgstr ""
 
 #: setup_station/add_admin.py:132
 msgid "The initial root password will be set to the admin user password."
-msgstr ""
+msgstr "Det första root-lösenordet blir samma som administratörens lösenord."
 
 #: setup_station/add_admin.py:214 setup_station/common.py:119
 msgid "Password not allowed"
-msgstr ""
+msgstr "Lösenordet är inte tillåtet"
 
 #: setup_station/add_admin.py:214 setup_station/common.py:121
 msgid "Space not allowed"
-msgstr ""
+msgstr "Mellanslag är inte tillåtet"
 
 #: setup_station/add_users.py:57
 msgid "User Setup"
-msgstr ""
+msgstr "Användarinställning"
 
 #: setup_station/add_users.py:68
 msgid "User Account"
-msgstr ""
+msgstr "Användarkonto"
 
 #: setup_station/add_users.py:71
 msgid "User name"
-msgstr ""
+msgstr "Användarnamn"
 
 #: setup_station/add_users.py:73
 msgid "Real name"
-msgstr ""
+msgstr "Fullständigt namn"
 
 #: setup_station/add_users.py:76
 msgid "Password"
-msgstr ""
+msgstr "Lösenord"
 
 #: setup_station/add_users.py:80
 msgid "Verify Password"
-msgstr ""
+msgstr "Bekräfta lösenord"
 
 #: setup_station/add_users.py:84
 msgid "Shell"
-msgstr ""
+msgstr "Skal"
 
 #: setup_station/add_users.py:97
 msgid "Set Hostname"
-msgstr ""
+msgstr "Ange värdnamn"
 
 #: setup_station/add_users.py:102
 msgid "Hostname"
-msgstr ""
+msgstr "Värdnamn"
 
 #: setup_station/common.py:138
 msgid "Very Weak"
-msgstr ""
+msgstr "Mycket svagt"
 
 #: setup_station/common.py:139 setup_station/common.py:142
 msgid "Fairly Weak"
-msgstr ""
+msgstr "Ganska svagt"
 
 #: setup_station/common.py:140 setup_station/common.py:143
 #: setup_station/common.py:146
 msgid "Weak"
-msgstr ""
+msgstr "Svagt"
 
 #: setup_station/common.py:141 setup_station/common.py:144
 #: setup_station/common.py:147 setup_station/common.py:150
 msgid "Strong"
-msgstr ""
+msgstr "Starkt"
 
 #: setup_station/common.py:145 setup_station/common.py:148
 #: setup_station/common.py:151
 msgid "Fairly Strong"
-msgstr ""
+msgstr "Ganska starkt"
 
 #: setup_station/common.py:149 setup_station/common.py:152
 msgid "Very Strong"
-msgstr ""
+msgstr "Mycket starkt"
 
 #: setup_station/interface_controller.py:22
 #: setup_station/interface_controller.py:31
 msgid "Back"
-msgstr ""
+msgstr "Tillbaka"
 
 #: setup_station/interface_controller.py:24
 #: setup_station/interface_controller.py:32
 msgid "Next"
-msgstr ""
+msgstr "Nästa"
 
 #: setup_station/interface_controller.py:118 setup_station/language.py:104
 msgid "GhostBSD Initial Setup"
-msgstr ""
+msgstr "Grundinställning av GhostBSD"
 
 #: setup_station/interface_controller.py:119 setup_station/language.py:102
 #: setup_station/language.py:119
 msgid "Language"
-msgstr ""
+msgstr "Språk"
 
 #: setup_station/interface_controller.py:131
 msgid "Button"
-msgstr ""
+msgstr "Knapp"
 
 #: setup_station/interface_controller.py:155
 msgid "Keyboard"
-msgstr ""
+msgstr "Tangentbord"
 
 #: setup_station/interface_controller.py:168
 msgid "Time Zone"
-msgstr ""
+msgstr "Tidszon"
 
 #: setup_station/interface_controller.py:180
 msgid "Network"
-msgstr ""
+msgstr "Nätverk"
 
 #: setup_station/interface_controller.py:192
 msgid "Admin User"
-msgstr ""
+msgstr "Administratör"
 
 #: setup_station/interface_controller.py:204
 msgid "Setup GhostBSD"
-msgstr ""
+msgstr "Ställ in GhostBSD"
 
 #: setup_station/interface_controller.py:213
 msgid "Progress Bar"
-msgstr ""
+msgstr "Förloppsindikator"
 
 #: setup_station/keyboard.py:41
 msgid "Type here to test your keyboard"
-msgstr ""
+msgstr "Skriv här för att testa tangentbordet"
 
 #: setup_station/keyboard.py:96
 msgid "Keyboard Layout"
-msgstr ""
+msgstr "Tangentbordslayout"
 
 #: setup_station/keyboard.py:108
 msgid "Keyboard Models"
-msgstr ""
+msgstr "Tangentbordsmodeller"
 
 #: setup_station/language.py:96 setup_station/language.py:162
 msgid "Please select your language:"
-msgstr ""
+msgstr "Välj ditt språk:"
 
-#: setup_station/network_setup.py:100 setup_station/network_setup.py:155
+#: setup_station/network_setup.py:154
 msgid "Network card connected to the internet"
-msgstr ""
+msgstr "Nätverkskortet är anslutet till internet"
 
-#: setup_station/network_setup.py:105 setup_station/network_setup.py:160
+#: setup_station/network_setup.py:160
 msgid "Network card not connected to the internet"
-msgstr ""
+msgstr "Nätverkskortet är inte anslutet till internet"
 
-#: setup_station/network_setup.py:108 setup_station/network_setup.py:163
+#: setup_station/network_setup.py:163
 msgid "No network card detected"
-msgstr ""
+msgstr "Inget nätverkskort hittades"
 
-#: setup_station/network_setup.py:116 setup_station/network_setup.py:171
+#: setup_station/network_setup.py:172
 msgid "WiFi card detected and connected to an access point"
-msgstr ""
+msgstr "Wi-Fi-kort hittades och är anslutet till en åtkomstpunkt"
 
-#: setup_station/network_setup.py:120 setup_station/network_setup.py:175
+#: setup_station/network_setup.py:176
 msgid "WiFi card detected but not connected to an access point"
-msgstr ""
+msgstr "Wi-Fi-kort hittades men är inte anslutet till en åtkomstpunkt"
 
-#: setup_station/network_setup.py:123 setup_station/network_setup.py:178
+#: setup_station/network_setup.py:179
 msgid "WiFi card not detected or not supported"
-msgstr ""
+msgstr "Wi-Fi-kort hittades inte eller stöds inte"
 
-#: setup_station/network_setup.py:200
-msgid "Stat"
-msgstr ""
+#: setup_station/network_setup.py:201 setup_station/network_setup.py:270
+msgid "Rescan"
+msgstr "Sök igen"
 
-#: setup_station/network_setup.py:205
-msgid "SSID"
-msgstr ""
+#: setup_station/network_setup.py:397
+#, python-brace-format
+msgid "Connecting to {ssid}..."
+msgstr "Ansluter till {ssid}..."
 
-#: setup_station/network_setup.py:338
-msgid "WiFi Network Authentication Required"
-msgstr ""
+#: setup_station/network_setup.py:429
+#, python-brace-format
+msgid "Connected to {ssid}, but it could not be saved"
+msgstr "Ansluten till {ssid}, men nätverket kunde inte sparas"
 
-#: setup_station/network_setup.py:350
-msgid "Wi-Fi Network Authentication failed"
-msgstr ""
+#: setup_station/network_setup.py:480 setup_station/network_setup.py:518
+#: setup_station/network_setup.py:689
+#, python-brace-format
+msgid "Could not connect to {ssid}"
+msgstr "Kunde inte ansluta till {ssid}"
 
-#: setup_station/network_setup.py:352
-msgid "Authentication required by"
-msgstr ""
+#: setup_station/network_setup.py:505
+msgid "Wi-Fi Network Authentication Required"
+msgstr "Autentisering för Wi-Fi-nätverk krävs"
 
-#: setup_station/network_setup.py:352
-msgid "Wi-Fi Network"
-msgstr ""
+#: setup_station/network_setup.py:520
+#, python-brace-format
+msgid "Authentication required by {ssid} Wi-Fi Network"
+msgstr "Wi-Fi-nätverket {ssid} kräver autentisering"
 
-#: setup_station/network_setup.py:355
+#: setup_station/network_setup.py:523 setup_station/network_setup.py:741
 msgid "Password:"
-msgstr ""
+msgstr "Lösenord:"
 
-#: setup_station/network_setup.py:358
+#: setup_station/network_setup.py:526
 msgid "Show password"
-msgstr ""
+msgstr "Visa lösenord"
+
+#: setup_station/network_setup.py:681
+msgid "Enterprise Wi-Fi Authentication"
+msgstr "Wi-Fi-autentisering för företag"
+
+#: setup_station/network_setup.py:691
+#, python-brace-format
+msgid "Enterprise Authentication for {ssid}"
+msgstr "Företagsautentisering för {ssid}"
+
+#: setup_station/network_setup.py:697
+#, python-brace-format
+msgid "Security: {security}"
+msgstr "Säkerhet: {security}"
+
+#: setup_station/network_setup.py:711
+msgid "EAP Method:"
+msgstr "EAP-metod:"
+
+#: setup_station/network_setup.py:720
+msgid "Inner Auth:"
+msgstr "Inre autentisering:"
+
+#: setup_station/network_setup.py:725
+msgid "Username:"
+msgstr "Användarnamn:"
+
+#: setup_station/network_setup.py:729
+msgid "Optional - for privacy"
+msgstr "Valfritt, för integritet"
+
+#: setup_station/network_setup.py:730
+msgid "Anonymous ID:"
+msgstr "Anonymt ID:"
+
+#: setup_station/network_setup.py:738
+msgid "Show"
+msgstr "Visa"
+
+#: setup_station/network_setup.py:745
+msgid "Certificates (*.pem, *.crt, *.cer)"
+msgstr "Certifikat (*.pem, *.crt, *.cer)"
+
+#: setup_station/network_setup.py:747
+msgid "Select CA Certificate"
+msgstr "Välj CA-certifikat"
+
+#: setup_station/network_setup.py:752
+msgid "CA Certificate:"
+msgstr "CA-certifikat:"
+
+#: setup_station/network_setup.py:757
+msgid "Select Client Certificate"
+msgstr "Välj klientcertifikat"
+
+#: setup_station/network_setup.py:760
+msgid "Client Cert:"
+msgstr "Klientcert.:"
+
+#: setup_station/network_setup.py:765
+msgid "Select Private Key"
+msgstr "Välj privat nyckel"
+
+#: setup_station/network_setup.py:766
+msgid "Key files (*.pem, *.key, *.p12)"
+msgstr "Nyckelfiler (*.pem, *.key, *.p12)"
+
+#: setup_station/network_setup.py:770
+msgid "Private Key:"
+msgstr "Privat nyckel:"
+
+#: setup_station/network_setup.py:777
+msgid "Key Password:"
+msgstr "Nyckellösenord:"
 
 #: setup_station/setup_system.py:46
 msgid "Setting system language"
-msgstr ""
+msgstr "Ställer in systemspråk"
 
 #: setup_station/setup_system.py:51
 msgid "Setting keyboard layout"
-msgstr ""
+msgstr "Ställer in tangentbordslayout"
 
 #: setup_station/setup_system.py:56
 msgid "Setting timezone"
-msgstr ""
+msgstr "Ställer in tidszon"
 
 #: setup_station/setup_system.py:62
 msgid "Creating admin user"
-msgstr ""
+msgstr "Skapar administratör"
 
 #: setup_station/setup_system.py:67
 msgid "Enabling display manager"
-msgstr ""
+msgstr "Aktiverar inloggningshanteraren"
 
 #: setup_station/setup_system.py:72
 msgid "Disabling first boot setup"
-msgstr ""
+msgstr "Inaktiverar inställningen vid första start"
 
 #: setup_station/setup_system.py:77
 msgid "Setup complete!"
-msgstr ""
+msgstr "Inställningen är klar!"
 
 #: setup_station/setup_system.py:83
 msgid "Configuration complete."
-msgstr ""
+msgstr "Konfigurationen är klar."
 
 #: setup_station/setup_system.py:85
 msgid "Starting the login screen..."
-msgstr ""
+msgstr "Startar inloggningsskärmen..."
 
 #: setup_station/setup_system.py:101
 msgid "Getting everything ready"
-msgstr ""
+msgstr "Förbereder allt"
 
 #: setup_station/setup_system.py:113
 msgid "Setting up your system."
-msgstr ""
+msgstr "Ställer in ditt system."
 
 #: setup_station/setup_system.py:115
 msgid "Please do not turn off your computer."
-msgstr ""
+msgstr "Stäng inte av datorn."
 
 #: setup_station/timezone.py:58
 msgid "Continent"
-msgstr ""
+msgstr "Kontinent"
 
 #: setup_station/timezone.py:70
 msgid "City"
-msgstr ""
+msgstr "Stad"
 
 #: setup_station/timezone.py:187
 msgid "Hardware clock uses UTC (uncheck when dual-booting Windows)"
-msgstr ""
+msgstr "Maskinvaruklockan använder UTC (avmarkera vid dubbelstart med Windows)"
 
 #: setup_station/timezone.py:192
 msgid ""
 "Windows keeps the hardware clock on local time. Leave this checked on any "
 "other machine."
 msgstr ""
+"Windows håller maskinvaruklockan i lokal tid. Låt rutan vara markerad på alla"
+" andra datorer."

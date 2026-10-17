@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-30 09:15-0300\n"
+"POT-Creation-Date: 2026-10-16 18:51-0300\n"
 "PO-Revision-Date: 2025-11-25 08:34-0400\n"
 "Last-Translator: Eric Turgeon <EMAIL@ADDRESS>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
@@ -19,260 +19,342 @@ msgstr ""
 
 #: setup_station/add_admin.py:132
 msgid "The initial root password will be set to the admin user password."
-msgstr ""
+msgstr "Počiatočné heslo roota bude rovnaké ako heslo správcu."
 
 #: setup_station/add_admin.py:214 setup_station/common.py:119
 msgid "Password not allowed"
-msgstr ""
+msgstr "Heslo nie je povolené"
 
 #: setup_station/add_admin.py:214 setup_station/common.py:121
 msgid "Space not allowed"
-msgstr ""
+msgstr "Medzery nie sú povolené"
 
 #: setup_station/add_users.py:57
 msgid "User Setup"
-msgstr ""
+msgstr "Nastavenie používateľa"
 
 #: setup_station/add_users.py:68
 msgid "User Account"
-msgstr ""
+msgstr "Používateľský účet"
 
 #: setup_station/add_users.py:71
 msgid "User name"
-msgstr ""
+msgstr "Používateľské meno"
 
 #: setup_station/add_users.py:73
 msgid "Real name"
-msgstr ""
+msgstr "Celé meno"
 
 #: setup_station/add_users.py:76
 msgid "Password"
-msgstr ""
+msgstr "Heslo"
 
 #: setup_station/add_users.py:80
 msgid "Verify Password"
-msgstr ""
+msgstr "Potvrdiť heslo"
 
 #: setup_station/add_users.py:84
 msgid "Shell"
-msgstr ""
+msgstr "Shell"
 
 #: setup_station/add_users.py:97
 msgid "Set Hostname"
-msgstr ""
+msgstr "Nastaviť názov počítača"
 
 #: setup_station/add_users.py:102
 msgid "Hostname"
-msgstr ""
+msgstr "Názov počítača"
 
 #: setup_station/common.py:138
 msgid "Very Weak"
-msgstr ""
+msgstr "Veľmi slabé"
 
 #: setup_station/common.py:139 setup_station/common.py:142
 msgid "Fairly Weak"
-msgstr ""
+msgstr "Dosť slabé"
 
 #: setup_station/common.py:140 setup_station/common.py:143
 #: setup_station/common.py:146
 msgid "Weak"
-msgstr ""
+msgstr "Slabé"
 
 #: setup_station/common.py:141 setup_station/common.py:144
 #: setup_station/common.py:147 setup_station/common.py:150
 msgid "Strong"
-msgstr ""
+msgstr "Silné"
 
 #: setup_station/common.py:145 setup_station/common.py:148
 #: setup_station/common.py:151
 msgid "Fairly Strong"
-msgstr ""
+msgstr "Dosť silné"
 
 #: setup_station/common.py:149 setup_station/common.py:152
 msgid "Very Strong"
-msgstr ""
+msgstr "Veľmi silné"
 
 #: setup_station/interface_controller.py:22
 #: setup_station/interface_controller.py:31
 msgid "Back"
-msgstr ""
+msgstr "Späť"
 
 #: setup_station/interface_controller.py:24
 #: setup_station/interface_controller.py:32
 msgid "Next"
-msgstr ""
+msgstr "Ďalej"
 
 #: setup_station/interface_controller.py:118 setup_station/language.py:104
 msgid "GhostBSD Initial Setup"
-msgstr ""
+msgstr "Úvodné nastavenie GhostBSD"
 
 #: setup_station/interface_controller.py:119 setup_station/language.py:102
 #: setup_station/language.py:119
 msgid "Language"
-msgstr ""
+msgstr "Jazyk"
 
 #: setup_station/interface_controller.py:131
 msgid "Button"
-msgstr ""
+msgstr "Tlačidlo"
 
 #: setup_station/interface_controller.py:155
 msgid "Keyboard"
-msgstr ""
+msgstr "Klávesnica"
 
 #: setup_station/interface_controller.py:168
 msgid "Time Zone"
-msgstr ""
+msgstr "Časové pásmo"
 
 #: setup_station/interface_controller.py:180
 msgid "Network"
-msgstr ""
+msgstr "Sieť"
 
 #: setup_station/interface_controller.py:192
 msgid "Admin User"
-msgstr ""
+msgstr "Správca"
 
 #: setup_station/interface_controller.py:204
 msgid "Setup GhostBSD"
-msgstr ""
+msgstr "Nastaviť GhostBSD"
 
 #: setup_station/interface_controller.py:213
 msgid "Progress Bar"
-msgstr ""
+msgstr "Indikátor priebehu"
 
 #: setup_station/keyboard.py:41
 msgid "Type here to test your keyboard"
-msgstr ""
+msgstr "Píšte sem na vyskúšanie klávesnice"
 
 #: setup_station/keyboard.py:96
 msgid "Keyboard Layout"
-msgstr ""
+msgstr "Rozloženie klávesnice"
 
 #: setup_station/keyboard.py:108
 msgid "Keyboard Models"
-msgstr ""
+msgstr "Modely klávesnice"
 
 #: setup_station/language.py:96 setup_station/language.py:162
 msgid "Please select your language:"
-msgstr ""
+msgstr "Vyberte si jazyk:"
 
-#: setup_station/network_setup.py:100 setup_station/network_setup.py:155
+#: setup_station/network_setup.py:154
 msgid "Network card connected to the internet"
-msgstr ""
+msgstr "Sieťová karta je pripojená k internetu"
 
-#: setup_station/network_setup.py:105 setup_station/network_setup.py:160
+#: setup_station/network_setup.py:160
 msgid "Network card not connected to the internet"
-msgstr ""
+msgstr "Sieťová karta nie je pripojená k internetu"
 
-#: setup_station/network_setup.py:108 setup_station/network_setup.py:163
+#: setup_station/network_setup.py:163
 msgid "No network card detected"
-msgstr ""
+msgstr "Nenašla sa žiadna sieťová karta"
 
-#: setup_station/network_setup.py:116 setup_station/network_setup.py:171
+#: setup_station/network_setup.py:172
 msgid "WiFi card detected and connected to an access point"
-msgstr ""
+msgstr "Karta Wi-Fi nájdená a pripojená k prístupovému bodu"
 
-#: setup_station/network_setup.py:120 setup_station/network_setup.py:175
+#: setup_station/network_setup.py:176
 msgid "WiFi card detected but not connected to an access point"
-msgstr ""
+msgstr "Karta Wi-Fi nájdená, ale nie je pripojená k prístupovému bodu"
 
-#: setup_station/network_setup.py:123 setup_station/network_setup.py:178
+#: setup_station/network_setup.py:179
 msgid "WiFi card not detected or not supported"
-msgstr ""
+msgstr "Karta Wi-Fi sa nenašla alebo nie je podporovaná"
 
-#: setup_station/network_setup.py:200
-msgid "Stat"
-msgstr ""
+#: setup_station/network_setup.py:201 setup_station/network_setup.py:270
+msgid "Rescan"
+msgstr "Hľadať znova"
 
-#: setup_station/network_setup.py:205
-msgid "SSID"
-msgstr ""
+#: setup_station/network_setup.py:397
+#, python-brace-format
+msgid "Connecting to {ssid}..."
+msgstr "Pripája sa k {ssid}..."
 
-#: setup_station/network_setup.py:338
-msgid "WiFi Network Authentication Required"
-msgstr ""
+#: setup_station/network_setup.py:429
+#, python-brace-format
+msgid "Connected to {ssid}, but it could not be saved"
+msgstr "Pripojené k {ssid}, ale sieť sa nepodarilo uložiť"
 
-#: setup_station/network_setup.py:350
-msgid "Wi-Fi Network Authentication failed"
-msgstr ""
+#: setup_station/network_setup.py:480 setup_station/network_setup.py:518
+#: setup_station/network_setup.py:689
+#, python-brace-format
+msgid "Could not connect to {ssid}"
+msgstr "Nedá sa pripojiť k {ssid}"
 
-#: setup_station/network_setup.py:352
-msgid "Authentication required by"
-msgstr ""
+#: setup_station/network_setup.py:505
+msgid "Wi-Fi Network Authentication Required"
+msgstr "Vyžaduje sa overenie siete Wi-Fi"
 
-#: setup_station/network_setup.py:352
-msgid "Wi-Fi Network"
-msgstr ""
+#: setup_station/network_setup.py:520
+#, python-brace-format
+msgid "Authentication required by {ssid} Wi-Fi Network"
+msgstr "Sieť Wi-Fi {ssid} vyžaduje overenie"
 
-#: setup_station/network_setup.py:355
+#: setup_station/network_setup.py:523 setup_station/network_setup.py:741
 msgid "Password:"
-msgstr ""
+msgstr "Heslo:"
 
-#: setup_station/network_setup.py:358
+#: setup_station/network_setup.py:526
 msgid "Show password"
-msgstr ""
+msgstr "Zobraziť heslo"
+
+#: setup_station/network_setup.py:681
+msgid "Enterprise Wi-Fi Authentication"
+msgstr "Podnikové overenie Wi-Fi"
+
+#: setup_station/network_setup.py:691
+#, python-brace-format
+msgid "Enterprise Authentication for {ssid}"
+msgstr "Podnikové overenie pre {ssid}"
+
+#: setup_station/network_setup.py:697
+#, python-brace-format
+msgid "Security: {security}"
+msgstr "Zabezpečenie: {security}"
+
+#: setup_station/network_setup.py:711
+msgid "EAP Method:"
+msgstr "Metóda EAP:"
+
+#: setup_station/network_setup.py:720
+msgid "Inner Auth:"
+msgstr "Vnútorné overenie:"
+
+#: setup_station/network_setup.py:725
+msgid "Username:"
+msgstr "Používateľské meno:"
+
+#: setup_station/network_setup.py:729
+msgid "Optional - for privacy"
+msgstr "Voliteľné, pre súkromie"
+
+#: setup_station/network_setup.py:730
+msgid "Anonymous ID:"
+msgstr "Anonymné ID:"
+
+#: setup_station/network_setup.py:738
+msgid "Show"
+msgstr "Zobraziť"
+
+#: setup_station/network_setup.py:745
+msgid "Certificates (*.pem, *.crt, *.cer)"
+msgstr "Certifikáty (*.pem, *.crt, *.cer)"
+
+#: setup_station/network_setup.py:747
+msgid "Select CA Certificate"
+msgstr "Vyberte certifikát CA"
+
+#: setup_station/network_setup.py:752
+msgid "CA Certificate:"
+msgstr "Certifikát CA:"
+
+#: setup_station/network_setup.py:757
+msgid "Select Client Certificate"
+msgstr "Vyberte certifikát klienta"
+
+#: setup_station/network_setup.py:760
+msgid "Client Cert:"
+msgstr "Cert. klienta:"
+
+#: setup_station/network_setup.py:765
+msgid "Select Private Key"
+msgstr "Vyberte súkromný kľúč"
+
+#: setup_station/network_setup.py:766
+msgid "Key files (*.pem, *.key, *.p12)"
+msgstr "Súbory kľúčov (*.pem, *.key, *.p12)"
+
+#: setup_station/network_setup.py:770
+msgid "Private Key:"
+msgstr "Súkromný kľúč:"
+
+#: setup_station/network_setup.py:777
+msgid "Key Password:"
+msgstr "Heslo kľúča:"
 
 #: setup_station/setup_system.py:46
 msgid "Setting system language"
-msgstr ""
+msgstr "Nastavuje sa jazyk systému"
 
 #: setup_station/setup_system.py:51
 msgid "Setting keyboard layout"
-msgstr ""
+msgstr "Nastavuje sa rozloženie klávesnice"
 
 #: setup_station/setup_system.py:56
 msgid "Setting timezone"
-msgstr ""
+msgstr "Nastavuje sa časové pásmo"
 
 #: setup_station/setup_system.py:62
 msgid "Creating admin user"
-msgstr ""
+msgstr "Vytvára sa správca"
 
 #: setup_station/setup_system.py:67
 msgid "Enabling display manager"
-msgstr ""
+msgstr "Zapína sa správca displeja"
 
 #: setup_station/setup_system.py:72
 msgid "Disabling first boot setup"
-msgstr ""
+msgstr "Vypína sa nastavenie pri prvom spustení"
 
 #: setup_station/setup_system.py:77
 msgid "Setup complete!"
-msgstr ""
+msgstr "Nastavenie dokončené!"
 
 #: setup_station/setup_system.py:83
 msgid "Configuration complete."
-msgstr ""
+msgstr "Konfigurácia dokončená."
 
 #: setup_station/setup_system.py:85
 msgid "Starting the login screen..."
-msgstr ""
+msgstr "Spúšťa sa prihlasovacia obrazovka..."
 
 #: setup_station/setup_system.py:101
 msgid "Getting everything ready"
-msgstr ""
+msgstr "Všetko sa pripravuje"
 
 #: setup_station/setup_system.py:113
 msgid "Setting up your system."
-msgstr ""
+msgstr "Nastavuje sa váš systém."
 
 #: setup_station/setup_system.py:115
 msgid "Please do not turn off your computer."
-msgstr ""
+msgstr "Nevypínajte, prosím, počítač."
 
 #: setup_station/timezone.py:58
 msgid "Continent"
-msgstr ""
+msgstr "Kontinent"
 
 #: setup_station/timezone.py:70
 msgid "City"
-msgstr ""
+msgstr "Mesto"
 
 #: setup_station/timezone.py:187
 msgid "Hardware clock uses UTC (uncheck when dual-booting Windows)"
 msgstr ""
+"Hardvérové hodiny používajú UTC (zrušte pri dvojitom spúšťaní s Windows)"
 
 #: setup_station/timezone.py:192
 msgid ""
 "Windows keeps the hardware clock on local time. Leave this checked on any "
 "other machine."
 msgstr ""
+"Windows udržiava hardvérové hodiny v miestnom čase. Na akomkoľvek inom "
+"počítači nechajte začiarknuté."

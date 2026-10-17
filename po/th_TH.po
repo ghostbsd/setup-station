@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-30 09:15-0300\n"
+"POT-Creation-Date: 2026-10-16 18:51-0300\n"
 "PO-Revision-Date: 2025-11-25 08:34-0400\n"
 "Last-Translator: Eric Turgeon <EMAIL@ADDRESS>\n"
 "Language-Team: Thai <(nothing)>\n"
@@ -18,260 +18,341 @@ msgstr ""
 
 #: setup_station/add_admin.py:132
 msgid "The initial root password will be set to the admin user password."
-msgstr ""
+msgstr "รหัสผ่าน root เริ่มต้นจะถูกตั้งเป็นรหัสผ่านของผู้ดูแลระบบ"
 
 #: setup_station/add_admin.py:214 setup_station/common.py:119
 msgid "Password not allowed"
-msgstr ""
+msgstr "ไม่อนุญาตให้ใช้รหัสผ่านนี้"
 
 #: setup_station/add_admin.py:214 setup_station/common.py:121
 msgid "Space not allowed"
-msgstr ""
+msgstr "ไม่อนุญาตให้ใช้ช่องว่าง"
 
 #: setup_station/add_users.py:57
 msgid "User Setup"
-msgstr ""
+msgstr "ตั้งค่าผู้ใช้"
 
 #: setup_station/add_users.py:68
 msgid "User Account"
-msgstr ""
+msgstr "บัญชีผู้ใช้"
 
 #: setup_station/add_users.py:71
 msgid "User name"
-msgstr ""
+msgstr "ชื่อผู้ใช้"
 
 #: setup_station/add_users.py:73
 msgid "Real name"
-msgstr ""
+msgstr "ชื่อจริง"
 
 #: setup_station/add_users.py:76
 msgid "Password"
-msgstr ""
+msgstr "รหัสผ่าน"
 
 #: setup_station/add_users.py:80
 msgid "Verify Password"
-msgstr ""
+msgstr "ยืนยันรหัสผ่าน"
 
 #: setup_station/add_users.py:84
 msgid "Shell"
-msgstr ""
+msgstr "เชลล์"
 
 #: setup_station/add_users.py:97
 msgid "Set Hostname"
-msgstr ""
+msgstr "ตั้งชื่อโฮสต์"
 
 #: setup_station/add_users.py:102
 msgid "Hostname"
-msgstr ""
+msgstr "ชื่อโฮสต์"
 
 #: setup_station/common.py:138
 msgid "Very Weak"
-msgstr ""
+msgstr "อ่อนมาก"
 
 #: setup_station/common.py:139 setup_station/common.py:142
 msgid "Fairly Weak"
-msgstr ""
+msgstr "ค่อนข้างอ่อน"
 
 #: setup_station/common.py:140 setup_station/common.py:143
 #: setup_station/common.py:146
 msgid "Weak"
-msgstr ""
+msgstr "อ่อน"
 
 #: setup_station/common.py:141 setup_station/common.py:144
 #: setup_station/common.py:147 setup_station/common.py:150
 msgid "Strong"
-msgstr ""
+msgstr "แข็งแรง"
 
 #: setup_station/common.py:145 setup_station/common.py:148
 #: setup_station/common.py:151
 msgid "Fairly Strong"
-msgstr ""
+msgstr "ค่อนข้างแข็งแรง"
 
 #: setup_station/common.py:149 setup_station/common.py:152
 msgid "Very Strong"
-msgstr ""
+msgstr "แข็งแรงมาก"
 
 #: setup_station/interface_controller.py:22
 #: setup_station/interface_controller.py:31
 msgid "Back"
-msgstr ""
+msgstr "ย้อนกลับ"
 
 #: setup_station/interface_controller.py:24
 #: setup_station/interface_controller.py:32
 msgid "Next"
-msgstr ""
+msgstr "ถัดไป"
 
 #: setup_station/interface_controller.py:118 setup_station/language.py:104
 msgid "GhostBSD Initial Setup"
-msgstr ""
+msgstr "การตั้งค่าเริ่มต้นของ GhostBSD"
 
 #: setup_station/interface_controller.py:119 setup_station/language.py:102
 #: setup_station/language.py:119
 msgid "Language"
-msgstr ""
+msgstr "ภาษา"
 
 #: setup_station/interface_controller.py:131
 msgid "Button"
-msgstr ""
+msgstr "ปุ่ม"
 
 #: setup_station/interface_controller.py:155
 msgid "Keyboard"
-msgstr ""
+msgstr "แป้นพิมพ์"
 
 #: setup_station/interface_controller.py:168
 msgid "Time Zone"
-msgstr ""
+msgstr "เขตเวลา"
 
 #: setup_station/interface_controller.py:180
 msgid "Network"
-msgstr ""
+msgstr "เครือข่าย"
 
 #: setup_station/interface_controller.py:192
 msgid "Admin User"
-msgstr ""
+msgstr "ผู้ดูแลระบบ"
 
 #: setup_station/interface_controller.py:204
 msgid "Setup GhostBSD"
-msgstr ""
+msgstr "ตั้งค่า GhostBSD"
 
 #: setup_station/interface_controller.py:213
 msgid "Progress Bar"
-msgstr ""
+msgstr "แถบความคืบหน้า"
 
 #: setup_station/keyboard.py:41
 msgid "Type here to test your keyboard"
-msgstr ""
+msgstr "พิมพ์ที่นี่เพื่อทดสอบแป้นพิมพ์"
 
 #: setup_station/keyboard.py:96
 msgid "Keyboard Layout"
-msgstr ""
+msgstr "ผังแป้นพิมพ์"
 
 #: setup_station/keyboard.py:108
 msgid "Keyboard Models"
-msgstr ""
+msgstr "รุ่นแป้นพิมพ์"
 
 #: setup_station/language.py:96 setup_station/language.py:162
 msgid "Please select your language:"
-msgstr ""
+msgstr "โปรดเลือกภาษาของคุณ:"
 
-#: setup_station/network_setup.py:100 setup_station/network_setup.py:155
+#: setup_station/network_setup.py:154
 msgid "Network card connected to the internet"
-msgstr ""
+msgstr "การ์ดเครือข่ายเชื่อมต่ออินเทอร์เน็ตแล้ว"
 
-#: setup_station/network_setup.py:105 setup_station/network_setup.py:160
+#: setup_station/network_setup.py:160
 msgid "Network card not connected to the internet"
-msgstr ""
+msgstr "การ์ดเครือข่ายไม่ได้เชื่อมต่ออินเทอร์เน็ต"
 
-#: setup_station/network_setup.py:108 setup_station/network_setup.py:163
+#: setup_station/network_setup.py:163
 msgid "No network card detected"
-msgstr ""
+msgstr "ไม่พบการ์ดเครือข่าย"
 
-#: setup_station/network_setup.py:116 setup_station/network_setup.py:171
+#: setup_station/network_setup.py:172
 msgid "WiFi card detected and connected to an access point"
-msgstr ""
+msgstr "พบการ์ด Wi-Fi และเชื่อมต่อกับจุดเข้าใช้งานแล้ว"
 
-#: setup_station/network_setup.py:120 setup_station/network_setup.py:175
+#: setup_station/network_setup.py:176
 msgid "WiFi card detected but not connected to an access point"
-msgstr ""
+msgstr "พบการ์ด Wi-Fi แต่ไม่ได้เชื่อมต่อกับจุดเข้าใช้งาน"
 
-#: setup_station/network_setup.py:123 setup_station/network_setup.py:178
+#: setup_station/network_setup.py:179
 msgid "WiFi card not detected or not supported"
-msgstr ""
+msgstr "ไม่พบการ์ด Wi-Fi หรือไม่รองรับ"
 
-#: setup_station/network_setup.py:200
-msgid "Stat"
-msgstr ""
+#: setup_station/network_setup.py:201 setup_station/network_setup.py:270
+msgid "Rescan"
+msgstr "สแกนใหม่"
 
-#: setup_station/network_setup.py:205
-msgid "SSID"
-msgstr ""
+#: setup_station/network_setup.py:397
+#, python-brace-format
+msgid "Connecting to {ssid}..."
+msgstr "กำลังเชื่อมต่อกับ {ssid}..."
 
-#: setup_station/network_setup.py:338
-msgid "WiFi Network Authentication Required"
-msgstr ""
+#: setup_station/network_setup.py:429
+#, python-brace-format
+msgid "Connected to {ssid}, but it could not be saved"
+msgstr "เชื่อมต่อกับ {ssid} แล้ว แต่ไม่สามารถบันทึกเครือข่ายได้"
 
-#: setup_station/network_setup.py:350
-msgid "Wi-Fi Network Authentication failed"
-msgstr ""
+#: setup_station/network_setup.py:480 setup_station/network_setup.py:518
+#: setup_station/network_setup.py:689
+#, python-brace-format
+msgid "Could not connect to {ssid}"
+msgstr "ไม่สามารถเชื่อมต่อกับ {ssid}"
 
-#: setup_station/network_setup.py:352
-msgid "Authentication required by"
-msgstr ""
+#: setup_station/network_setup.py:505
+msgid "Wi-Fi Network Authentication Required"
+msgstr "ต้องยืนยันตัวตนสำหรับเครือข่าย Wi-Fi"
 
-#: setup_station/network_setup.py:352
-msgid "Wi-Fi Network"
-msgstr ""
+#: setup_station/network_setup.py:520
+#, python-brace-format
+msgid "Authentication required by {ssid} Wi-Fi Network"
+msgstr "เครือข่าย Wi-Fi {ssid} ต้องการการยืนยันตัวตน"
 
-#: setup_station/network_setup.py:355
+#: setup_station/network_setup.py:523 setup_station/network_setup.py:741
 msgid "Password:"
-msgstr ""
+msgstr "รหัสผ่าน:"
 
-#: setup_station/network_setup.py:358
+#: setup_station/network_setup.py:526
 msgid "Show password"
-msgstr ""
+msgstr "แสดงรหัสผ่าน"
+
+#: setup_station/network_setup.py:681
+msgid "Enterprise Wi-Fi Authentication"
+msgstr "การยืนยันตัวตน Wi-Fi สำหรับองค์กร"
+
+#: setup_station/network_setup.py:691
+#, python-brace-format
+msgid "Enterprise Authentication for {ssid}"
+msgstr "การยืนยันตัวตนสำหรับองค์กรของ {ssid}"
+
+#: setup_station/network_setup.py:697
+#, python-brace-format
+msgid "Security: {security}"
+msgstr "ความปลอดภัย: {security}"
+
+#: setup_station/network_setup.py:711
+msgid "EAP Method:"
+msgstr "วิธี EAP:"
+
+#: setup_station/network_setup.py:720
+msgid "Inner Auth:"
+msgstr "การยืนยันตัวตนภายใน:"
+
+#: setup_station/network_setup.py:725
+msgid "Username:"
+msgstr "ชื่อผู้ใช้:"
+
+#: setup_station/network_setup.py:729
+msgid "Optional - for privacy"
+msgstr "ไม่บังคับ เพื่อความเป็นส่วนตัว"
+
+#: setup_station/network_setup.py:730
+msgid "Anonymous ID:"
+msgstr "ID นิรนาม:"
+
+#: setup_station/network_setup.py:738
+msgid "Show"
+msgstr "แสดง"
+
+#: setup_station/network_setup.py:745
+msgid "Certificates (*.pem, *.crt, *.cer)"
+msgstr "ใบรับรอง (*.pem, *.crt, *.cer)"
+
+#: setup_station/network_setup.py:747
+msgid "Select CA Certificate"
+msgstr "เลือกใบรับรอง CA"
+
+#: setup_station/network_setup.py:752
+msgid "CA Certificate:"
+msgstr "ใบรับรอง CA:"
+
+#: setup_station/network_setup.py:757
+msgid "Select Client Certificate"
+msgstr "เลือกใบรับรองไคลเอนต์"
+
+#: setup_station/network_setup.py:760
+msgid "Client Cert:"
+msgstr "ใบรับรองไคลเอนต์:"
+
+#: setup_station/network_setup.py:765
+msgid "Select Private Key"
+msgstr "เลือกคีย์ส่วนตัว"
+
+#: setup_station/network_setup.py:766
+msgid "Key files (*.pem, *.key, *.p12)"
+msgstr "ไฟล์คีย์ (*.pem, *.key, *.p12)"
+
+#: setup_station/network_setup.py:770
+msgid "Private Key:"
+msgstr "คีย์ส่วนตัว:"
+
+#: setup_station/network_setup.py:777
+msgid "Key Password:"
+msgstr "รหัสผ่านคีย์:"
 
 #: setup_station/setup_system.py:46
 msgid "Setting system language"
-msgstr ""
+msgstr "กำลังตั้งค่าภาษาของระบบ"
 
 #: setup_station/setup_system.py:51
 msgid "Setting keyboard layout"
-msgstr ""
+msgstr "กำลังตั้งค่าผังแป้นพิมพ์"
 
 #: setup_station/setup_system.py:56
 msgid "Setting timezone"
-msgstr ""
+msgstr "กำลังตั้งค่าเขตเวลา"
 
 #: setup_station/setup_system.py:62
 msgid "Creating admin user"
-msgstr ""
+msgstr "กำลังสร้างผู้ดูแลระบบ"
 
 #: setup_station/setup_system.py:67
 msgid "Enabling display manager"
-msgstr ""
+msgstr "กำลังเปิดใช้ตัวจัดการการแสดงผล"
 
 #: setup_station/setup_system.py:72
 msgid "Disabling first boot setup"
-msgstr ""
+msgstr "กำลังปิดการตั้งค่าเมื่อบูตครั้งแรก"
 
 #: setup_station/setup_system.py:77
 msgid "Setup complete!"
-msgstr ""
+msgstr "ตั้งค่าเสร็จสมบูรณ์!"
 
 #: setup_station/setup_system.py:83
 msgid "Configuration complete."
-msgstr ""
+msgstr "การกำหนดค่าเสร็จสมบูรณ์"
 
 #: setup_station/setup_system.py:85
 msgid "Starting the login screen..."
-msgstr ""
+msgstr "กำลังเริ่มหน้าจอเข้าสู่ระบบ..."
 
 #: setup_station/setup_system.py:101
 msgid "Getting everything ready"
-msgstr ""
+msgstr "กำลังเตรียมทุกอย่าง"
 
 #: setup_station/setup_system.py:113
 msgid "Setting up your system."
-msgstr ""
+msgstr "กำลังตั้งค่าระบบของคุณ"
 
 #: setup_station/setup_system.py:115
 msgid "Please do not turn off your computer."
-msgstr ""
+msgstr "โปรดอย่าปิดคอมพิวเตอร์"
 
 #: setup_station/timezone.py:58
 msgid "Continent"
-msgstr ""
+msgstr "ทวีป"
 
 #: setup_station/timezone.py:70
 msgid "City"
-msgstr ""
+msgstr "เมือง"
 
 #: setup_station/timezone.py:187
 msgid "Hardware clock uses UTC (uncheck when dual-booting Windows)"
-msgstr ""
+msgstr "นาฬิกาฮาร์ดแวร์ใช้ UTC (ยกเลิกการเลือกเมื่อบูตคู่กับ Windows)"
 
 #: setup_station/timezone.py:192
 msgid ""
 "Windows keeps the hardware clock on local time. Leave this checked on any "
 "other machine."
 msgstr ""
+"Windows ตั้งนาฬิกาฮาร์ดแวร์เป็นเวลาท้องถิ่น "
+"ให้คงการเลือกไว้บนเครื่องอื่นทั้งหมด"

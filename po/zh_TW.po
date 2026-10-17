@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-30 09:15-0300\n"
+"POT-Creation-Date: 2026-10-16 18:51-0300\n"
 "PO-Revision-Date: 2025-11-25 08:34-0400\n"
 "Last-Translator: Eric Turgeon <EMAIL@ADDRESS>\n"
 "Language-Team: Chinese (traditional) <zh-l10n@lists.slat.org>\n"
@@ -18,260 +18,339 @@ msgstr ""
 
 #: setup_station/add_admin.py:132
 msgid "The initial root password will be set to the admin user password."
-msgstr ""
+msgstr "初始 root 密碼將設為管理員使用者的密碼。"
 
 #: setup_station/add_admin.py:214 setup_station/common.py:119
 msgid "Password not allowed"
-msgstr ""
+msgstr "不允許使用此密碼"
 
 #: setup_station/add_admin.py:214 setup_station/common.py:121
 msgid "Space not allowed"
-msgstr ""
+msgstr "不允許使用空格"
 
 #: setup_station/add_users.py:57
 msgid "User Setup"
-msgstr ""
+msgstr "使用者設定"
 
 #: setup_station/add_users.py:68
 msgid "User Account"
-msgstr ""
+msgstr "使用者帳號"
 
 #: setup_station/add_users.py:71
 msgid "User name"
-msgstr ""
+msgstr "使用者名稱"
 
 #: setup_station/add_users.py:73
 msgid "Real name"
-msgstr ""
+msgstr "真實姓名"
 
 #: setup_station/add_users.py:76
 msgid "Password"
-msgstr ""
+msgstr "密碼"
 
 #: setup_station/add_users.py:80
 msgid "Verify Password"
-msgstr ""
+msgstr "確認密碼"
 
 #: setup_station/add_users.py:84
 msgid "Shell"
-msgstr ""
+msgstr "Shell"
 
 #: setup_station/add_users.py:97
 msgid "Set Hostname"
-msgstr ""
+msgstr "設定主機名稱"
 
 #: setup_station/add_users.py:102
 msgid "Hostname"
-msgstr ""
+msgstr "主機名稱"
 
 #: setup_station/common.py:138
 msgid "Very Weak"
-msgstr ""
+msgstr "非常弱"
 
 #: setup_station/common.py:139 setup_station/common.py:142
 msgid "Fairly Weak"
-msgstr ""
+msgstr "偏弱"
 
 #: setup_station/common.py:140 setup_station/common.py:143
 #: setup_station/common.py:146
 msgid "Weak"
-msgstr ""
+msgstr "弱"
 
 #: setup_station/common.py:141 setup_station/common.py:144
 #: setup_station/common.py:147 setup_station/common.py:150
 msgid "Strong"
-msgstr ""
+msgstr "強"
 
 #: setup_station/common.py:145 setup_station/common.py:148
 #: setup_station/common.py:151
 msgid "Fairly Strong"
-msgstr ""
+msgstr "偏強"
 
 #: setup_station/common.py:149 setup_station/common.py:152
 msgid "Very Strong"
-msgstr ""
+msgstr "非常強"
 
 #: setup_station/interface_controller.py:22
 #: setup_station/interface_controller.py:31
 msgid "Back"
-msgstr ""
+msgstr "上一步"
 
 #: setup_station/interface_controller.py:24
 #: setup_station/interface_controller.py:32
 msgid "Next"
-msgstr ""
+msgstr "下一步"
 
 #: setup_station/interface_controller.py:118 setup_station/language.py:104
 msgid "GhostBSD Initial Setup"
-msgstr ""
+msgstr "GhostBSD 初始設定"
 
 #: setup_station/interface_controller.py:119 setup_station/language.py:102
 #: setup_station/language.py:119
 msgid "Language"
-msgstr ""
+msgstr "語言"
 
 #: setup_station/interface_controller.py:131
 msgid "Button"
-msgstr ""
+msgstr "按鈕"
 
 #: setup_station/interface_controller.py:155
 msgid "Keyboard"
-msgstr ""
+msgstr "鍵盤"
 
 #: setup_station/interface_controller.py:168
 msgid "Time Zone"
-msgstr ""
+msgstr "時區"
 
 #: setup_station/interface_controller.py:180
 msgid "Network"
-msgstr ""
+msgstr "網路"
 
 #: setup_station/interface_controller.py:192
 msgid "Admin User"
-msgstr ""
+msgstr "管理員使用者"
 
 #: setup_station/interface_controller.py:204
 msgid "Setup GhostBSD"
-msgstr ""
+msgstr "設定 GhostBSD"
 
 #: setup_station/interface_controller.py:213
 msgid "Progress Bar"
-msgstr ""
+msgstr "進度列"
 
 #: setup_station/keyboard.py:41
 msgid "Type here to test your keyboard"
-msgstr ""
+msgstr "在此輸入以測試鍵盤"
 
 #: setup_station/keyboard.py:96
 msgid "Keyboard Layout"
-msgstr ""
+msgstr "鍵盤配置"
 
 #: setup_station/keyboard.py:108
 msgid "Keyboard Models"
-msgstr ""
+msgstr "鍵盤型號"
 
 #: setup_station/language.py:96 setup_station/language.py:162
 msgid "Please select your language:"
-msgstr ""
+msgstr "請選擇您的語言："
 
-#: setup_station/network_setup.py:100 setup_station/network_setup.py:155
+#: setup_station/network_setup.py:154
 msgid "Network card connected to the internet"
-msgstr ""
+msgstr "網路卡已連線至網際網路"
 
-#: setup_station/network_setup.py:105 setup_station/network_setup.py:160
+#: setup_station/network_setup.py:160
 msgid "Network card not connected to the internet"
-msgstr ""
+msgstr "網路卡未連線至網際網路"
 
-#: setup_station/network_setup.py:108 setup_station/network_setup.py:163
+#: setup_station/network_setup.py:163
 msgid "No network card detected"
-msgstr ""
+msgstr "未偵測到網路卡"
 
-#: setup_station/network_setup.py:116 setup_station/network_setup.py:171
+#: setup_station/network_setup.py:172
 msgid "WiFi card detected and connected to an access point"
-msgstr ""
+msgstr "已偵測到 Wi-Fi 網卡並已連線至存取點"
 
-#: setup_station/network_setup.py:120 setup_station/network_setup.py:175
+#: setup_station/network_setup.py:176
 msgid "WiFi card detected but not connected to an access point"
-msgstr ""
+msgstr "已偵測到 Wi-Fi 網卡，但未連線至存取點"
 
-#: setup_station/network_setup.py:123 setup_station/network_setup.py:178
+#: setup_station/network_setup.py:179
 msgid "WiFi card not detected or not supported"
-msgstr ""
+msgstr "未偵測到 Wi-Fi 網卡或不受支援"
 
-#: setup_station/network_setup.py:200
-msgid "Stat"
-msgstr ""
+#: setup_station/network_setup.py:201 setup_station/network_setup.py:270
+msgid "Rescan"
+msgstr "重新掃描"
 
-#: setup_station/network_setup.py:205
-msgid "SSID"
-msgstr ""
+#: setup_station/network_setup.py:397
+#, python-brace-format
+msgid "Connecting to {ssid}..."
+msgstr "正在連線至 {ssid}..."
 
-#: setup_station/network_setup.py:338
-msgid "WiFi Network Authentication Required"
-msgstr ""
+#: setup_station/network_setup.py:429
+#, python-brace-format
+msgid "Connected to {ssid}, but it could not be saved"
+msgstr "已連線至 {ssid}，但無法儲存該網路"
 
-#: setup_station/network_setup.py:350
-msgid "Wi-Fi Network Authentication failed"
-msgstr ""
+#: setup_station/network_setup.py:480 setup_station/network_setup.py:518
+#: setup_station/network_setup.py:689
+#, python-brace-format
+msgid "Could not connect to {ssid}"
+msgstr "無法連線至 {ssid}"
 
-#: setup_station/network_setup.py:352
-msgid "Authentication required by"
-msgstr ""
+#: setup_station/network_setup.py:505
+msgid "Wi-Fi Network Authentication Required"
+msgstr "需要 Wi-Fi 網路驗證"
 
-#: setup_station/network_setup.py:352
-msgid "Wi-Fi Network"
-msgstr ""
+#: setup_station/network_setup.py:520
+#, python-brace-format
+msgid "Authentication required by {ssid} Wi-Fi Network"
+msgstr "{ssid} Wi-Fi 網路需要驗證"
 
-#: setup_station/network_setup.py:355
+#: setup_station/network_setup.py:523 setup_station/network_setup.py:741
 msgid "Password:"
-msgstr ""
+msgstr "密碼："
 
-#: setup_station/network_setup.py:358
+#: setup_station/network_setup.py:526
 msgid "Show password"
-msgstr ""
+msgstr "顯示密碼"
+
+#: setup_station/network_setup.py:681
+msgid "Enterprise Wi-Fi Authentication"
+msgstr "企業 Wi-Fi 驗證"
+
+#: setup_station/network_setup.py:691
+#, python-brace-format
+msgid "Enterprise Authentication for {ssid}"
+msgstr "{ssid} 的企業驗證"
+
+#: setup_station/network_setup.py:697
+#, python-brace-format
+msgid "Security: {security}"
+msgstr "安全性：{security}"
+
+#: setup_station/network_setup.py:711
+msgid "EAP Method:"
+msgstr "EAP 方法："
+
+#: setup_station/network_setup.py:720
+msgid "Inner Auth:"
+msgstr "內部驗證："
+
+#: setup_station/network_setup.py:725
+msgid "Username:"
+msgstr "使用者名稱："
+
+#: setup_station/network_setup.py:729
+msgid "Optional - for privacy"
+msgstr "選填，用於保護隱私"
+
+#: setup_station/network_setup.py:730
+msgid "Anonymous ID:"
+msgstr "匿名身分："
+
+#: setup_station/network_setup.py:738
+msgid "Show"
+msgstr "顯示"
+
+#: setup_station/network_setup.py:745
+msgid "Certificates (*.pem, *.crt, *.cer)"
+msgstr "憑證 (*.pem, *.crt, *.cer)"
+
+#: setup_station/network_setup.py:747
+msgid "Select CA Certificate"
+msgstr "選擇 CA 憑證"
+
+#: setup_station/network_setup.py:752
+msgid "CA Certificate:"
+msgstr "CA 憑證："
+
+#: setup_station/network_setup.py:757
+msgid "Select Client Certificate"
+msgstr "選擇用戶端憑證"
+
+#: setup_station/network_setup.py:760
+msgid "Client Cert:"
+msgstr "用戶端憑證："
+
+#: setup_station/network_setup.py:765
+msgid "Select Private Key"
+msgstr "選擇私密金鑰"
+
+#: setup_station/network_setup.py:766
+msgid "Key files (*.pem, *.key, *.p12)"
+msgstr "金鑰檔案 (*.pem, *.key, *.p12)"
+
+#: setup_station/network_setup.py:770
+msgid "Private Key:"
+msgstr "私密金鑰："
+
+#: setup_station/network_setup.py:777
+msgid "Key Password:"
+msgstr "金鑰密碼："
 
 #: setup_station/setup_system.py:46
 msgid "Setting system language"
-msgstr ""
+msgstr "正在設定系統語言"
 
 #: setup_station/setup_system.py:51
 msgid "Setting keyboard layout"
-msgstr ""
+msgstr "正在設定鍵盤配置"
 
 #: setup_station/setup_system.py:56
 msgid "Setting timezone"
-msgstr ""
+msgstr "正在設定時區"
 
 #: setup_station/setup_system.py:62
 msgid "Creating admin user"
-msgstr ""
+msgstr "正在建立管理員使用者"
 
 #: setup_station/setup_system.py:67
 msgid "Enabling display manager"
-msgstr ""
+msgstr "正在啟用顯示管理程式"
 
 #: setup_station/setup_system.py:72
 msgid "Disabling first boot setup"
-msgstr ""
+msgstr "正在停用首次開機設定"
 
 #: setup_station/setup_system.py:77
 msgid "Setup complete!"
-msgstr ""
+msgstr "設定完成！"
 
 #: setup_station/setup_system.py:83
 msgid "Configuration complete."
-msgstr ""
+msgstr "配置完成。"
 
 #: setup_station/setup_system.py:85
 msgid "Starting the login screen..."
-msgstr ""
+msgstr "正在啟動登入畫面..."
 
 #: setup_station/setup_system.py:101
 msgid "Getting everything ready"
-msgstr ""
+msgstr "正在準備一切"
 
 #: setup_station/setup_system.py:113
 msgid "Setting up your system."
-msgstr ""
+msgstr "正在設定您的系統。"
 
 #: setup_station/setup_system.py:115
 msgid "Please do not turn off your computer."
-msgstr ""
+msgstr "請不要關閉電腦。"
 
 #: setup_station/timezone.py:58
 msgid "Continent"
-msgstr ""
+msgstr "洲"
 
 #: setup_station/timezone.py:70
 msgid "City"
-msgstr ""
+msgstr "城市"
 
 #: setup_station/timezone.py:187
 msgid "Hardware clock uses UTC (uncheck when dual-booting Windows)"
-msgstr ""
+msgstr "硬體時鐘使用 UTC（與 Windows 雙重開機時請取消勾選）"
 
 #: setup_station/timezone.py:192
 msgid ""
 "Windows keeps the hardware clock on local time. Leave this checked on any "
 "other machine."
-msgstr ""
+msgstr "Windows 會將硬體時鐘保持為當地時間。在其他任何電腦上請保持勾選。"

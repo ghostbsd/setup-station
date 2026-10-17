@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-30 09:15-0300\n"
+"POT-Creation-Date: 2026-10-16 18:51-0300\n"
 "PO-Revision-Date: 2025-11-25 08:34-0400\n"
 "Last-Translator: Eric Turgeon <EMAIL@ADDRESS>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
@@ -20,259 +20,341 @@ msgstr ""
 #: setup_station/add_admin.py:132
 msgid "The initial root password will be set to the admin user password."
 msgstr ""
+"Het eerste root-wachtwoord wordt gelijk aan het wachtwoord van de beheerder."
 
 #: setup_station/add_admin.py:214 setup_station/common.py:119
 msgid "Password not allowed"
-msgstr ""
+msgstr "Wachtwoord niet toegestaan"
 
 #: setup_station/add_admin.py:214 setup_station/common.py:121
 msgid "Space not allowed"
-msgstr ""
+msgstr "Spaties niet toegestaan"
 
 #: setup_station/add_users.py:57
 msgid "User Setup"
-msgstr ""
+msgstr "Gebruiker instellen"
 
 #: setup_station/add_users.py:68
 msgid "User Account"
-msgstr ""
+msgstr "Gebruikersaccount"
 
 #: setup_station/add_users.py:71
 msgid "User name"
-msgstr ""
+msgstr "Gebruikersnaam"
 
 #: setup_station/add_users.py:73
 msgid "Real name"
-msgstr ""
+msgstr "Volledige naam"
 
 #: setup_station/add_users.py:76
 msgid "Password"
-msgstr ""
+msgstr "Wachtwoord"
 
 #: setup_station/add_users.py:80
 msgid "Verify Password"
-msgstr ""
+msgstr "Wachtwoord bevestigen"
 
 #: setup_station/add_users.py:84
 msgid "Shell"
-msgstr ""
+msgstr "Shell"
 
 #: setup_station/add_users.py:97
 msgid "Set Hostname"
-msgstr ""
+msgstr "Hostnaam instellen"
 
 #: setup_station/add_users.py:102
 msgid "Hostname"
-msgstr ""
+msgstr "Hostnaam"
 
 #: setup_station/common.py:138
 msgid "Very Weak"
-msgstr ""
+msgstr "Zeer zwak"
 
 #: setup_station/common.py:139 setup_station/common.py:142
 msgid "Fairly Weak"
-msgstr ""
+msgstr "Tamelijk zwak"
 
 #: setup_station/common.py:140 setup_station/common.py:143
 #: setup_station/common.py:146
 msgid "Weak"
-msgstr ""
+msgstr "Zwak"
 
 #: setup_station/common.py:141 setup_station/common.py:144
 #: setup_station/common.py:147 setup_station/common.py:150
 msgid "Strong"
-msgstr ""
+msgstr "Sterk"
 
 #: setup_station/common.py:145 setup_station/common.py:148
 #: setup_station/common.py:151
 msgid "Fairly Strong"
-msgstr ""
+msgstr "Tamelijk sterk"
 
 #: setup_station/common.py:149 setup_station/common.py:152
 msgid "Very Strong"
-msgstr ""
+msgstr "Zeer sterk"
 
 #: setup_station/interface_controller.py:22
 #: setup_station/interface_controller.py:31
 msgid "Back"
-msgstr ""
+msgstr "Vorige"
 
 #: setup_station/interface_controller.py:24
 #: setup_station/interface_controller.py:32
 msgid "Next"
-msgstr ""
+msgstr "Volgende"
 
 #: setup_station/interface_controller.py:118 setup_station/language.py:104
 msgid "GhostBSD Initial Setup"
-msgstr ""
+msgstr "Eerste installatie van GhostBSD"
 
 #: setup_station/interface_controller.py:119 setup_station/language.py:102
 #: setup_station/language.py:119
 msgid "Language"
-msgstr ""
+msgstr "Taal"
 
 #: setup_station/interface_controller.py:131
 msgid "Button"
-msgstr ""
+msgstr "Knop"
 
 #: setup_station/interface_controller.py:155
 msgid "Keyboard"
-msgstr ""
+msgstr "Toetsenbord"
 
 #: setup_station/interface_controller.py:168
 msgid "Time Zone"
-msgstr ""
+msgstr "Tijdzone"
 
 #: setup_station/interface_controller.py:180
 msgid "Network"
-msgstr ""
+msgstr "Netwerk"
 
 #: setup_station/interface_controller.py:192
 msgid "Admin User"
-msgstr ""
+msgstr "Beheerder"
 
 #: setup_station/interface_controller.py:204
 msgid "Setup GhostBSD"
-msgstr ""
+msgstr "GhostBSD instellen"
 
 #: setup_station/interface_controller.py:213
 msgid "Progress Bar"
-msgstr ""
+msgstr "Voortgangsbalk"
 
 #: setup_station/keyboard.py:41
 msgid "Type here to test your keyboard"
-msgstr ""
+msgstr "Typ hier om uw toetsenbord te testen"
 
 #: setup_station/keyboard.py:96
 msgid "Keyboard Layout"
-msgstr ""
+msgstr "Toetsenbordindeling"
 
 #: setup_station/keyboard.py:108
 msgid "Keyboard Models"
-msgstr ""
+msgstr "Toetsenbordmodellen"
 
 #: setup_station/language.py:96 setup_station/language.py:162
 msgid "Please select your language:"
-msgstr ""
+msgstr "Kies uw taal:"
 
-#: setup_station/network_setup.py:100 setup_station/network_setup.py:155
+#: setup_station/network_setup.py:154
 msgid "Network card connected to the internet"
-msgstr ""
+msgstr "Netwerkkaart verbonden met internet"
 
-#: setup_station/network_setup.py:105 setup_station/network_setup.py:160
+#: setup_station/network_setup.py:160
 msgid "Network card not connected to the internet"
-msgstr ""
+msgstr "Netwerkkaart niet verbonden met internet"
 
-#: setup_station/network_setup.py:108 setup_station/network_setup.py:163
+#: setup_station/network_setup.py:163
 msgid "No network card detected"
-msgstr ""
+msgstr "Geen netwerkkaart gevonden"
 
-#: setup_station/network_setup.py:116 setup_station/network_setup.py:171
+#: setup_station/network_setup.py:172
 msgid "WiFi card detected and connected to an access point"
-msgstr ""
+msgstr "Wifi-kaart gevonden en verbonden met een toegangspunt"
 
-#: setup_station/network_setup.py:120 setup_station/network_setup.py:175
+#: setup_station/network_setup.py:176
 msgid "WiFi card detected but not connected to an access point"
-msgstr ""
+msgstr "Wifi-kaart gevonden maar niet verbonden met een toegangspunt"
 
-#: setup_station/network_setup.py:123 setup_station/network_setup.py:178
+#: setup_station/network_setup.py:179
 msgid "WiFi card not detected or not supported"
-msgstr ""
+msgstr "Wifi-kaart niet gevonden of niet ondersteund"
 
-#: setup_station/network_setup.py:200
-msgid "Stat"
-msgstr ""
+#: setup_station/network_setup.py:201 setup_station/network_setup.py:270
+msgid "Rescan"
+msgstr "Opnieuw zoeken"
 
-#: setup_station/network_setup.py:205
-msgid "SSID"
-msgstr ""
+#: setup_station/network_setup.py:397
+#, python-brace-format
+msgid "Connecting to {ssid}..."
+msgstr "Verbinden met {ssid}..."
 
-#: setup_station/network_setup.py:338
-msgid "WiFi Network Authentication Required"
-msgstr ""
+#: setup_station/network_setup.py:429
+#, python-brace-format
+msgid "Connected to {ssid}, but it could not be saved"
+msgstr "Verbonden met {ssid}, maar het netwerk kon niet worden opgeslagen"
 
-#: setup_station/network_setup.py:350
-msgid "Wi-Fi Network Authentication failed"
-msgstr ""
+#: setup_station/network_setup.py:480 setup_station/network_setup.py:518
+#: setup_station/network_setup.py:689
+#, python-brace-format
+msgid "Could not connect to {ssid}"
+msgstr "Kan geen verbinding maken met {ssid}"
 
-#: setup_station/network_setup.py:352
-msgid "Authentication required by"
-msgstr ""
+#: setup_station/network_setup.py:505
+msgid "Wi-Fi Network Authentication Required"
+msgstr "Wifi-netwerkverificatie vereist"
 
-#: setup_station/network_setup.py:352
-msgid "Wi-Fi Network"
-msgstr ""
+#: setup_station/network_setup.py:520
+#, python-brace-format
+msgid "Authentication required by {ssid} Wi-Fi Network"
+msgstr "Het wifi-netwerk {ssid} vereist verificatie"
 
-#: setup_station/network_setup.py:355
+#: setup_station/network_setup.py:523 setup_station/network_setup.py:741
 msgid "Password:"
-msgstr ""
+msgstr "Wachtwoord:"
 
-#: setup_station/network_setup.py:358
+#: setup_station/network_setup.py:526
 msgid "Show password"
-msgstr ""
+msgstr "Wachtwoord tonen"
+
+#: setup_station/network_setup.py:681
+msgid "Enterprise Wi-Fi Authentication"
+msgstr "Zakelijke wifi-verificatie"
+
+#: setup_station/network_setup.py:691
+#, python-brace-format
+msgid "Enterprise Authentication for {ssid}"
+msgstr "Zakelijke verificatie voor {ssid}"
+
+#: setup_station/network_setup.py:697
+#, python-brace-format
+msgid "Security: {security}"
+msgstr "Beveiliging: {security}"
+
+#: setup_station/network_setup.py:711
+msgid "EAP Method:"
+msgstr "EAP-methode:"
+
+#: setup_station/network_setup.py:720
+msgid "Inner Auth:"
+msgstr "Interne verificatie:"
+
+#: setup_station/network_setup.py:725
+msgid "Username:"
+msgstr "Gebruikersnaam:"
+
+#: setup_station/network_setup.py:729
+msgid "Optional - for privacy"
+msgstr "Optioneel, voor privacy"
+
+#: setup_station/network_setup.py:730
+msgid "Anonymous ID:"
+msgstr "Anonieme ID:"
+
+#: setup_station/network_setup.py:738
+msgid "Show"
+msgstr "Tonen"
+
+#: setup_station/network_setup.py:745
+msgid "Certificates (*.pem, *.crt, *.cer)"
+msgstr "Certificaten (*.pem, *.crt, *.cer)"
+
+#: setup_station/network_setup.py:747
+msgid "Select CA Certificate"
+msgstr "CA-certificaat kiezen"
+
+#: setup_station/network_setup.py:752
+msgid "CA Certificate:"
+msgstr "CA-certificaat:"
+
+#: setup_station/network_setup.py:757
+msgid "Select Client Certificate"
+msgstr "Clientcertificaat kiezen"
+
+#: setup_station/network_setup.py:760
+msgid "Client Cert:"
+msgstr "Clientcert.:"
+
+#: setup_station/network_setup.py:765
+msgid "Select Private Key"
+msgstr "Privésleutel kiezen"
+
+#: setup_station/network_setup.py:766
+msgid "Key files (*.pem, *.key, *.p12)"
+msgstr "Sleutelbestanden (*.pem, *.key, *.p12)"
+
+#: setup_station/network_setup.py:770
+msgid "Private Key:"
+msgstr "Privésleutel:"
+
+#: setup_station/network_setup.py:777
+msgid "Key Password:"
+msgstr "Sleutelwachtwoord:"
 
 #: setup_station/setup_system.py:46
 msgid "Setting system language"
-msgstr ""
+msgstr "Systeemtaal instellen"
 
 #: setup_station/setup_system.py:51
 msgid "Setting keyboard layout"
-msgstr ""
+msgstr "Toetsenbordindeling instellen"
 
 #: setup_station/setup_system.py:56
 msgid "Setting timezone"
-msgstr ""
+msgstr "Tijdzone instellen"
 
 #: setup_station/setup_system.py:62
 msgid "Creating admin user"
-msgstr ""
+msgstr "Beheerder aanmaken"
 
 #: setup_station/setup_system.py:67
 msgid "Enabling display manager"
-msgstr ""
+msgstr "Displaymanager inschakelen"
 
 #: setup_station/setup_system.py:72
 msgid "Disabling first boot setup"
-msgstr ""
+msgstr "Eerste-opstartinstelling uitschakelen"
 
 #: setup_station/setup_system.py:77
 msgid "Setup complete!"
-msgstr ""
+msgstr "Instellen voltooid!"
 
 #: setup_station/setup_system.py:83
 msgid "Configuration complete."
-msgstr ""
+msgstr "Configuratie voltooid."
 
 #: setup_station/setup_system.py:85
 msgid "Starting the login screen..."
-msgstr ""
+msgstr "Aanmeldscherm wordt gestart..."
 
 #: setup_station/setup_system.py:101
 msgid "Getting everything ready"
-msgstr ""
+msgstr "Alles wordt klaargezet"
 
 #: setup_station/setup_system.py:113
 msgid "Setting up your system."
-msgstr ""
+msgstr "Uw systeem wordt ingesteld."
 
 #: setup_station/setup_system.py:115
 msgid "Please do not turn off your computer."
-msgstr ""
+msgstr "Zet uw computer niet uit."
 
 #: setup_station/timezone.py:58
 msgid "Continent"
-msgstr ""
+msgstr "Continent"
 
 #: setup_station/timezone.py:70
 msgid "City"
-msgstr ""
+msgstr "Stad"
 
 #: setup_station/timezone.py:187
 msgid "Hardware clock uses UTC (uncheck when dual-booting Windows)"
-msgstr ""
+msgstr "Hardwareklok gebruikt UTC (uitvinken bij dualboot met Windows)"
 
 #: setup_station/timezone.py:192
 msgid ""
 "Windows keeps the hardware clock on local time. Leave this checked on any "
 "other machine."
 msgstr ""
+"Windows zet de hardwareklok op lokale tijd. Laat dit aangevinkt op elke "
+"andere computer."

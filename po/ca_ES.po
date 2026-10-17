@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-30 09:15-0300\n"
+"POT-Creation-Date: 2026-10-16 18:51-0300\n"
 "PO-Revision-Date: 2025-11-25 08:34-0400\n"
 "Last-Translator: Eric Turgeon <EMAIL@ADDRESS>\n"
 "Language-Team: Catalan <ca@dodds.net>\n"
@@ -20,259 +20,343 @@ msgstr ""
 #: setup_station/add_admin.py:132
 msgid "The initial root password will be set to the admin user password."
 msgstr ""
+"La contrasenya inicial de root serà la contrasenya de l'usuari administrador."
 
 #: setup_station/add_admin.py:214 setup_station/common.py:119
 msgid "Password not allowed"
-msgstr ""
+msgstr "Contrasenya no permesa"
 
 #: setup_station/add_admin.py:214 setup_station/common.py:121
 msgid "Space not allowed"
-msgstr ""
+msgstr "No es permeten espais"
 
 #: setup_station/add_users.py:57
 msgid "User Setup"
-msgstr ""
+msgstr "Configuració de l'usuari"
 
 #: setup_station/add_users.py:68
 msgid "User Account"
-msgstr ""
+msgstr "Compte d'usuari"
 
 #: setup_station/add_users.py:71
 msgid "User name"
-msgstr ""
+msgstr "Nom d'usuari"
 
 #: setup_station/add_users.py:73
 msgid "Real name"
-msgstr ""
+msgstr "Nom real"
 
 #: setup_station/add_users.py:76
 msgid "Password"
-msgstr ""
+msgstr "Contrasenya"
 
 #: setup_station/add_users.py:80
 msgid "Verify Password"
-msgstr ""
+msgstr "Verifiqueu la contrasenya"
 
 #: setup_station/add_users.py:84
 msgid "Shell"
-msgstr ""
+msgstr "Intèrpret d'ordres"
 
 #: setup_station/add_users.py:97
 msgid "Set Hostname"
-msgstr ""
+msgstr "Estableix el nom de l'amfitrió"
 
 #: setup_station/add_users.py:102
 msgid "Hostname"
-msgstr ""
+msgstr "Nom de l'amfitrió"
 
 #: setup_station/common.py:138
 msgid "Very Weak"
-msgstr ""
+msgstr "Molt feble"
 
 #: setup_station/common.py:139 setup_station/common.py:142
 msgid "Fairly Weak"
-msgstr ""
+msgstr "Força feble"
 
 #: setup_station/common.py:140 setup_station/common.py:143
 #: setup_station/common.py:146
 msgid "Weak"
-msgstr ""
+msgstr "Feble"
 
 #: setup_station/common.py:141 setup_station/common.py:144
 #: setup_station/common.py:147 setup_station/common.py:150
 msgid "Strong"
-msgstr ""
+msgstr "Forta"
 
 #: setup_station/common.py:145 setup_station/common.py:148
 #: setup_station/common.py:151
 msgid "Fairly Strong"
-msgstr ""
+msgstr "Força forta"
 
 #: setup_station/common.py:149 setup_station/common.py:152
 msgid "Very Strong"
-msgstr ""
+msgstr "Molt forta"
 
 #: setup_station/interface_controller.py:22
 #: setup_station/interface_controller.py:31
 msgid "Back"
-msgstr ""
+msgstr "Enrere"
 
 #: setup_station/interface_controller.py:24
 #: setup_station/interface_controller.py:32
 msgid "Next"
-msgstr ""
+msgstr "Següent"
 
 #: setup_station/interface_controller.py:118 setup_station/language.py:104
 msgid "GhostBSD Initial Setup"
-msgstr ""
+msgstr "Configuració inicial de GhostBSD"
 
 #: setup_station/interface_controller.py:119 setup_station/language.py:102
 #: setup_station/language.py:119
 msgid "Language"
-msgstr ""
+msgstr "Llengua"
 
 #: setup_station/interface_controller.py:131
 msgid "Button"
-msgstr ""
+msgstr "Botó"
 
 #: setup_station/interface_controller.py:155
 msgid "Keyboard"
-msgstr ""
+msgstr "Teclat"
 
 #: setup_station/interface_controller.py:168
 msgid "Time Zone"
-msgstr ""
+msgstr "Zona horària"
 
 #: setup_station/interface_controller.py:180
 msgid "Network"
-msgstr ""
+msgstr "Xarxa"
 
 #: setup_station/interface_controller.py:192
 msgid "Admin User"
-msgstr ""
+msgstr "Usuari administrador"
 
 #: setup_station/interface_controller.py:204
 msgid "Setup GhostBSD"
-msgstr ""
+msgstr "Configura GhostBSD"
 
 #: setup_station/interface_controller.py:213
 msgid "Progress Bar"
-msgstr ""
+msgstr "Barra de progrés"
 
 #: setup_station/keyboard.py:41
 msgid "Type here to test your keyboard"
-msgstr ""
+msgstr "Escriviu aquí per provar el teclat"
 
 #: setup_station/keyboard.py:96
 msgid "Keyboard Layout"
-msgstr ""
+msgstr "Disposició del teclat"
 
 #: setup_station/keyboard.py:108
 msgid "Keyboard Models"
-msgstr ""
+msgstr "Models de teclat"
 
 #: setup_station/language.py:96 setup_station/language.py:162
 msgid "Please select your language:"
-msgstr ""
+msgstr "Seleccioneu la vostra llengua:"
 
-#: setup_station/network_setup.py:100 setup_station/network_setup.py:155
+#: setup_station/network_setup.py:154
 msgid "Network card connected to the internet"
-msgstr ""
+msgstr "Targeta de xarxa connectada a Internet"
 
-#: setup_station/network_setup.py:105 setup_station/network_setup.py:160
+#: setup_station/network_setup.py:160
 msgid "Network card not connected to the internet"
-msgstr ""
+msgstr "Targeta de xarxa no connectada a Internet"
 
-#: setup_station/network_setup.py:108 setup_station/network_setup.py:163
+#: setup_station/network_setup.py:163
 msgid "No network card detected"
-msgstr ""
+msgstr "No s'ha detectat cap targeta de xarxa"
 
-#: setup_station/network_setup.py:116 setup_station/network_setup.py:171
+#: setup_station/network_setup.py:172
 msgid "WiFi card detected and connected to an access point"
-msgstr ""
+msgstr "Targeta Wi-Fi detectada i connectada a un punt d'accés"
 
-#: setup_station/network_setup.py:120 setup_station/network_setup.py:175
+#: setup_station/network_setup.py:176
 msgid "WiFi card detected but not connected to an access point"
-msgstr ""
+msgstr "Targeta Wi-Fi detectada però no connectada a cap punt d'accés"
 
-#: setup_station/network_setup.py:123 setup_station/network_setup.py:178
+#: setup_station/network_setup.py:179
 msgid "WiFi card not detected or not supported"
-msgstr ""
+msgstr "Targeta Wi-Fi no detectada o no compatible"
 
-#: setup_station/network_setup.py:200
-msgid "Stat"
-msgstr ""
+#: setup_station/network_setup.py:201 setup_station/network_setup.py:270
+msgid "Rescan"
+msgstr "Torna a cercar"
 
-#: setup_station/network_setup.py:205
-msgid "SSID"
-msgstr ""
+#: setup_station/network_setup.py:397
+#, python-brace-format
+msgid "Connecting to {ssid}..."
+msgstr "S'està connectant a {ssid}..."
 
-#: setup_station/network_setup.py:338
-msgid "WiFi Network Authentication Required"
-msgstr ""
+#: setup_station/network_setup.py:429
+#, python-brace-format
+msgid "Connected to {ssid}, but it could not be saved"
+msgstr "Connectat a {ssid}, però no s'ha pogut desar la xarxa"
 
-#: setup_station/network_setup.py:350
-msgid "Wi-Fi Network Authentication failed"
-msgstr ""
+#: setup_station/network_setup.py:480 setup_station/network_setup.py:518
+#: setup_station/network_setup.py:689
+#, python-brace-format
+msgid "Could not connect to {ssid}"
+msgstr "No s'ha pogut connectar a {ssid}"
 
-#: setup_station/network_setup.py:352
-msgid "Authentication required by"
-msgstr ""
+#: setup_station/network_setup.py:505
+msgid "Wi-Fi Network Authentication Required"
+msgstr "Cal autenticació a la xarxa Wi-Fi"
 
-#: setup_station/network_setup.py:352
-msgid "Wi-Fi Network"
-msgstr ""
+#: setup_station/network_setup.py:520
+#, python-brace-format
+msgid "Authentication required by {ssid} Wi-Fi Network"
+msgstr "La xarxa Wi-Fi {ssid} requereix autenticació"
 
-#: setup_station/network_setup.py:355
+#: setup_station/network_setup.py:523 setup_station/network_setup.py:741
 msgid "Password:"
-msgstr ""
+msgstr "Contrasenya:"
 
-#: setup_station/network_setup.py:358
+#: setup_station/network_setup.py:526
 msgid "Show password"
-msgstr ""
+msgstr "Mostra la contrasenya"
+
+#: setup_station/network_setup.py:681
+msgid "Enterprise Wi-Fi Authentication"
+msgstr "Autenticació Wi-Fi empresarial"
+
+#: setup_station/network_setup.py:691
+#, python-brace-format
+msgid "Enterprise Authentication for {ssid}"
+msgstr "Autenticació empresarial per a {ssid}"
+
+#: setup_station/network_setup.py:697
+#, python-brace-format
+msgid "Security: {security}"
+msgstr "Seguretat: {security}"
+
+#: setup_station/network_setup.py:711
+msgid "EAP Method:"
+msgstr "Mètode EAP:"
+
+#: setup_station/network_setup.py:720
+msgid "Inner Auth:"
+msgstr "Autent. interna:"
+
+#: setup_station/network_setup.py:725
+msgid "Username:"
+msgstr "Nom d'usuari:"
+
+#: setup_station/network_setup.py:729
+msgid "Optional - for privacy"
+msgstr "Opcional, per a més privadesa"
+
+#: setup_station/network_setup.py:730
+msgid "Anonymous ID:"
+msgstr "ID anònim:"
+
+#: setup_station/network_setup.py:738
+msgid "Show"
+msgstr "Mostra"
+
+#: setup_station/network_setup.py:745
+msgid "Certificates (*.pem, *.crt, *.cer)"
+msgstr "Certificats (*.pem, *.crt, *.cer)"
+
+#: setup_station/network_setup.py:747
+msgid "Select CA Certificate"
+msgstr "Seleccioneu el certificat de CA"
+
+#: setup_station/network_setup.py:752
+msgid "CA Certificate:"
+msgstr "Certificat de CA:"
+
+#: setup_station/network_setup.py:757
+msgid "Select Client Certificate"
+msgstr "Seleccioneu el certificat de client"
+
+#: setup_station/network_setup.py:760
+msgid "Client Cert:"
+msgstr "Cert. de client:"
+
+#: setup_station/network_setup.py:765
+msgid "Select Private Key"
+msgstr "Seleccioneu la clau privada"
+
+#: setup_station/network_setup.py:766
+msgid "Key files (*.pem, *.key, *.p12)"
+msgstr "Fitxers de clau (*.pem, *.key, *.p12)"
+
+#: setup_station/network_setup.py:770
+msgid "Private Key:"
+msgstr "Clau privada:"
+
+#: setup_station/network_setup.py:777
+msgid "Key Password:"
+msgstr "Contrasenya de la clau:"
 
 #: setup_station/setup_system.py:46
 msgid "Setting system language"
-msgstr ""
+msgstr "S'està establint la llengua del sistema"
 
 #: setup_station/setup_system.py:51
 msgid "Setting keyboard layout"
-msgstr ""
+msgstr "S'està establint la disposició del teclat"
 
 #: setup_station/setup_system.py:56
 msgid "Setting timezone"
-msgstr ""
+msgstr "S'està establint la zona horària"
 
 #: setup_station/setup_system.py:62
 msgid "Creating admin user"
-msgstr ""
+msgstr "S'està creant l'usuari administrador"
 
 #: setup_station/setup_system.py:67
 msgid "Enabling display manager"
-msgstr ""
+msgstr "S'està activant el gestor de pantalla"
 
 #: setup_station/setup_system.py:72
 msgid "Disabling first boot setup"
-msgstr ""
+msgstr "S'està desactivant la configuració de la primera arrencada"
 
 #: setup_station/setup_system.py:77
 msgid "Setup complete!"
-msgstr ""
+msgstr "Configuració completada!"
 
 #: setup_station/setup_system.py:83
 msgid "Configuration complete."
-msgstr ""
+msgstr "Configuració finalitzada."
 
 #: setup_station/setup_system.py:85
 msgid "Starting the login screen..."
-msgstr ""
+msgstr "S'està iniciant la pantalla d'inici de sessió..."
 
 #: setup_station/setup_system.py:101
 msgid "Getting everything ready"
-msgstr ""
+msgstr "S'està preparant tot"
 
 #: setup_station/setup_system.py:113
 msgid "Setting up your system."
-msgstr ""
+msgstr "S'està configurant el sistema."
 
 #: setup_station/setup_system.py:115
 msgid "Please do not turn off your computer."
-msgstr ""
+msgstr "No apagueu l'ordinador."
 
 #: setup_station/timezone.py:58
 msgid "Continent"
-msgstr ""
+msgstr "Continent"
 
 #: setup_station/timezone.py:70
 msgid "City"
-msgstr ""
+msgstr "Ciutat"
 
 #: setup_station/timezone.py:187
 msgid "Hardware clock uses UTC (uncheck when dual-booting Windows)"
 msgstr ""
+"El rellotge del maquinari fa servir UTC (desmarqueu-ho en arrencada dual amb "
+"Windows)"
 
 #: setup_station/timezone.py:192
 msgid ""
 "Windows keeps the hardware clock on local time. Leave this checked on any "
 "other machine."
 msgstr ""
+"Windows manté el rellotge del maquinari en hora local. Deixeu-ho marcat en "
+"qualsevol altre ordinador."
