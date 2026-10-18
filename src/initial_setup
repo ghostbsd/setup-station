@@ -14,15 +14,9 @@ stop_cmd=":"
 
 initial_setup_start()
 {
-    HOME=/root dbus-run-session -- \
-        gsettings set org.mate.session required-components-list "['windowmanager']"
-    HOME=/root dbus-run-session -- \
-        gsettings set org.mate.background show-desktop-icons false
-
-    mkdir -p /root/.setup-station-autostart
-
     cat > /root/.xinitrc <<'EOF'
-ck-launch-session mate-session --autostart=/root/.setup-station-autostart &
+/usr/local/libexec/mate-settings-daemon &
+marco &
 exec setup-station-init
 EOF
     chmod 755 /root/.xinitrc
@@ -31,12 +25,6 @@ EOF
     su -l root -c "startx -- :0 vt09"
 
     rm -f /root/.xinitrc
-    rmdir /root/.setup-station-autostart
-
-    HOME=/root dbus-run-session -- \
-        gsettings reset org.mate.session required-components-list
-    HOME=/root dbus-run-session -- \
-        gsettings reset org.mate.background show-desktop-icons
 }
 
 load_rc_config $name
