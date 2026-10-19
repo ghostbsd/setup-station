@@ -462,7 +462,7 @@ def set_admin_user(username: str, name: str, password: str, shell: str, homedir:
             '-s', shell,
             '-m',
             '-d', homedir,
-            '-G', 'wheel,operator'
+            '-G', 'wheel,operator,video'
         ],
         input=password,
         text=True,
