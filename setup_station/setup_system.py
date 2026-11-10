@@ -39,41 +39,65 @@ def setup_system(progress_bar: Gtk.ProgressBar) -> None:
     from setup_station.add_admin import AddAdminUser
     from setup_station.system_calls import (
         enable_lightdm,
+        enable_fusefs,
+        filesystem_packages,
+        install_package,
         disable_initial_setup
     )
 
-    # Step 0/6: Setting system language
-    GLib.idle_add(update_progress, progress_bar, 0/6, get_text("Setting system language"))
+    # Step 0/8: Setting system language
+    GLib.idle_add(update_progress, progress_bar, 0/8, get_text("Setting system language"))
     Language.save_language()
     sleep(1)
 
-    # Step 1/6: Setting keyboard layout
-    GLib.idle_add(update_progress, progress_bar, 1/6, get_text("Setting keyboard layout"))
+    # Step 1/8: Setting keyboard layout
+    GLib.idle_add(update_progress, progress_bar, 1/8, get_text("Setting keyboard layout"))
     Keyboard.save_keyboard()
     sleep(1)
 
-    # Step 2/6: Setting timezone
-    GLib.idle_add(update_progress, progress_bar, 2/6, get_text("Setting timezone"))
+    # Step 2/8: Setting timezone
+    GLib.idle_add(update_progress, progress_bar, 2/8, get_text("Setting timezone"))
     TimeZone.apply_timezone()
     TimeZone.apply_utc_clock()
     sleep(1)
 
-    # Step 3/6: Creating admin user
-    GLib.idle_add(update_progress, progress_bar, 3/6, get_text("Creating admin user"))
+    # Step 3/8: Creating admin user
+    GLib.idle_add(update_progress, progress_bar, 3/8, get_text("Creating admin user"))
     AddAdminUser.save_admin_user()
     sleep(1)
 
-    # Step 4/6: Enabling display manager
-    GLib.idle_add(update_progress, progress_bar, 4/6, get_text("Enabling display manager"))
+    # Step 4/8: Enabling display manager
+    GLib.idle_add(update_progress, progress_bar, 4/8, get_text("Enabling display manager"))
     enable_lightdm()
     sleep(1)
 
-    # Step 5/6: Disabling first boot setup
-    GLib.idle_add(update_progress, progress_bar, 5/6, get_text("Disabling first boot setup"))
+    # Step 5/8: Enabling FUSE file systems
+    GLib.idle_add(update_progress, progress_bar, 5/8, get_text("Enabling FUSE file systems"))
+    try:
+        enable_fusefs()
+    except RuntimeError as e:
+        print(e)
+    sleep(1)
+
+    # Step 6/8: Installing file system tools, a failure must not stop the setup
+    fraction = 6/8
+    increment = (1/8) / len(filesystem_packages)
+    for package in filesystem_packages:
+        msg = f"{get_text('Installing')} {package}"
+        GLib.idle_add(update_progress, progress_bar, fraction, msg)
+        pkg = install_package(package)
+        for line in pkg.stdout:
+            GLib.idle_add(update_progress, progress_bar, fraction, line.rstrip())
+        if pkg.wait() != 0:
+            print(f"Failed to install {package}")
+        fraction += increment
+
+    # Step 7/8: Disabling first boot setup
+    GLib.idle_add(update_progress, progress_bar, 7/8, get_text("Disabling first boot setup"))
     disable_initial_setup()
     sleep(1)
 
-    # Step 6/6: Setup complete
+    # Step 8/8: Setup complete
     GLib.idle_add(update_progress, progress_bar, 1, get_text("Setup complete!"))
     sleep(1)
 

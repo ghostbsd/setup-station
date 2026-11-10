@@ -1,8 +1,18 @@
 import re
 import os
-from subprocess import run, Popen
+from subprocess import run, Popen, PIPE, STDOUT
 
 from setup_station.data import pc_sysinstall
+
+# Installed at first boot instead of shipping on the ISO.
+filesystem_packages = [
+    'exfat-utils',
+    'fusefs-exfat',
+    'fusefs-ext2',
+    'fusefs-hfsfuse',
+    'fusefs-lkl',
+    'fusefs-ntfs',
+]
 
 
 def replace_pattern(current: str, new: str, file: str) -> None:
@@ -488,6 +498,40 @@ def enable_lightdm() -> None:
         run(['sysrc', 'lightdm_enable=YES'], check=True)
     except Exception as e:
         raise RuntimeError(f"Failed to enable lightdm: {e}") from e
+
+
+def enable_fusefs() -> None:
+    """
+    Load the fusefs kernel module now and at every boot.
+
+    Raises:
+        RuntimeError: If the module cannot be enabled
+    """
+    try:
+        run(['sysrc', 'kld_list+=fusefs'], check=True)
+        run(['kldload', '-n', 'fusefs'], check=True)
+    except Exception as e:
+        raise RuntimeError(f"Failed to enable fusefs: {e}") from e
+
+
+def install_package(package: str) -> Popen:
+    """
+    Start installing a package with pkg.
+
+    Args:
+        package: Name of the package to install
+
+    Returns:
+        Popen: The running pkg process, read its stdout for progress
+    """
+    return Popen(
+        ['pkg', 'install', '-y', package],
+        stdout=PIPE,
+        stderr=STDOUT,
+        close_fds=True,
+        universal_newlines=True,
+        encoding='utf-8'
+    )
 
 
 def start_lightdm() -> None:

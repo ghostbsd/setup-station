@@ -5,6 +5,7 @@ import re
 import _thread
 from time import sleep
 from NetworkMgr.net_api import (
+    default_card,
     network_dictionary,
     scan_networks,
     request_scan,
@@ -180,6 +181,11 @@ class NetworkSetup:
             cls.wifi_connection_image.set_from_stock(Gtk.STOCK_NO, 5)
 
         cls.wifi_connection_label.set_label(wifi_text)
+
+    @staticmethod
+    def is_connected() -> bool:
+        """Return True when the system has a default route."""
+        return default_card() is not None
 
     @classmethod
     def populate_ssid_list(cls) -> None:

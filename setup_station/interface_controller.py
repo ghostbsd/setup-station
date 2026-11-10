@@ -142,6 +142,26 @@ class Interface:
         Gtk.main_quit()
 
     @classmethod
+    def continue_offline(cls) -> bool:
+        """Warn that packages need the network, return True to continue anyway."""
+        dialog = Gtk.MessageDialog(
+            transient_for=Window.get_window(),
+            modal=True,
+            message_type=Gtk.MessageType.WARNING,
+            buttons=Gtk.ButtonsType.NONE,
+            text=get_text("No network connection")
+        )
+        dialog.format_secondary_text(
+            get_text("Without a network connection, the file system tools "
+                     "for exFAT, NTFS, ext2/3/4 and HFS+ will not be installed.")
+        )
+        dialog.add_button(get_text('Back'), Gtk.ResponseType.CANCEL)
+        dialog.add_button(get_text('Continue'), Gtk.ResponseType.OK)
+        response = dialog.run()
+        dialog.destroy()
+        return response == Gtk.ResponseType.OK
+
+    @classmethod
     def next_page(cls, _widget: Gtk.Button) -> None:
         """Go to the next window."""
         page = cls.page.get_current_page()
@@ -183,6 +203,8 @@ class Interface:
             Window.show_all()
             Button.next_button.set_sensitive(True)
         elif page == 3:
+            if not cls.network_setup.is_connected() and not cls.continue_offline():
+                return
             # Check if the admin user page already exists
             if cls.page.get_n_pages() <= 4:
                 admin_box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, homogeneous=False, spacing=0)
