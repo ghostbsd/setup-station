@@ -5,6 +5,7 @@ import re
 import _thread
 from time import sleep
 from NetworkMgr.net_api import (
+    default_card,
     network_dictionary,
     scan_networks,
     request_scan,
@@ -181,11 +182,10 @@ class NetworkSetup:
 
         cls.wifi_connection_label.set_label(wifi_text)
 
-    @classmethod
-    def is_connected(cls) -> bool:
-        """Return True when a wired or WiFi card is connected."""
-        cards = network_dictionary()['cards']
-        return any(card['state']['connection'] == 'Connected' for card in cards.values())
+    @staticmethod
+    def is_connected() -> bool:
+        """Return True when the system has a default route."""
+        return default_card() is not None
 
     @classmethod
     def populate_ssid_list(cls) -> None:
