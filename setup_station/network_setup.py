@@ -182,6 +182,12 @@ class NetworkSetup:
         cls.wifi_connection_label.set_label(wifi_text)
 
     @classmethod
+    def is_connected(cls) -> bool:
+        """Return True when a wired or WiFi card is connected."""
+        cards = network_dictionary()['cards']
+        return any(card['state']['connection'] == 'Connected' for card in cards.values())
+
+    @classmethod
     def populate_ssid_list(cls) -> None:
         """Fill the access point list from the latest scan of the WiFi card."""
         cls.store.clear()
